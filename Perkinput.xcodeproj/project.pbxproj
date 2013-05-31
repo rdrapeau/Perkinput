@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D00395317168E76005BA56B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D00395217168E76005BA56B /* AVFoundation.framework */; };
+		6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1F1F55172E36C400EEE86C /* InputViewController.m */; };
+		6D2EF7931757FB7300BE4C54 /* DefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2EF7921757FB7300BE4C54 /* DefaultView.m */; };
+		6D3CBB9A173B2CC50036D84B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB93173B2CC50036D84B /* Icon-72.png */; };
+		6D3CBB9B173B2CC50036D84B /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB94173B2CC50036D84B /* Icon-72@2x.png */; };
+		6D3CBB9C173B2CC50036D84B /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB95173B2CC50036D84B /* Icon-Small-50.png */; };
+		6D3CBB9D173B2CC50036D84B /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB96173B2CC50036D84B /* Icon-Small.png */; };
+		6D3CBB9E173B2CC50036D84B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB97173B2CC50036D84B /* Icon-Small@2x.png */; };
+		6D3CBB9F173B2CC50036D84B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB98173B2CC50036D84B /* Icon.png */; };
+		6D3CBBA0173B2CC50036D84B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB99173B2CC50036D84B /* Icon@2x.png */; };
+		6D68630E174C071F00A4F8A0 /* TabBarMailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D68630C174C071F00A4F8A0 /* TabBarMailIcon.png */; };
+		6D68630F174C071F00A4F8A0 /* TabBarMailIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D68630D174C071F00A4F8A0 /* TabBarMailIcon@2x.png */; };
+		6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */; };
+		6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */; };
+		6D91D3CA171542CE0087EA8B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3C9171542CE0087EA8B /* MessageUI.framework */; };
+		6D91D3CC171548340087EA8B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3CB171548340087EA8B /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		6D91E7051755D03000BCB44B /* TouchPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D91E7041755D03000BCB44B /* TouchPoint.m */; };
 		6D99787117153D3500633AC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787017153D3500633AC9 /* UIKit.framework */; };
 		6D99787317153D3500633AC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787217153D3500633AC9 /* Foundation.framework */; };
 		6D99787517153D3500633AC9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787417153D3500633AC9 /* CoreGraphics.framework */; };
@@ -18,9 +35,30 @@
 		6D99788717153D3600633AC9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D99788617153D3600633AC9 /* Default-568h@2x.png */; };
 		6D99788A17153D3600633AC9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D99788817153D3600633AC9 /* MainStoryboard.storyboard */; };
 		6D99788D17153D3600633AC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D99788C17153D3600633AC9 /* ViewController.m */; };
+		6DDACCD1175469A400CE6442 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDACCD0175469A400CE6442 /* InputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D00395217168E76005BA56B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6D1F1F54172E36C400EEE86C /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		6D1F1F55172E36C400EEE86C /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		6D2EF7911757FB7300BE4C54 /* DefaultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultView.h; sourceTree = "<group>"; };
+		6D2EF7921757FB7300BE4C54 /* DefaultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultView.m; sourceTree = "<group>"; };
+		6D3CBB93173B2CC50036D84B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		6D3CBB94173B2CC50036D84B /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		6D3CBB95173B2CC50036D84B /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		6D3CBB96173B2CC50036D84B /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		6D3CBB97173B2CC50036D84B /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		6D3CBB98173B2CC50036D84B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		6D3CBB99173B2CC50036D84B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		6D68630C174C071F00A4F8A0 /* TabBarMailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarMailIcon.png; sourceTree = "<group>"; };
+		6D68630D174C071F00A4F8A0 /* TabBarMailIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarMailIcon@2x.png"; sourceTree = "<group>"; };
+		6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarBrailleIcon.png; sourceTree = "<group>"; };
+		6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBrailleIcon@2x.png"; sourceTree = "<group>"; };
+		6D91D3C9171542CE0087EA8B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6D91D3CB171548340087EA8B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6D91E7031755D03000BCB44B /* TouchPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPoint.h; sourceTree = "<group>"; };
+		6D91E7041755D03000BCB44B /* TouchPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchPoint.m; sourceTree = "<group>"; };
 		6D99786D17153D3500633AC9 /* Perkinput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perkinput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D99787017153D3500633AC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6D99787217153D3500633AC9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,6 +75,8 @@
 		6D99788917153D3600633AC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6D99788B17153D3600633AC9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D99788C17153D3600633AC9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6DDACCCF175469A400CE6442 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		6DDACCD0175469A400CE6442 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D00395317168E76005BA56B /* AVFoundation.framework in Frameworks */,
+				6D91D3CC171548340087EA8B /* AudioToolbox.framework in Frameworks */,
+				6D91D3CA171542CE0087EA8B /* MessageUI.framework in Frameworks */,
 				6D99787117153D3500633AC9 /* UIKit.framework in Frameworks */,
 				6D99787317153D3500633AC9 /* Foundation.framework in Frameworks */,
 				6D99787517153D3500633AC9 /* CoreGraphics.framework in Frameworks */,
@@ -53,6 +96,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D3CBB92173B2CC50036D84B /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				6D3CBB93173B2CC50036D84B /* Icon-72.png */,
+				6D3CBB94173B2CC50036D84B /* Icon-72@2x.png */,
+				6D3CBB95173B2CC50036D84B /* Icon-Small-50.png */,
+				6D3CBB96173B2CC50036D84B /* Icon-Small.png */,
+				6D3CBB97173B2CC50036D84B /* Icon-Small@2x.png */,
+				6D3CBB98173B2CC50036D84B /* Icon.png */,
+				6D3CBB99173B2CC50036D84B /* Icon@2x.png */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
 		6D99786417153D3500633AC9 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +130,9 @@
 		6D99786F17153D3500633AC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D00395217168E76005BA56B /* AVFoundation.framework */,
+				6D91D3CB171548340087EA8B /* AudioToolbox.framework */,
+				6D91D3C9171542CE0087EA8B /* MessageUI.framework */,
 				6D99787017153D3500633AC9 /* UIKit.framework */,
 				6D99787217153D3500633AC9 /* Foundation.framework */,
 				6D99787417153D3500633AC9 /* CoreGraphics.framework */,
@@ -83,11 +143,17 @@
 		6D99787617153D3500633AC9 /* Perkinput */ = {
 			isa = PBXGroup;
 			children = (
-				6D99787F17153D3500633AC9 /* AppDelegate.h */,
-				6D99788017153D3500633AC9 /* AppDelegate.m */,
 				6D99788817153D3600633AC9 /* MainStoryboard.storyboard */,
 				6D99788B17153D3600633AC9 /* ViewController.h */,
 				6D99788C17153D3600633AC9 /* ViewController.m */,
+				6D2EF7911757FB7300BE4C54 /* DefaultView.h */,
+				6D2EF7921757FB7300BE4C54 /* DefaultView.m */,
+				6D1F1F54172E36C400EEE86C /* InputViewController.h */,
+				6D1F1F55172E36C400EEE86C /* InputViewController.m */,
+				6DDACCCF175469A400CE6442 /* InputView.h */,
+				6DDACCD0175469A400CE6442 /* InputView.m */,
+				6D91E7031755D03000BCB44B /* TouchPoint.h */,
+				6D91E7041755D03000BCB44B /* TouchPoint.m */,
 				6D99787717153D3500633AC9 /* Supporting Files */,
 			);
 			path = Perkinput;
@@ -96,6 +162,13 @@
 		6D99787717153D3500633AC9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6D68630C174C071F00A4F8A0 /* TabBarMailIcon.png */,
+				6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */,
+				6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */,
+				6D68630D174C071F00A4F8A0 /* TabBarMailIcon@2x.png */,
+				6D3CBB92173B2CC50036D84B /* Icon */,
+				6D99787F17153D3500633AC9 /* AppDelegate.h */,
+				6D99788017153D3500633AC9 /* AppDelegate.m */,
 				6D99787817153D3500633AC9 /* Perkinput-Info.plist */,
 				6D99787917153D3500633AC9 /* InfoPlist.strings */,
 				6D99787C17153D3500633AC9 /* main.m */,
@@ -163,6 +236,17 @@
 				6D99788517153D3600633AC9 /* Default@2x.png in Resources */,
 				6D99788717153D3600633AC9 /* Default-568h@2x.png in Resources */,
 				6D99788A17153D3600633AC9 /* MainStoryboard.storyboard in Resources */,
+				6D3CBB9A173B2CC50036D84B /* Icon-72.png in Resources */,
+				6D3CBB9B173B2CC50036D84B /* Icon-72@2x.png in Resources */,
+				6D3CBB9C173B2CC50036D84B /* Icon-Small-50.png in Resources */,
+				6D3CBB9D173B2CC50036D84B /* Icon-Small.png in Resources */,
+				6D3CBB9E173B2CC50036D84B /* Icon-Small@2x.png in Resources */,
+				6D3CBB9F173B2CC50036D84B /* Icon.png in Resources */,
+				6D3CBBA0173B2CC50036D84B /* Icon@2x.png in Resources */,
+				6D68630E174C071F00A4F8A0 /* TabBarMailIcon.png in Resources */,
+				6D68630F174C071F00A4F8A0 /* TabBarMailIcon@2x.png in Resources */,
+				6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */,
+				6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +260,10 @@
 				6D99787D17153D3500633AC9 /* main.m in Sources */,
 				6D99788117153D3500633AC9 /* AppDelegate.m in Sources */,
 				6D99788D17153D3600633AC9 /* ViewController.m in Sources */,
+				6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */,
+				6DDACCD1175469A400CE6442 /* InputView.m in Sources */,
+				6D91E7051755D03000BCB44B /* TouchPoint.m in Sources */,
+				6D2EF7931757FB7300BE4C54 /* DefaultView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +301,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Drapeau (Y2M79ZWA82)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryan Drapeau (Y2M79ZWA82)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -228,6 +317,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "B360B044-43DC-4D54-872D-725901A15380";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B360B044-43DC-4D54-872D-725901A15380";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -244,7 +335,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Drapeau";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryan Drapeau";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -252,6 +344,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "250572E1-46F3-4DD4-B9A7-70A9A9DD83FF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "250572E1-46F3-4DD4-B9A7-70A9A9DD83FF";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -263,7 +357,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Perkinput/Perkinput-Prefix.pch";
 				INFOPLIST_FILE = "Perkinput/Perkinput-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -274,7 +370,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Perkinput/Perkinput-Prefix.pch";
 				INFOPLIST_FILE = "Perkinput/Perkinput-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -298,6 +396,7 @@
 				6D99789217153D3600633AC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
