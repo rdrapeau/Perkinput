@@ -43,6 +43,7 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if(!_touchHandled && [touches count] >= [_curTouches count]) {
         NSLog(@"Touches Updated: %d touches", [touches count]);
+        [self.inputView setPoints:touches];
         _curTouches = touches;
     }
 }
