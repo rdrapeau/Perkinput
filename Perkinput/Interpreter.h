@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Input.h"
 
-@interface Interpreter : NSObject
+// Number of points needed to calibrate
+#define TOTAL_FINGERS 4
+
+@class Input;
+
+@interface Interpreter : NSObject {
+    BOOL _inLandscape;
+    NSMutableDictionary* _layouts;
+}
+
+- (Input *)interpretLongPress:(NSSet *)touches;
+- (Input *)interpretShortPress:(NSSet *)touches;
+- (void) calibrateWithPoints:(NSSet *)touches;
 
 @end

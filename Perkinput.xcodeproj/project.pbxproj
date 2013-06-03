@@ -23,7 +23,6 @@
 		6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */; };
 		6D91D3CA171542CE0087EA8B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3C9171542CE0087EA8B /* MessageUI.framework */; };
 		6D91D3CC171548340087EA8B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3CB171548340087EA8B /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		6D91E7051755D03000BCB44B /* TouchPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D91E7041755D03000BCB44B /* TouchPoint.m */; };
 		6D99787117153D3500633AC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787017153D3500633AC9 /* UIKit.framework */; };
 		6D99787317153D3500633AC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787217153D3500633AC9 /* Foundation.framework */; };
 		6D99787517153D3500633AC9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787417153D3500633AC9 /* CoreGraphics.framework */; };
@@ -36,6 +35,9 @@
 		6D99788A17153D3600633AC9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D99788817153D3600633AC9 /* MainStoryboard.storyboard */; };
 		6D99788D17153D3600633AC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D99788C17153D3600633AC9 /* ViewController.m */; };
 		6DDACCD1175469A400CE6442 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDACCD0175469A400CE6442 /* InputView.m */; };
+		6DF32E68175C1F9000560E58 /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E67175C1F9000560E58 /* Interpreter.m */; };
+		6DF32E6B175C26A600560E58 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6A175C26A600560E58 /* Input.m */; };
+		6DF32E6E175C288500560E58 /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6D175C288500560E58 /* Layout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +59,6 @@
 		6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBrailleIcon@2x.png"; sourceTree = "<group>"; };
 		6D91D3C9171542CE0087EA8B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6D91D3CB171548340087EA8B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		6D91E7031755D03000BCB44B /* TouchPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPoint.h; sourceTree = "<group>"; };
-		6D91E7041755D03000BCB44B /* TouchPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchPoint.m; sourceTree = "<group>"; };
 		6D99786D17153D3500633AC9 /* Perkinput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perkinput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D99787017153D3500633AC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6D99787217153D3500633AC9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -77,6 +77,12 @@
 		6D99788C17153D3600633AC9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6DDACCCF175469A400CE6442 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
 		6DDACCD0175469A400CE6442 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
+		6DF32E66175C1F9000560E58 /* Interpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpreter.h; sourceTree = "<group>"; };
+		6DF32E67175C1F9000560E58 /* Interpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interpreter.m; sourceTree = "<group>"; };
+		6DF32E69175C26A600560E58 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
+		6DF32E6A175C26A600560E58 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
+		6DF32E6C175C288500560E58 /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
+		6DF32E6D175C288500560E58 /* Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,8 +158,12 @@
 				6D1F1F55172E36C400EEE86C /* InputViewController.m */,
 				6DDACCCF175469A400CE6442 /* InputView.h */,
 				6DDACCD0175469A400CE6442 /* InputView.m */,
-				6D91E7031755D03000BCB44B /* TouchPoint.h */,
-				6D91E7041755D03000BCB44B /* TouchPoint.m */,
+				6DF32E66175C1F9000560E58 /* Interpreter.h */,
+				6DF32E67175C1F9000560E58 /* Interpreter.m */,
+				6DF32E6C175C288500560E58 /* Layout.h */,
+				6DF32E6D175C288500560E58 /* Layout.m */,
+				6DF32E69175C26A600560E58 /* Input.h */,
+				6DF32E6A175C26A600560E58 /* Input.m */,
 				6D99787717153D3500633AC9 /* Supporting Files */,
 			);
 			path = Perkinput;
@@ -262,8 +272,10 @@
 				6D99788D17153D3600633AC9 /* ViewController.m in Sources */,
 				6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */,
 				6DDACCD1175469A400CE6442 /* InputView.m in Sources */,
-				6D91E7051755D03000BCB44B /* TouchPoint.m in Sources */,
 				6D2EF7931757FB7300BE4C54 /* DefaultView.m in Sources */,
+				6DF32E68175C1F9000560E58 /* Interpreter.m in Sources */,
+				6DF32E6B175C26A600560E58 /* Input.m in Sources */,
+				6DF32E6E175C288500560E58 /* Layout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

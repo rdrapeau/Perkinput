@@ -7,9 +7,9 @@
 //
 
 #import "InputView.h"
-#import "TouchPoint.h"
 
 static const double DIAMETER = 50; // Circle Diameter
+static const double CAL_DIAMETER = 85; // Calibration Circle Diameter
 
 @implementation InputView
 
@@ -18,10 +18,17 @@ static const double DIAMETER = 50; // Circle Diameter
     [self setNeedsDisplay];
 }
 
+// Update the coordinates of the calibration points
+- (void)setCalibrationPoints:(NSSet *)touches {
+    calibrationPoints = touches;
+    NSLog(@"Calibration Points Updated");
+    [self setNeedsDisplay];
+}
+
 // Update the coordinates of the touch circle
 - (void)setPoints:(NSSet*)touches {
     points = touches;
-    NSLog(@"%d touches in setPoints", [points count]);
+    //NSLog(@"%d touches in setPoints", [points count]);
     [self setNeedsDisplay];
 }
 
@@ -29,10 +36,17 @@ static const double DIAMETER = 50; // Circle Diameter
 - (void)drawRect:(CGRect)rect {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(ctx, 2.0);
-    CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
-    CGContextSetRGBStrokeColor(ctx, 0, 0, 1.0, 1.0);
+    
+    for (UITouch* point in calibrationPoints) { // Update calibration circles
+        CGContextSetRGBFillColor(ctx, 0.5, 0.5, 1.0, 0.5);
+        CGContextSetRGBStrokeColor(ctx, 0, 0, 1.0, 1.0);
+        CGRect circlePoint = CGRectMake([point locationInView:self].x - CAL_DIAMETER / 2, [point locationInView:self].y - CAL_DIAMETER / 2, CAL_DIAMETER, CAL_DIAMETER);
+        CGContextFillEllipseInRect(ctx, circlePoint);
+    }
     
     for (UITouch* point in points) {
+        CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
+        CGContextSetRGBStrokeColor(ctx, 0, 0, 1.0, 1.0);
         CGRect circlePoint = CGRectMake([point locationInView:self].x - DIAMETER / 2, [point locationInView:self].y - DIAMETER / 2, DIAMETER, DIAMETER);
         CGContextFillEllipseInRect(ctx, circlePoint);
     }

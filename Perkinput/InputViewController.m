@@ -8,9 +8,10 @@
 
 #import "InputViewController.h"
 #import "InputView.h"
-#import "TouchPoint.h"
+#import "Interpreter.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
+#define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface InputViewController() {
 
@@ -25,13 +26,15 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 // Callibrate
 - (void)onLongPress {
     NSLog(@"Long Press");
-    if ([_curTouches count] == 4) {
+    if ([_curTouches count] == TOTAL_FINGERS) {
         _touchHandled = YES;
+        [self.inputView setCalibrationPoints:_curTouches];
+        // Interpret long press
     }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"Touches began");
+    //NSLog(@"Touches began");
     _touchHandled = NO;
     _touchStart = [event timestamp];
     _curTouches = touches;
@@ -42,19 +45,19 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if(!_touchHandled && [touches count] >= [_curTouches count]) {
-        NSLog(@"Touches Updated: %d touches", [touches count]);
+        //NSLog(@"Touches Updated: %d touches", [touches count]);
         [self.inputView setPoints:touches];
         _curTouches = touches;
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"Touch ended: %d touches", [touches count]);
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
-    
     if (!_touchHandled && [touches count] >= [_curTouches count]) {
         _curTouches = touches;
+        // Interpret short press
     }
+    NSLog(@"Touch ended: %d touches", [_curTouches count]);
     [self.inputView setPoints:_curTouches];
 }
 
@@ -86,6 +89,7 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 - (void)viewDidLoad {
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;
+    _interpreter = [[Interpreter alloc] init];
 }
 
 @end

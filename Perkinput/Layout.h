@@ -10,4 +10,9 @@
 
 @interface Layout : NSObject
 
+- (void)setFingerDownAtIndex:(int)index;
+- (BOOL)isFingerDownAtIndex:(int)index;
+- (id)initWithNumFingers:(int)numFingers;
+- (double)getErrorForTouches:(NSMutableArray*)touches withCalibrationPoints:(NSMutableArray*)calibrationPoints;
+
 @end

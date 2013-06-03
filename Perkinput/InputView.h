@@ -10,8 +10,10 @@
 
 @interface InputView : UIView {
     NSSet *points;
+    NSSet *calibrationPoints;
 }
 
+- (void)setCalibrationPoints:(NSSet*)touches;
 - (void)setPoints:(NSSet*)touches;
 - (void)redraw;
 

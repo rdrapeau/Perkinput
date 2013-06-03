@@ -7,7 +7,18 @@
 //
 
 #import "Interpreter.h"
+#import "Layout.h"
 
-@implementation Interpreter
+@implementation Interpreter {
+    NSMutableArray *calibratedPoints;
+}
+
+- (id)init {
+    _layouts = [[NSMutableDictionary alloc] init];
+    
+    for (int i = 0; i < TOTAL_FINGERS; i++) {
+        
+    }
+}
 
 @end
