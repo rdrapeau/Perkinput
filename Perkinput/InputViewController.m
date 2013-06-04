@@ -7,6 +7,7 @@
 //
 
 #import "InputViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 #import "ViewController.h"
 #import "InputView.h"
 #import "Interpreter.h"
@@ -30,8 +31,8 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
          NSLog(@"Long Press");
         _touchHandled = YES;
         [self.inputView setCalibrationPoints:_curTouches];
-        // Interpret long press
         [_interpreter interpretLongPress:_curTouches];
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // Vibrate the phone
     }
 }
 
@@ -55,23 +56,21 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
-    if (!_touchHandled && [touches count] >= [_curTouches count]) {
-        _curTouches = touches;
-        // Interpret short press
-        _touchHandled = YES;
+    if (!_touchHandled) {
+        if ([touches count] >= [_curTouches count]) {
+            _curTouches = touches;
+        }
         NSMutableString *input = [_interpreter interpretShortPress:_curTouches];
         [label setText:input];
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
     }
-    NSLog(@"Touch ended: %d touches, Handled: %s", [_curTouches count], _touchHandled ? "True" : "False");
+
+    NSLog(@"Touch ended: %d touches", [_curTouches count]);
     [self.inputView setPoints:_curTouches];
 }
 
 // Switches the app to the default view controller
 - (IBAction)switchToDefaultView:(id)sender {
-    ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
-    [defaultView.textField setText:label.text];
-
     self.tabBarController.selectedIndex = 0;
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
 }
@@ -89,6 +88,12 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 - (void)viewWillAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
     [self.inputView redraw];
+}
+
+// Update the text in the text field to contain the label's text
+- (void)viewWillDisappear:(BOOL)animated {
+    ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
+    [defaultView.textField setText:label.text];
 }
 
 - (void)viewDidUnload {

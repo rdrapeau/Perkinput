@@ -59,10 +59,10 @@
         callibrationTouch = [cpEnumerator nextObject];
         if([self isFingerDownAtIndex:i]) {
             inputTouch = [itEnumerator nextObject];
-            double xErr = callibrationTouch.x - inputTouch.x;
-            double yErr = callibrationTouch.y - inputTouch.y;
-            error += xErr*xErr + yErr*yErr;
-        }
+            double xError = callibrationTouch.x - inputTouch.x;
+            double yError = callibrationTouch.y - inputTouch.y;
+            error += xError * xError + yError * yError;
+        } 
     }
     
     return error;
