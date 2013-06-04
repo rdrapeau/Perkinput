@@ -28,24 +28,25 @@
 }
 
 // Calibrates the points according to the 4 points in touches  
-- (void)interpretLongPress:(NSSet *)touches {
+- (void)interpretLongPress:(NSMutableArray*)touches {
     if ([touches count] == TOTAL_FINGERS) {
         [self calibrateWithPoints:touches];
     }
 }
 
 // Sets the calibration points to the points in touches
-- (void)calibrateWithPoints:(NSSet *)touches {
-    NSLog(@"Calibrating...");
-    _inLandscape = UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation);
+- (void)calibrateWithPoints:(NSMutableArray*)touches {
+    CGPoint ranges = [self getRange:touches];
+    _inLandscape = ranges.y > ranges.x;
+    //NSLog(@"Calibrating: %s", _inLandscape ? "Landscape" : "Portrait");
     calibratedPoints = [self sortTouches:touches];
 }
 
 // Handles a short press event. Returns a input object storing the layout for this touch.
-- (NSMutableString*)interpretShortPress:(NSSet *)touches {
+- (NSMutableString*)interpretShortPress:(NSMutableArray*)touches {
     if (calibratedPoints == nil) { // Screen has not been calibrated with 4 fingers yet
         NSLog(@"Screen has not been calibrated");
-         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Hold 4 fingers down to calibrate");
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Hold 4 fingers down to calibrate");
         return nil;
     }
     
@@ -73,16 +74,13 @@
 // Returns a sorted array of TouchPoint objects. Sorted by the y value if the device is in
 // landscape orientation or by the x value if in portrait orientation.
 // TODO: Implement Merge Sort instead of selection sort (or some other faster sort)
-- (NSMutableArray*)sortTouches:(NSSet *)touches {
+- (NSMutableArray*)sortTouches:(NSMutableArray*)touches {
     int count = [touches count];
     
     // Convert the touches set to be an Array with TouchPoint wrapper objects
-    NSMutableArray *unsorted = [NSMutableArray arrayWithCapacity:count];
-    for (UITouch* point in touches) {
-        TouchPoint *touch = [[TouchPoint alloc] init];
-        touch.x = [point locationInView:nil].x;
-        touch.y = [point locationInView:nil].y;
-        [unsorted addObject:touch];
+    NSMutableArray *unsorted = [NSMutableArray arrayWithCapacity:[touches count]];
+    for (TouchPoint *point in touches) {
+        [unsorted addObject:point];
     }
     
     NSMutableArray *sorted = [NSMutableArray arrayWithCapacity:count];
@@ -105,7 +103,7 @@
         if (_inLandscape && point.y < min) {
             min = point.y;
             index = i;
-        } else if (!_inLandscape && point.x < min) {
+        } else if (!_inLandscape && point.x < min) { // Portrait
             min = point.x;
             index = i;
         }
@@ -169,6 +167,33 @@
     }
     
     return layoutArray;
+}
+
+// Returns a point representing the range in x and in y
+- (CGPoint)getRange:(NSMutableArray*)touches {
+    float minY = INFINITY;
+    float minX = INFINITY;
+    float maxY = 0;
+    float maxX = 0;
+    
+    for (TouchPoint *touch in touches) {
+        float x = touch.x;
+        float y = touch.y;
+        
+        if(x < minX) {
+            minX = x;
+        }
+        if(x > maxX) {
+            maxX = x;
+        }
+        if(y < minY) {
+            minY = y;
+        }
+        if(y > maxY) {
+            maxY = y;
+        }
+    }
+    return CGPointMake(maxX - minX, maxY - minY);
 }
 
 @end

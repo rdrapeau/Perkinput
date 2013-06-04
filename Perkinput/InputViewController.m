@@ -11,8 +11,9 @@
 #import "ViewController.h"
 #import "InputView.h"
 #import "Interpreter.h"
+#import "TouchPoint.h"
 
-static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
+static const double LONG_PRESS_TIMEOUT = 1.0; // Time to callibrate
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface InputViewController() {
@@ -31,24 +32,31 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
          NSLog(@"Long Press");
         _touchHandled = YES;
         [self.inputView setCalibrationPoints:_curTouches];
-        [_interpreter interpretLongPress:_curTouches];
+        [_interpreter interpretLongPress:[self convertToTouchPoints:_curTouches]];
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // Vibrate the phone
     }
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"Touches began: %d", [touches count]);
-    _touchHandled = NO;
-    _touchStart = [event timestamp];
-    _curTouches = touches;
-    
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
-    [self performSelector:@selector(onLongPress) withObject:nil afterDelay:LONG_PRESS_TIMEOUT];
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event {
+    if (_touchHandled) {
+        NSLog(@"Touches began: %d", [touches count]);
+        _touchHandled = NO;
+        _touchStart = [event timestamp];
+        _curTouches = touches;
+        
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
+        [self performSelector:@selector(onLongPress) withObject:nil afterDelay:LONG_PRESS_TIMEOUT];
+    } else {
+        for (UITouch *touch in touches) {
+            [_curTouches addObject:touch];
+           // NSLog(@"Added touch");
+        }
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if(!_touchHandled && [touches count] >= [_curTouches count]) {
-        NSLog(@"Touches Updated: %d touches", [touches count]);
+        //NSLog(@"Touches Updated: %d touches", [touches count]);
         [self.inputView setPoints:touches];
         _curTouches = touches;
     }
@@ -60,13 +68,26 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
         if ([touches count] >= [_curTouches count]) {
             _curTouches = touches;
         }
-        NSMutableString *input = [_interpreter interpretShortPress:_curTouches];
+        NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
         [label setText:input];
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
+        _touchHandled = YES;
     }
 
     NSLog(@"Touch ended: %d touches", [_curTouches count]);
     [self.inputView setPoints:_curTouches];
+}
+
+// Converts the set of touch event objects to be a NSMutableArray of TouchPoint objects
+- (NSMutableArray*)convertToTouchPoints:(NSSet*)touches {
+    NSMutableArray *unsorted = [NSMutableArray arrayWithCapacity:[_curTouches count]];
+    for (UITouch* point in touches) {
+        TouchPoint *touch = [[TouchPoint alloc] init];
+        touch.x = [point locationInView:self.view].x;
+        touch.y = [point locationInView:self.view].y;
+        [unsorted addObject:touch];
+    }
+    return unsorted;
 }
 
 // Switches the app to the default view controller

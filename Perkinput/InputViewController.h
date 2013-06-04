@@ -11,7 +11,7 @@
 
 @interface InputViewController : UIViewController {
     BOOL _touchHandled; // Touch has already been handled
-    NSSet *_curTouches; // Current fingers on the screen
+    NSMutableSet *_curTouches; // Current fingers on the screen
     NSTimeInterval _touchStart; // Time of the first touch
     Interpreter *_interpreter;
 }

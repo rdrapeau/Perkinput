@@ -21,7 +21,7 @@ static const double CAL_DIAMETER = 85; // Calibration Circle Diameter
 // Update the coordinates of the calibration points
 - (void)setCalibrationPoints:(NSSet *)touches {
     calibrationPoints = touches;
-    NSLog(@"Calibration Points Updated");
+    //NSLog(@"Calibration Points Updated");
     [self setNeedsDisplay];
 }
 
