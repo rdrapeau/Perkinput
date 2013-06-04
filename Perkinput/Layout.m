@@ -7,24 +7,23 @@
 //
 
 #import "Layout.h"
+#import "TouchPoint.h"
 
 @implementation Layout {
     int length;
     NSMutableArray *layout;
-    UIView *view;
 }
 
 // Initializes the layout to contain no fingers down with a specified length
-- (id)initWithNumFingers:(int)numFingers withView:(UIView *)currentView {
+- (id)initWithNumFingers:(int)numFingers {
     self = [super init];
-    if (self) {
+    if(self) {
         length = numFingers;
-        layout = [[NSMutableArray alloc] initWithCapacity:length];
-        
-        for (int i = 0; i < length; i++) { // Initialize the layout with no fingers down
+        layout = [[NSMutableArray alloc] initWithCapacity:(numFingers)];
+        // Initialize the layout array with no fingers down.
+        for(int i = 0; i < numFingers; ++i) {
             [layout addObject:[NSNumber numberWithBool:NO]];
         }
-        view = currentView;
     }
     return self;
 }
@@ -41,7 +40,7 @@
 // Returns whether or not the finger is down at the index
 - (BOOL)isFingerDownAtIndex:(int)index {
     if (index >= 0 && index < length) {
-        return [layout objectAtIndex:index];
+        return [[layout objectAtIndex:index] boolValue]; // YES / NO at the index
     } else {
         NSLog(@"Index is out of bounds. Index: %d, Length: %d", index, length);
         return NO;
@@ -49,20 +48,37 @@
 }
 
 // Returns the difference between each touch and the calibration points
-- (double)getErrorForTouches:(NSMutableArray *)touches withCalibrationPoints:(NSMutableArray *)calibrationPoints {
-    double error = 0;
+- (double) getErrorForTouches:(NSMutableArray*)touches withCalibrationPoints:(NSMutableArray*)calibrationPoints {
+    int error = 0;
+    TouchPoint *callibrationTouch = nil;
+    NSEnumerator* cpEnumerator = [calibrationPoints objectEnumerator];
+    TouchPoint *inputTouch = nil;
+    NSEnumerator* itEnumerator = [touches objectEnumerator];
     
-    for (int i = 0; i < length; i++) {
-        CGPoint calibrationPoint = [calibrationPoints[i] locationInView:view];
-        if ([self isFingerDownAtIndex:i]) {
-            CGPoint inputPoint = [touches[i] locationInView:view];
-            int x = calibrationPoint.x - inputPoint.x;
-            int y = calibrationPoint.y - inputPoint.y;
-            error += x * x + y * y;
+    for(int i = 0; i < length; ++i) {
+        callibrationTouch = [cpEnumerator nextObject];
+        if([self isFingerDownAtIndex:i]) {
+            inputTouch = [itEnumerator nextObject];
+            double xErr = callibrationTouch.x - inputTouch.x;
+            double yErr = callibrationTouch.y - inputTouch.y;
+            error += xErr*xErr + yErr*yErr;
         }
     }
     
     return error;
+}
+
+// Print the layout in a human-readable format. Used for debugging.
+- (NSMutableString*) toString {
+    NSMutableString* result = [[NSMutableString alloc] init];
+    for(int i = 0; i < length; ++i) {
+        NSString* touch = @"0";
+        if([self isFingerDownAtIndex:i]) {
+            touch = @"1";
+        }
+        [result appendString:touch];
+    }
+    return result;
 }
 
 @end

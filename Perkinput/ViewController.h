@@ -21,4 +21,6 @@
 - (IBAction)sendToClipboard:(id)sender; // Copies the text to the clipboard
 - (IBAction)switchToInputView:(id)sender; // Switches to the input view
 
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "InputViewController.h"
+#import "ViewController.h"
 #import "InputView.h"
 #import "Interpreter.h"
 
@@ -14,7 +15,7 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface InputViewController() {
-
+    __weak IBOutlet UILabel *label;
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
@@ -25,16 +26,17 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 
 // Callibrate
 - (void)onLongPress {
-    NSLog(@"Long Press");
     if ([_curTouches count] == TOTAL_FINGERS) {
+         NSLog(@"Long Press");
         _touchHandled = YES;
         [self.inputView setCalibrationPoints:_curTouches];
         // Interpret long press
+        [_interpreter interpretLongPress:_curTouches];
     }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    //NSLog(@"Touches began");
+    NSLog(@"Touches began: %d", [touches count]);
     _touchHandled = NO;
     _touchStart = [event timestamp];
     _curTouches = touches;
@@ -45,7 +47,7 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if(!_touchHandled && [touches count] >= [_curTouches count]) {
-        //NSLog(@"Touches Updated: %d touches", [touches count]);
+        NSLog(@"Touches Updated: %d touches", [touches count]);
         [self.inputView setPoints:touches];
         _curTouches = touches;
     }
@@ -56,13 +58,20 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
     if (!_touchHandled && [touches count] >= [_curTouches count]) {
         _curTouches = touches;
         // Interpret short press
+        _touchHandled = YES;
+        NSMutableString *input = [_interpreter interpretShortPress:_curTouches];
+        [label setText:input];
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
     }
-    NSLog(@"Touch ended: %d touches", [_curTouches count]);
+    NSLog(@"Touch ended: %d touches, Handled: %s", [_curTouches count], _touchHandled ? "True" : "False");
     [self.inputView setPoints:_curTouches];
 }
 
 // Switches the app to the default view controller
 - (IBAction)switchToDefaultView:(id)sender {
+    ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
+    [defaultView.textField setText:label.text];
+
     self.tabBarController.selectedIndex = 0;
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
 }
@@ -83,6 +92,7 @@ static const double LONG_PRESS_TIMEOUT = 0.75; // Time to callibrate
 }
 
 - (void)viewDidUnload {
+    label = nil;
     [super viewDidUnload];
 }
 

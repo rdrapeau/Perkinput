@@ -10,17 +10,18 @@
 		6D00395317168E76005BA56B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D00395217168E76005BA56B /* AVFoundation.framework */; };
 		6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1F1F55172E36C400EEE86C /* InputViewController.m */; };
 		6D2EF7931757FB7300BE4C54 /* DefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2EF7921757FB7300BE4C54 /* DefaultView.m */; };
-		6D3CBB9A173B2CC50036D84B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB93173B2CC50036D84B /* Icon-72.png */; };
-		6D3CBB9B173B2CC50036D84B /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB94173B2CC50036D84B /* Icon-72@2x.png */; };
-		6D3CBB9C173B2CC50036D84B /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB95173B2CC50036D84B /* Icon-Small-50.png */; };
-		6D3CBB9D173B2CC50036D84B /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB96173B2CC50036D84B /* Icon-Small.png */; };
-		6D3CBB9E173B2CC50036D84B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB97173B2CC50036D84B /* Icon-Small@2x.png */; };
-		6D3CBB9F173B2CC50036D84B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB98173B2CC50036D84B /* Icon.png */; };
-		6D3CBBA0173B2CC50036D84B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3CBB99173B2CC50036D84B /* Icon@2x.png */; };
 		6D68630E174C071F00A4F8A0 /* TabBarMailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D68630C174C071F00A4F8A0 /* TabBarMailIcon.png */; };
 		6D68630F174C071F00A4F8A0 /* TabBarMailIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D68630D174C071F00A4F8A0 /* TabBarMailIcon@2x.png */; };
 		6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */; };
 		6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */; };
+		6D772138175D894500972596 /* TouchPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D772137175D894500972596 /* TouchPoint.m */; };
+		6D772161175D96DC00972596 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215A175D96DB00972596 /* Icon-72.png */; };
+		6D772162175D96DC00972596 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215B175D96DB00972596 /* Icon-72@2x.png */; };
+		6D772163175D96DC00972596 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215C175D96DB00972596 /* Icon-Small-50.png */; };
+		6D772164175D96DC00972596 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215D175D96DB00972596 /* Icon-Small.png */; };
+		6D772165175D96DC00972596 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215E175D96DC00972596 /* Icon-Small@2x.png */; };
+		6D772166175D96DC00972596 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215F175D96DC00972596 /* Icon.png */; };
+		6D772167175D96DC00972596 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D772160175D96DC00972596 /* Icon@2x.png */; };
 		6D91D3CA171542CE0087EA8B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3C9171542CE0087EA8B /* MessageUI.framework */; };
 		6D91D3CC171548340087EA8B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3CB171548340087EA8B /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6D99787117153D3500633AC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787017153D3500633AC9 /* UIKit.framework */; };
@@ -46,17 +47,19 @@
 		6D1F1F55172E36C400EEE86C /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		6D2EF7911757FB7300BE4C54 /* DefaultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultView.h; sourceTree = "<group>"; };
 		6D2EF7921757FB7300BE4C54 /* DefaultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultView.m; sourceTree = "<group>"; };
-		6D3CBB93173B2CC50036D84B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		6D3CBB94173B2CC50036D84B /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
-		6D3CBB95173B2CC50036D84B /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
-		6D3CBB96173B2CC50036D84B /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		6D3CBB97173B2CC50036D84B /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		6D3CBB98173B2CC50036D84B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		6D3CBB99173B2CC50036D84B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6D68630C174C071F00A4F8A0 /* TabBarMailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarMailIcon.png; sourceTree = "<group>"; };
 		6D68630D174C071F00A4F8A0 /* TabBarMailIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarMailIcon@2x.png"; sourceTree = "<group>"; };
 		6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarBrailleIcon.png; sourceTree = "<group>"; };
 		6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBrailleIcon@2x.png"; sourceTree = "<group>"; };
+		6D772136175D894500972596 /* TouchPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPoint.h; sourceTree = "<group>"; };
+		6D772137175D894500972596 /* TouchPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchPoint.m; sourceTree = "<group>"; };
+		6D77215A175D96DB00972596 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Perkinput/Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		6D77215B175D96DB00972596 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Perkinput/Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
+		6D77215C175D96DB00972596 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Perkinput/Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
+		6D77215D175D96DB00972596 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Perkinput/Icon-Small.png"; sourceTree = SOURCE_ROOT; };
+		6D77215E175D96DC00972596 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Perkinput/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
+		6D77215F175D96DC00972596 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Perkinput/Icon.png; sourceTree = SOURCE_ROOT; };
+		6D772160175D96DC00972596 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Perkinput/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		6D91D3C9171542CE0087EA8B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6D91D3CB171548340087EA8B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6D99786D17153D3500633AC9 /* Perkinput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perkinput.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,15 +108,30 @@
 		6D3CBB92173B2CC50036D84B /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				6D3CBB93173B2CC50036D84B /* Icon-72.png */,
-				6D3CBB94173B2CC50036D84B /* Icon-72@2x.png */,
-				6D3CBB95173B2CC50036D84B /* Icon-Small-50.png */,
-				6D3CBB96173B2CC50036D84B /* Icon-Small.png */,
-				6D3CBB97173B2CC50036D84B /* Icon-Small@2x.png */,
-				6D3CBB98173B2CC50036D84B /* Icon.png */,
-				6D3CBB99173B2CC50036D84B /* Icon@2x.png */,
+				6D77215A175D96DB00972596 /* Icon-72.png */,
+				6D77215B175D96DB00972596 /* Icon-72@2x.png */,
+				6D77215C175D96DB00972596 /* Icon-Small-50.png */,
+				6D77215D175D96DB00972596 /* Icon-Small.png */,
+				6D77215E175D96DC00972596 /* Icon-Small@2x.png */,
+				6D77215F175D96DC00972596 /* Icon.png */,
+				6D772160175D96DC00972596 /* Icon@2x.png */,
 			);
 			path = Icon;
+			sourceTree = "<group>";
+		};
+		6D772139175D894D00972596 /* Input Control */ = {
+			isa = PBXGroup;
+			children = (
+				6DF32E66175C1F9000560E58 /* Interpreter.h */,
+				6DF32E67175C1F9000560E58 /* Interpreter.m */,
+				6DF32E6C175C288500560E58 /* Layout.h */,
+				6DF32E6D175C288500560E58 /* Layout.m */,
+				6DF32E69175C26A600560E58 /* Input.h */,
+				6DF32E6A175C26A600560E58 /* Input.m */,
+				6D772136175D894500972596 /* TouchPoint.h */,
+				6D772137175D894500972596 /* TouchPoint.m */,
+			);
+			name = "Input Control";
 			sourceTree = "<group>";
 		};
 		6D99786417153D3500633AC9 = {
@@ -158,12 +176,7 @@
 				6D1F1F55172E36C400EEE86C /* InputViewController.m */,
 				6DDACCCF175469A400CE6442 /* InputView.h */,
 				6DDACCD0175469A400CE6442 /* InputView.m */,
-				6DF32E66175C1F9000560E58 /* Interpreter.h */,
-				6DF32E67175C1F9000560E58 /* Interpreter.m */,
-				6DF32E6C175C288500560E58 /* Layout.h */,
-				6DF32E6D175C288500560E58 /* Layout.m */,
-				6DF32E69175C26A600560E58 /* Input.h */,
-				6DF32E6A175C26A600560E58 /* Input.m */,
+				6D772139175D894D00972596 /* Input Control */,
 				6D99787717153D3500633AC9 /* Supporting Files */,
 			);
 			path = Perkinput;
@@ -246,17 +259,17 @@
 				6D99788517153D3600633AC9 /* Default@2x.png in Resources */,
 				6D99788717153D3600633AC9 /* Default-568h@2x.png in Resources */,
 				6D99788A17153D3600633AC9 /* MainStoryboard.storyboard in Resources */,
-				6D3CBB9A173B2CC50036D84B /* Icon-72.png in Resources */,
-				6D3CBB9B173B2CC50036D84B /* Icon-72@2x.png in Resources */,
-				6D3CBB9C173B2CC50036D84B /* Icon-Small-50.png in Resources */,
-				6D3CBB9D173B2CC50036D84B /* Icon-Small.png in Resources */,
-				6D3CBB9E173B2CC50036D84B /* Icon-Small@2x.png in Resources */,
-				6D3CBB9F173B2CC50036D84B /* Icon.png in Resources */,
-				6D3CBBA0173B2CC50036D84B /* Icon@2x.png in Resources */,
 				6D68630E174C071F00A4F8A0 /* TabBarMailIcon.png in Resources */,
 				6D68630F174C071F00A4F8A0 /* TabBarMailIcon@2x.png in Resources */,
 				6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */,
 				6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */,
+				6D772161175D96DC00972596 /* Icon-72.png in Resources */,
+				6D772162175D96DC00972596 /* Icon-72@2x.png in Resources */,
+				6D772163175D96DC00972596 /* Icon-Small-50.png in Resources */,
+				6D772164175D96DC00972596 /* Icon-Small.png in Resources */,
+				6D772165175D96DC00972596 /* Icon-Small@2x.png in Resources */,
+				6D772166175D96DC00972596 /* Icon.png in Resources */,
+				6D772167175D96DC00972596 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +289,7 @@
 				6DF32E68175C1F9000560E58 /* Interpreter.m in Sources */,
 				6DF32E6B175C26A600560E58 /* Input.m in Sources */,
 				6DF32E6E175C288500560E58 /* Layout.m in Sources */,
+				6D772138175D894500972596 /* TouchPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

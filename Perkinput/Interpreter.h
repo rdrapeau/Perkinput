@@ -19,8 +19,9 @@
     NSMutableDictionary* _layouts;
 }
 
-- (Input *)interpretLongPress:(NSSet *)touches;
-- (Input *)interpretShortPress:(NSSet *)touches;
-- (void) calibrateWithPoints:(NSSet *)touches;
+- (void)interpretLongPress:(NSSet *)touches;
+- (NSMutableString*)interpretShortPress:(NSSet *)touches;
+- (void)calibrateWithPoints:(NSSet *)touches;
+- (NSMutableArray*)sortTouches:(NSSet*) touches inLandscape:(BOOL) isInLandscape;
 
 @end

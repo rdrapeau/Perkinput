@@ -10,8 +10,6 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) IBOutlet UITextField *textField;
-
 @end
 
 @implementation ViewController
@@ -79,4 +77,8 @@
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
 }
 
+- (void)viewDidUnload {
+    [self setTextField:nil];
+    [super viewDidUnload];
+}
 @end
