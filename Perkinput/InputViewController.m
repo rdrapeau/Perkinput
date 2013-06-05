@@ -125,6 +125,7 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time to callibrate
 - (void)viewDidLoad {
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;
+    _touchHandled = YES;
     _interpreter = [[Interpreter alloc] init];
 }
 
