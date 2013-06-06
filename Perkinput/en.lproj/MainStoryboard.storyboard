@@ -60,6 +60,9 @@
                             <constraint firstItem="YcE-56-IRx" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="vi3-mi-meh"/>
                             <constraint firstItem="YcE-56-IRx" firstAttribute="top" secondItem="3" secondAttribute="top" constant="63" id="vm5-bA-KMq"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="zIn-F2-j3P" appends="YES" id="p9y-y2-QI1"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Default" image="TabBarMailIcon.png" id="zn8-lZ-p8Z"/>
                     <connections>
@@ -67,6 +70,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="zIn-F2-j3P">
+                    <connections>
+                        <action selector="removeKeyboard:" destination="2" id="ld4-Z3-ECN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-5691" y="-343"/>
         </scene>

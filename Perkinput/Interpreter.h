@@ -15,14 +15,12 @@
 @class Input;
 
 @interface Interpreter : NSObject {
-    BOOL _inLandscape;
-    NSMutableDictionary* _layouts;
+    BOOL _inLandscape; // Whether the view is in landscape orientation or not
+    NSMutableDictionary *_layouts; // Possible layouts
 }
 
-- (void)interpretLongPress:(NSMutableArray*)touches;
+- (void)interpretLongPress:(NSMutableArray*)touches; // Calibration Touch
 
-- (NSMutableString*)interpretShortPress:(NSMutableArray*)touches;
-
-- (NSMutableArray*)sortTouches:(NSMutableArray*) touches;
+- (NSMutableString*)interpretShortPress:(NSMutableArray*)touches; // Short Press 
 
 @end

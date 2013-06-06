@@ -169,7 +169,7 @@
     return layoutArray;
 }
 
-// Returns a point representing the range in x and in y
+// Returns a point representing the range in x and in y.
 - (CGPoint)getRange:(NSMutableArray*)touches {
     float minY = INFINITY;
     float minX = INFINITY;

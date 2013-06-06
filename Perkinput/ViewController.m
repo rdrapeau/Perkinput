@@ -14,58 +14,68 @@
 
 @implementation ViewController
 
-// Sends an SMS message
+// Loads the SMS texting view and injects the text within the text field into the body of the
+// text message. This view will only load on devices that have the Messages applicication. The
+// user is returned to the Default view when he / she hits the cancel button inside the messages view.
 - (IBAction)sendSMS:(id)sender {
     MFMessageComposeViewController *textComposer = [[MFMessageComposeViewController alloc] init];
     [textComposer setMessageComposeDelegate:self];
     
     if ([MFMessageComposeViewController canSendText]) {
-        [textComposer setBody:self.textField.text]; // Set message here
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Texting View");
+        [textComposer setBody:self.textField.text]; // Set message body
         [self presentViewController:textComposer animated:YES completion:NULL];
+    } else { // Device cannot send text messages
+        NSLog(@"Device not supported");
     }
 }
 
-// Sends an Email message
+// Loads the email view and injects the text within the text field into the body of the email.
+// This view will only load on devices that have the Email applicication (which should be every device). The
+// user is returned to the Default view when he / she hits the cancel button inside the email view.
 - (IBAction)sendEmail:(id)sender {
     MFMailComposeViewController *emailComposer = [[MFMailComposeViewController alloc] init];
     [emailComposer setMailComposeDelegate:self];
      
     if ([MFMailComposeViewController canSendMail]) {
-        [emailComposer setMessageBody:self.textField.text isHTML:NO];
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Mail View");
+        [emailComposer setMessageBody:self.textField.text isHTML:NO]; // Set body of email 
         [self presentViewController:emailComposer animated:YES completion:NULL];
+    } else { // Device cannot send email messages
+        NSLog(@"Device not supported");
     }
 }
 
-// Copies the text in the teftField into the clipboard for later use
+// Copies the text within the text field into the clipboard of the device. This text can be pasted
+// anywhere on the device until something else is copied or the device is shut down. 
 - (IBAction)sendToClipboard:(id)sender {
-    if (UIAccessibilityIsVoiceOverRunning()) {
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Text Copied");
-    }
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Text Copied");
     [UIPasteboard generalPasteboard].string = self.textField.text;
 }
 
-// Dismisses the keyboard
-- (IBAction)removeKeyboard:(UITextField *)sender {
-    [sender resignFirstResponder];
+// Removes the keyboard from the view when the user taps the done button inside the text field. The
+// keyboard is also removed if the user taps anywhere within the view.
+- (IBAction)removeKeyboard:(id)sender {
+    [self.textField resignFirstResponder];
 }
 
-// Dismisses the Email view controller and returns to the default view controller
+// Dismisses the Email view and returns to the default view.
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-// Dismisses the SMS Texting view controller and returns to the default view controller
+// Dismisses the SMS Texting view and returns to the default view.
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-// Switches the app to the second view controller for the input view
+// Switches to the input view controller (index 1) and announces the change to the user.
 - (IBAction)switchToInputView:(id)sender {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
     self.tabBarController.selectedIndex = 1;
 }
 
-// If the view is in landscape: switch to input mode
+// When the user changes the device to a landscape orientation the view controller is switched the input view.
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
         [self switchToInputView:self];
@@ -81,4 +91,5 @@
     [self setTextField:nil];
     [super viewDidUnload];
 }
+
 @end

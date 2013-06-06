@@ -13,11 +13,11 @@
 #import "Interpreter.h"
 #import "TouchPoint.h"
 
-static const double LONG_PRESS_TIMEOUT = 1.0; // Time to callibrate
+static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface InputViewController() {
-    __weak IBOutlet UILabel *label;
+    __weak IBOutlet UILabel *label; // Stores the current text typed on the screen
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
@@ -26,41 +26,52 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time to callibrate
 
 @implementation InputViewController
 
-// Callibrate
+// This method is called when the user has been holding his or her fingers for more than 1s.
+// The screen is calibrated with the current touch events if and only if there are 4 fingers down.
 - (void)onLongPress {
     if ([_curTouches count] == TOTAL_FINGERS) {
-         NSLog(@"Long Press");
-        _touchHandled = YES;
-        [self.inputView setCalibrationPoints:_curTouches];
+         //NSLog(@"Long Press");
+        [self.inputView setCalibrationPoints:_curTouches]; // Draw the calibration points
         [_interpreter interpretLongPress:[self convertToTouchPoints:_curTouches]];
-        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // Vibrate the phone
+        _touchHandled = YES; // Touch has been handled (Don't interpret twice)
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        // TODO: Play Calibration Sound
     }
 }
 
-- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event {
-    if (_touchHandled) {
+// This method is called when the user adds a finger to the screen (may or may not be the first one down).
+// If the previous touch has been handled (always should be) then reset the touch handled and update the
+// current fingers on the screen. If there are already fingers down on the screen (touchHandled == true)
+// then add the new touches to the set of fingers on the screen. Always reset the timer if a new touch began.
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+    if (_touchHandled) { // Previous touch event 
         NSLog(@"Touches began: %d", [touches count]);
         _touchHandled = NO;
-        _touchStart = [event timestamp];
         _curTouches = touches;
-    } else {
-        for (UITouch *touch in touches) {
+    } else { // One or more fingers are already down on the screen
+        for (UITouch *touch in touches) { // Update currentTouches
             [_curTouches addObject:touch];
-           // NSLog(@"Added touch");
         }
     }
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
     [self performSelector:@selector(onLongPress) withObject:nil afterDelay:LONG_PRESS_TIMEOUT];
 }
 
+// This method is called when the user's fingers move on the screen (NOT when a new touch down occurs).
+// If the touch has not been handled and there are atleast as many fingers down as before, then update
+// the current touches and redraw them to the screen.
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if(!_touchHandled && [touches count] >= [_curTouches count]) {
         //NSLog(@"Touches Updated: %d touches", [touches count]);
-        [self.inputView setPoints:touches];
+        [self.inputView setPoints:touches]; // Redraw white circles
         _curTouches = touches;
     }
 }
 
+// This method is called when the user's fingers are lifted from the screen. Cancel the timer so the
+// calibration points are not updated. Updates current touches if there are atleast as many fingers
+// down as before. Interprets the touch events if they have not been already and updates the label
+// to display the layout that represents the touch event.
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
     if (!_touchHandled) {
@@ -68,34 +79,37 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time to callibrate
             _curTouches = touches;
         }
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
-        [label setText:input];
+        [label setText:input]; // Update label's text
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
         _touchHandled = YES;
     }
-
     NSLog(@"Touch ended: %d touches", [_curTouches count]);
     [self.inputView setPoints:_curTouches];
 }
 
-// Converts the set of touch event objects to be a NSMutableArray of TouchPoint objects
+// Returns an NSMutableArray of TouchPoint objects that are made from the UITouch points in touches.
+// Call this method on the current touches before the set is passed to the interpreter so that the
+// coordinates do not change from the switching of views.
 - (NSMutableArray*)convertToTouchPoints:(NSSet*)touches {
-    NSMutableArray *unsorted = [NSMutableArray arrayWithCapacity:[_curTouches count]];
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:[_curTouches count]];
     for (UITouch* point in touches) {
         TouchPoint *touch = [[TouchPoint alloc] init];
         touch.x = [point locationInView:self.view].x;
         touch.y = [point locationInView:self.view].y;
-        [unsorted addObject:touch];
+        [points addObject:touch];
     }
-    return unsorted;
+    return points;
 }
 
-// Switches the app to the default view controller
+// Switches the app to the default view controller (index 0). 
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
 }
 
-// If the view is in in portrait mode and rotate is on: switch back to default
+// When the user changes the device to a landscape orientation from this view controller, redraw the circles
+// in the view to be their updated position after the rotation. If the user changes the device to portrait,
+// switch to the default view controller.
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
         [self switchToDefaultView:self];
@@ -104,13 +118,14 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time to callibrate
     }
 }
 
-// Announce to the user which view they are in
+// Announce to the user which view they are in and update the touch points on the view.
 - (void)viewWillAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
     [self.inputView redraw];
 }
 
-// Update the text in the text field to contain the label's text
+// Before this view controller is switched, the text field in the default view is updated to contain the text
+// within the label of this view.
 - (void)viewWillDisappear:(BOOL)animated {
     ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
     [defaultView.textField setText:label.text];
@@ -121,10 +136,12 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time to callibrate
     [super viewDidUnload];
 }
 
+// Set the input view to support multiple touch events and to allow user interaction. 
 - (void)viewDidLoad {
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;
-    _touchHandled = YES;
+    self.inputView.isAccessibilityElement = YES;
+    _touchHandled = YES; // Init to YES so the user can calibrate immediately
     _interpreter = [[Interpreter alloc] init];
 }
 

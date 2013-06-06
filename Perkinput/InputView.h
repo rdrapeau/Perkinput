@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface InputView : UIView {
-    NSSet *points;
-    NSSet *calibrationPoints;
+    NSSet *points; // Current fingers on the screen
+    NSSet *calibrationPoints; // Current calibration layout
 }
 
-- (void)setCalibrationPoints:(NSSet*)touches;
-- (void)setPoints:(NSSet*)touches;
-- (void)redraw;
+- (void)setCalibrationPoints:(NSSet*)touches; // Update calibration points
+
+- (void)setPoints:(NSSet*)touches; // Update white circles
+
+- (void)redraw; // Redraw everything on the screen
 
 @end

@@ -10,12 +10,9 @@
 #import "Interpreter.h"
 
 @interface InputViewController : UIViewController {
-    BOOL _touchHandled; // Touch has already been handled
-    NSMutableSet *_curTouches; // Current fingers on the screen
-    NSTimeInterval _touchStart; // Time of the first touch
-    Interpreter *_interpreter;
+    BOOL _touchHandled; // Whether the touch has already been handled or not
+    NSMutableSet *_curTouches; // Current touch events on the screen
+    Interpreter *_interpreter; // Convert the touch to a layout
 }
-
-- (IBAction)switchToDefaultView:(id)sender; // Switches to the default view
 
 @end
