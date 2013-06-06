@@ -43,15 +43,14 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time to callibrate
         _touchHandled = NO;
         _touchStart = [event timestamp];
         _curTouches = touches;
-        
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
-        [self performSelector:@selector(onLongPress) withObject:nil afterDelay:LONG_PRESS_TIMEOUT];
     } else {
         for (UITouch *touch in touches) {
             [_curTouches addObject:touch];
            // NSLog(@"Added touch");
         }
     }
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
+    [self performSelector:@selector(onLongPress) withObject:nil afterDelay:LONG_PRESS_TIMEOUT];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
