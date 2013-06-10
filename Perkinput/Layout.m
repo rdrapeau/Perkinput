@@ -14,7 +14,7 @@
     NSMutableArray *layout;
 }
 
-// Initializes the layout to contain no fingers down with a specified length
+// Initializes the layout to contain the layout with no fingers down initially
 - (id)initWithNumFingers:(int)numFingers {
     self = [super init];
     if(self) {
