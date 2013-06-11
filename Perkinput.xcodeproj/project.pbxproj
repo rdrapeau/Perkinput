@@ -15,19 +15,11 @@
 		6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */; };
 		6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */; };
 		6D772138175D894500972596 /* TouchPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D772137175D894500972596 /* TouchPoint.m */; };
-		6D772161175D96DC00972596 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215A175D96DB00972596 /* Icon-72.png */; };
-		6D772162175D96DC00972596 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215B175D96DB00972596 /* Icon-72@2x.png */; };
-		6D772163175D96DC00972596 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215C175D96DB00972596 /* Icon-Small-50.png */; };
-		6D772164175D96DC00972596 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215D175D96DB00972596 /* Icon-Small.png */; };
-		6D772165175D96DC00972596 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215E175D96DC00972596 /* Icon-Small@2x.png */; };
-		6D772166175D96DC00972596 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D77215F175D96DC00972596 /* Icon.png */; };
-		6D772167175D96DC00972596 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D772160175D96DC00972596 /* Icon@2x.png */; };
 		6D91D3CA171542CE0087EA8B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3C9171542CE0087EA8B /* MessageUI.framework */; };
 		6D91D3CC171548340087EA8B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3CB171548340087EA8B /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6D99787117153D3500633AC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787017153D3500633AC9 /* UIKit.framework */; };
 		6D99787317153D3500633AC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787217153D3500633AC9 /* Foundation.framework */; };
 		6D99787517153D3500633AC9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99787417153D3500633AC9 /* CoreGraphics.framework */; };
-		6D99787B17153D3500633AC9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D99787917153D3500633AC9 /* InfoPlist.strings */; };
 		6D99787D17153D3500633AC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D99787C17153D3500633AC9 /* main.m */; };
 		6D99788117153D3500633AC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D99788017153D3500633AC9 /* AppDelegate.m */; };
 		6D99788317153D3600633AC9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D99788217153D3600633AC9 /* Default.png */; };
@@ -35,6 +27,8 @@
 		6D99788717153D3600633AC9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D99788617153D3600633AC9 /* Default-568h@2x.png */; };
 		6D99788A17153D3600633AC9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D99788817153D3600633AC9 /* MainStoryboard.storyboard */; };
 		6D99788D17153D3600633AC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D99788C17153D3600633AC9 /* ViewController.m */; };
+		6DCA75951766D90500B44525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DCA75931766D90500B44525 /* InfoPlist.strings */; };
+		6DCA76001766EB7F00B44525 /* Perkinput-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DCA75FF1766EB7F00B44525 /* Perkinput-Info.plist */; };
 		6DDACCD1175469A400CE6442 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDACCD0175469A400CE6442 /* InputView.m */; };
 		6DF32E68175C1F9000560E58 /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E67175C1F9000560E58 /* Interpreter.m */; };
 		6DF32E6B175C26A600560E58 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6A175C26A600560E58 /* Input.m */; };
@@ -53,21 +47,12 @@
 		6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBrailleIcon@2x.png"; sourceTree = "<group>"; };
 		6D772136175D894500972596 /* TouchPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPoint.h; sourceTree = "<group>"; };
 		6D772137175D894500972596 /* TouchPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchPoint.m; sourceTree = "<group>"; };
-		6D77215A175D96DB00972596 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Perkinput/Icon-72.png"; sourceTree = SOURCE_ROOT; };
-		6D77215B175D96DB00972596 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Perkinput/Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
-		6D77215C175D96DB00972596 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Perkinput/Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
-		6D77215D175D96DB00972596 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Perkinput/Icon-Small.png"; sourceTree = SOURCE_ROOT; };
-		6D77215E175D96DC00972596 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Perkinput/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
-		6D77215F175D96DC00972596 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Perkinput/Icon.png; sourceTree = SOURCE_ROOT; };
-		6D772160175D96DC00972596 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Perkinput/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		6D91D3C9171542CE0087EA8B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6D91D3CB171548340087EA8B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6D99786D17153D3500633AC9 /* Perkinput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perkinput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D99787017153D3500633AC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6D99787217153D3500633AC9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D99787417153D3500633AC9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6D99787817153D3500633AC9 /* Perkinput-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Perkinput-Info.plist"; sourceTree = "<group>"; };
-		6D99787A17153D3500633AC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D99787C17153D3500633AC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D99787E17153D3500633AC9 /* Perkinput-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Perkinput-Prefix.pch"; sourceTree = "<group>"; };
 		6D99787F17153D3500633AC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +63,8 @@
 		6D99788917153D3600633AC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6D99788B17153D3600633AC9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D99788C17153D3600633AC9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6DCA75931766D90500B44525 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		6DCA75FF1766EB7F00B44525 /* Perkinput-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Perkinput-Info.plist"; sourceTree = "<group>"; };
 		6DDACCCF175469A400CE6442 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
 		6DDACCD0175469A400CE6442 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
 		6DF32E66175C1F9000560E58 /* Interpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpreter.h; sourceTree = "<group>"; };
@@ -105,20 +92,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6D3CBB92173B2CC50036D84B /* Icon */ = {
-			isa = PBXGroup;
-			children = (
-				6D77215A175D96DB00972596 /* Icon-72.png */,
-				6D77215B175D96DB00972596 /* Icon-72@2x.png */,
-				6D77215C175D96DB00972596 /* Icon-Small-50.png */,
-				6D77215D175D96DB00972596 /* Icon-Small.png */,
-				6D77215E175D96DC00972596 /* Icon-Small@2x.png */,
-				6D77215F175D96DC00972596 /* Icon.png */,
-				6D772160175D96DC00972596 /* Icon@2x.png */,
-			);
-			path = Icon;
-			sourceTree = "<group>";
-		};
 		6D772139175D894D00972596 /* Input Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,14 +159,13 @@
 			isa = PBXGroup;
 			children = (
 				6D68630C174C071F00A4F8A0 /* TabBarMailIcon.png */,
+				6DCA75931766D90500B44525 /* InfoPlist.strings */,
+				6DCA75FF1766EB7F00B44525 /* Perkinput-Info.plist */,
 				6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */,
 				6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */,
 				6D68630D174C071F00A4F8A0 /* TabBarMailIcon@2x.png */,
-				6D3CBB92173B2CC50036D84B /* Icon */,
 				6D99787F17153D3500633AC9 /* AppDelegate.h */,
 				6D99788017153D3500633AC9 /* AppDelegate.m */,
-				6D99787817153D3500633AC9 /* Perkinput-Info.plist */,
-				6D99787917153D3500633AC9 /* InfoPlist.strings */,
 				6D99787C17153D3500633AC9 /* main.m */,
 				6D99787E17153D3500633AC9 /* Perkinput-Prefix.pch */,
 				6D99788217153D3600633AC9 /* Default.png */,
@@ -231,6 +203,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "University of Washington";
+				TargetAttributes = {
+					6D99786C17153D3500633AC9 = {
+						DevelopmentTeam = 4Z62KSPZF8;
+					};
+				};
 			};
 			buildConfigurationList = 6D99786817153D3500633AC9 /* Build configuration list for PBXProject "Perkinput" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -254,7 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D99787B17153D3500633AC9 /* InfoPlist.strings in Resources */,
 				6D99788317153D3600633AC9 /* Default.png in Resources */,
 				6D99788517153D3600633AC9 /* Default@2x.png in Resources */,
 				6D99788717153D3600633AC9 /* Default-568h@2x.png in Resources */,
@@ -262,14 +238,9 @@
 				6D68630E174C071F00A4F8A0 /* TabBarMailIcon.png in Resources */,
 				6D68630F174C071F00A4F8A0 /* TabBarMailIcon@2x.png in Resources */,
 				6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */,
+				6DCA75951766D90500B44525 /* InfoPlist.strings in Resources */,
 				6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */,
-				6D772161175D96DC00972596 /* Icon-72.png in Resources */,
-				6D772162175D96DC00972596 /* Icon-72@2x.png in Resources */,
-				6D772163175D96DC00972596 /* Icon-Small-50.png in Resources */,
-				6D772164175D96DC00972596 /* Icon-Small.png in Resources */,
-				6D772165175D96DC00972596 /* Icon-Small@2x.png in Resources */,
-				6D772166175D96DC00972596 /* Icon.png in Resources */,
-				6D772167175D96DC00972596 /* Icon@2x.png in Resources */,
+				6DCA76001766EB7F00B44525 /* Perkinput-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +267,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6D99787917153D3500633AC9 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6D99787A17153D3500633AC9 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		6D99788817153D3600633AC9 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -341,7 +304,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "B360B044-43DC-4D54-872D-725901A15380";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B360B044-43DC-4D54-872D-725901A15380";
@@ -361,14 +324,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Drapeau";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryan Drapeau";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Drapeau (Y2M79ZWA82)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryan Drapeau (Y2M79ZWA82)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "250572E1-46F3-4DD4-B9A7-70A9A9DD83FF";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "250572E1-46F3-4DD4-B9A7-70A9A9DD83FF";
@@ -380,10 +343,11 @@
 		6D99789117153D3600633AC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Perkinput/Perkinput-Prefix.pch";
 				INFOPLIST_FILE = "Perkinput/Perkinput-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -393,10 +357,11 @@
 		6D99789217153D3600633AC9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Perkinput/Perkinput-Prefix.pch";
 				INFOPLIST_FILE = "Perkinput/Perkinput-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

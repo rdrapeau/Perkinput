@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7AB257F3-D045-44A8-8164-AFCE5E1DFD7D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Perkinput</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E7F416CC-9188-41D7-9564-BE5E63711B7A</key>
+		<string>https://github.com/rdrapeau/Perkinput.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Perkinput.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E7F416CC-9188-41D7-9564-BE5E63711B7A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rdrapeau/Perkinput.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E7F416CC-9188-41D7-9564-BE5E63711B7A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E7F416CC-9188-41D7-9564-BE5E63711B7A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Perkinput</string>
+		</dict>
+	</array>
+</dict>
+</plist>

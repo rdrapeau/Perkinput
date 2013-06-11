@@ -18,9 +18,9 @@
 // text message. This view will only load on devices that have the Messages applicication. The
 // user is returned to the Default view when he / she hits the cancel button inside the messages view.
 - (IBAction)sendSMS:(id)sender {
+    NSLog(@"Device not supported");
     MFMessageComposeViewController *textComposer = [[MFMessageComposeViewController alloc] init];
     [textComposer setMessageComposeDelegate:self];
-    
     if ([MFMessageComposeViewController canSendText]) {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Texting View");
         [textComposer setBody:self.textField.text]; // Set message body
@@ -34,6 +34,7 @@
 // This view will only load on devices that have the Email applicication (which should be every device). The
 // user is returned to the Default view when he / she hits the cancel button inside the email view.
 - (IBAction)sendEmail:(id)sender {
+    NSLog(@"Device not supported");
     MFMailComposeViewController *emailComposer = [[MFMailComposeViewController alloc] init];
     [emailComposer setMailComposeDelegate:self];
      

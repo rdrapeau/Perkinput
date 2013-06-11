@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4457.6" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
     </dependencies>
     <scenes>
         <!--View Controller - Default View-->
@@ -9,42 +10,72 @@
             <objects>
                 <viewController storyboardIdentifier="Default View" title="Default View" modalTransitionStyle="crossDissolve" id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3" customClass="DefaultView">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="k2J-zg-o6v">
+                                <rect key="frame" x="20" y="20" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
                                     <action selector="removeKeyboard:" destination="2" eventType="editingDidEndOnExit" id="lhZ-ju-bp5"/>
                                 </connections>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-56-IRx">
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Z8X-Rg-SuH"/>
-                                    <barButtonItem title="Copy" width="96" id="JrZ-Gj-Kta">
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="sendToClipboard:" destination="2" id="6yU-yg-p2p"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sUB-dR-2jQ"/>
-                                    <barButtonItem title="Text Message" width="96" id="11N-dr-iUG">
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="sendSMS:" destination="2" id="zur-5K-2us"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3us-OY-0kI"/>
-                                    <barButtonItem title="Email" width="96" id="3GG-kk-9Cb">
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="sendEmail:" destination="2" id="aUr-du-o4s"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sat-Xj-tWd"/>
-                                </items>
-                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kth-26-2L2">
+                                <rect key="frame" x="124" y="187" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="KfJ-GB-uiC"/>
+                                    <constraint firstAttribute="width" constant="73" id="NiN-ya-aGz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Copy">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendToClipboard:" destination="2" eventType="touchUpInside" id="gLx-pe-ndo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7V-ge-fxR">
+                                <rect key="frame" x="124" y="289" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="WTx-cT-sga"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Email">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendEmail:" destination="2" eventType="touchUpInside" id="5TS-kP-kUb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQg-jy-5H5">
+                                <rect key="frame" x="107" y="238" width="107" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="nBP-SA-T8V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Text Message">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendSMS:" destination="2" eventType="touchUpInside" id="QY3-eb-Hgq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" hint="" label="Default View">
@@ -53,17 +84,22 @@
                         </accessibility>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="YcE-56-IRx" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="6us-FO-sIW"/>
-                            <constraint firstItem="k2J-zg-o6v" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="TgJ-op-lgB"/>
-                            <constraint firstItem="k2J-zg-o6v" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="TzH-kF-pPn"/>
-                            <constraint firstAttribute="trailing" secondItem="k2J-zg-o6v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nn1-M0-Ymg"/>
-                            <constraint firstItem="YcE-56-IRx" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="vi3-mi-meh"/>
-                            <constraint firstItem="YcE-56-IRx" firstAttribute="top" secondItem="3" secondAttribute="top" constant="63" id="vm5-bA-KMq"/>
+                            <constraint firstItem="k2J-zg-o6v" firstAttribute="centerX" secondItem="kth-26-2L2" secondAttribute="centerX" id="4CK-cd-eSL"/>
+                            <constraint firstItem="T7V-ge-fxR" firstAttribute="top" secondItem="kQg-jy-5H5" secondAttribute="bottom" constant="8" symbolic="YES" id="5jN-Bg-xNZ"/>
+                            <constraint firstItem="kQg-jy-5H5" firstAttribute="centerX" secondItem="kth-26-2L2" secondAttribute="centerX" id="6sY-Xf-3tk"/>
+                            <constraint firstItem="k2J-zg-o6v" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="Miz-XV-Gvc"/>
+                            <constraint firstItem="kth-26-2L2" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="QPp-p8-CSg"/>
+                            <constraint firstItem="T7V-ge-fxR" firstAttribute="leading" secondItem="kth-26-2L2" secondAttribute="leading" id="ei5-oj-DRb"/>
+                            <constraint firstItem="kth-26-2L2" firstAttribute="trailing" secondItem="T7V-ge-fxR" secondAttribute="trailing" id="gRS-LJ-umP"/>
+                            <constraint firstItem="kQg-jy-5H5" firstAttribute="top" secondItem="kth-26-2L2" secondAttribute="bottom" constant="8" symbolic="YES" id="tjX-gp-r2s"/>
+                            <constraint firstItem="k2J-zg-o6v" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" id="uFl-NS-WEr"/>
+                            <constraint firstItem="kQg-jy-5H5" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="vBm-BW-dj0"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="zIn-F2-j3P" appends="YES" id="p9y-y2-QI1"/>
                         </connections>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Default" image="TabBarMailIcon.png" id="zn8-lZ-p8Z"/>
                     <connections>
                         <outlet property="textField" destination="k2J-zg-o6v" id="Ak9-UI-AD5"/>
@@ -82,6 +118,7 @@
         <scene sceneID="d9r-hm-YFO">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="n15-OS-npV" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="WZP-Tw-wn4">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -108,13 +145,14 @@
             <objects>
                 <viewController storyboardIdentifier="Input View" title="Input View" modalTransitionStyle="crossDissolve" id="hFg-UO-dMe" customClass="InputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3wg-GK-2qU" customClass="InputView">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Best" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNC-pc-Uvn">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNC-pc-Uvn">
+                                <rect key="frame" x="132" y="465" width="56" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="0Ma-F5-Gwt"/>
-                                    <constraint firstAttribute="height" constant="21" id="srv-zz-yha"/>
+                                    <constraint firstAttribute="width" constant="56" id="82I-m8-4Zc"/>
+                                    <constraint firstAttribute="height" constant="21" id="aWR-2V-XuG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,14 +162,15 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" hint="" label="Input View">
                             <accessibilityTraits key="traits" none="YES"/>
-                            <bool key="isElement" value="NO"/>
+                            <bool key="isElement" value="YES"/>
                         </accessibility>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" type="default" id="2F7-7f-R6d"/>
-                            <constraint firstAttribute="bottom" secondItem="hNC-pc-Uvn" secondAttribute="bottom" constant="14" id="xSX-mk-Z2b"/>
+                            <constraint firstAttribute="bottom" secondItem="hNC-pc-Uvn" secondAttribute="bottom" constant="13" id="mG4-XK-Hy6"/>
+                            <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" id="svM-GG-YLY"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Input" image="TabBarBrailleIcon.png" id="8Ua-Tr-2gN"/>
                     <connections>
                         <outlet property="inputView" destination="3wg-GK-2qU" id="TEa-Y1-XEz"/>
@@ -157,7 +196,6 @@
         <class className="InputViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InputViewController.h"/>
             <relationships>
-                <relationship kind="action" name="switchToDefaultView:"/>
                 <relationship kind="outlet" name="inputView" candidateClass="InputView"/>
                 <relationship kind="outlet" name="label" candidateClass="UILabel"/>
             </relationships>
@@ -180,6 +218,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
