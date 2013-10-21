@@ -1,79 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4457.6" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--View Controller - Default View-->
         <scene sceneID="5">
             <objects>
                 <viewController storyboardIdentifier="Default View" title="Default View" modalTransitionStyle="crossDissolve" id="2" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sx7-ye-jxY"/>
+                        <viewControllerLayoutGuide type="bottom" id="rsx-u7-cQ1"/>
+                    </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3" customClass="DefaultView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="k2J-zg-o6v">
-                                <rect key="frame" x="20" y="20" width="280" height="30"/>
+                                <rect key="frame" x="20" y="30" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rm3-BR-6SQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
                                     <action selector="removeKeyboard:" destination="2" eventType="editingDidEndOnExit" id="lhZ-ju-bp5"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kth-26-2L2">
-                                <rect key="frame" x="124" y="187" width="73" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-F4-amd">
+                                <rect key="frame" x="0.0" y="91" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="KfJ-GB-uiC"/>
-                                    <constraint firstAttribute="width" constant="73" id="NiN-ya-aGz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Copy">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="backgroundColor" red="0.0" green="0.50425197838429625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Copy to Clipboard"/>
                                 <connections>
-                                    <action selector="sendToClipboard:" destination="2" eventType="touchUpInside" id="gLx-pe-ndo"/>
+                                    <action selector="sendToClipboard:" destination="2" eventType="touchUpInside" id="TEj-Kr-JbR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7V-ge-fxR">
-                                <rect key="frame" x="124" y="289" width="73" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uF2-I8-i2f">
+                                <rect key="frame" x="0.0" y="202" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="WTx-cT-sga"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Email">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Text Message"/>
                                 <connections>
-                                    <action selector="sendEmail:" destination="2" eventType="touchUpInside" id="5TS-kP-kUb"/>
+                                    <action selector="sendSMS:" destination="2" eventType="touchUpInside" id="SRJ-kP-DSh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQg-jy-5H5">
-                                <rect key="frame" x="107" y="238" width="107" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf9-o2-cUn">
+                                <rect key="frame" x="0.0" y="318" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="nBP-SA-T8V"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Text Message">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Email"/>
                                 <connections>
-                                    <action selector="sendSMS:" destination="2" eventType="touchUpInside" id="QY3-eb-Hgq"/>
+                                    <action selector="sendEmail:" destination="2" eventType="touchUpInside" id="VNI-Bk-Ta3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -84,23 +66,16 @@
                         </accessibility>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="k2J-zg-o6v" firstAttribute="centerX" secondItem="kth-26-2L2" secondAttribute="centerX" id="4CK-cd-eSL"/>
-                            <constraint firstItem="T7V-ge-fxR" firstAttribute="top" secondItem="kQg-jy-5H5" secondAttribute="bottom" constant="8" symbolic="YES" id="5jN-Bg-xNZ"/>
-                            <constraint firstItem="kQg-jy-5H5" firstAttribute="centerX" secondItem="kth-26-2L2" secondAttribute="centerX" id="6sY-Xf-3tk"/>
-                            <constraint firstItem="k2J-zg-o6v" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="Miz-XV-Gvc"/>
-                            <constraint firstItem="kth-26-2L2" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="QPp-p8-CSg"/>
-                            <constraint firstItem="T7V-ge-fxR" firstAttribute="leading" secondItem="kth-26-2L2" secondAttribute="leading" id="ei5-oj-DRb"/>
-                            <constraint firstItem="kth-26-2L2" firstAttribute="trailing" secondItem="T7V-ge-fxR" secondAttribute="trailing" id="gRS-LJ-umP"/>
-                            <constraint firstItem="kQg-jy-5H5" firstAttribute="top" secondItem="kth-26-2L2" secondAttribute="bottom" constant="8" symbolic="YES" id="tjX-gp-r2s"/>
-                            <constraint firstItem="k2J-zg-o6v" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" id="uFl-NS-WEr"/>
-                            <constraint firstItem="kQg-jy-5H5" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="vBm-BW-dj0"/>
+                            <constraint firstItem="k2J-zg-o6v" firstAttribute="top" secondItem="sx7-ye-jxY" secondAttribute="bottom" constant="10" id="LQv-Ed-0D2"/>
+                            <constraint firstAttribute="trailing" secondItem="k2J-zg-o6v" secondAttribute="trailing" constant="20" symbolic="YES" id="OF8-Nm-8fA"/>
+                            <constraint firstItem="k2J-zg-o6v" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="emh-jz-Edx"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="zIn-F2-j3P" appends="YES" id="p9y-y2-QI1"/>
                         </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Default" image="TabBarMailIcon.png" id="zn8-lZ-p8Z"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="TabBarMailIcon.png" id="zn8-lZ-p8Z"/>
                     <connections>
                         <outlet property="textField" destination="k2J-zg-o6v" id="Ak9-UI-AD5"/>
                     </connections>
@@ -144,16 +119,16 @@
         <scene sceneID="Flp-Iu-JXZ">
             <objects>
                 <viewController storyboardIdentifier="Input View" title="Input View" modalTransitionStyle="crossDissolve" id="hFg-UO-dMe" customClass="InputViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cY3-Fz-969"/>
+                        <viewControllerLayoutGuide type="bottom" id="oox-CA-1rw"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3wg-GK-2qU" customClass="InputView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNC-pc-Uvn">
-                                <rect key="frame" x="132" y="465" width="56" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="82I-m8-4Zc"/>
-                                    <constraint firstAttribute="height" constant="21" id="aWR-2V-XuG"/>
-                                </constraints>
+                                <rect key="frame" x="138" y="384" width="45" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -166,8 +141,8 @@
                         </accessibility>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="hNC-pc-Uvn" secondAttribute="bottom" constant="13" id="mG4-XK-Hy6"/>
-                            <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" id="svM-GG-YLY"/>
+                            <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" id="72O-ru-yu1"/>
+                            <constraint firstAttribute="bottom" secondItem="hNC-pc-Uvn" secondAttribute="bottom" constant="20" symbolic="YES" id="QHn-Vz-d5s"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -186,38 +161,9 @@
         <image name="TabBarBrailleIcon.png" width="30" height="30"/>
         <image name="TabBarMailIcon.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="DefaultView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DefaultView.h"/>
-        </class>
-        <class className="InputView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InputView.h"/>
-        </class>
-        <class className="InputViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InputViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="inputView" candidateClass="InputView"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="removeKeyboard:"/>
-                <relationship kind="action" name="sendEmail:"/>
-                <relationship kind="action" name="sendSMS:"/>
-                <relationship kind="action" name="sendToClipboard:"/>
-                <relationship kind="action" name="switchToInputView:"/>
-                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
