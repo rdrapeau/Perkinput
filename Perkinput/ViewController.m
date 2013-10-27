@@ -54,6 +54,12 @@
     [UIPasteboard generalPasteboard].string = self.textField.text;
 }
 
+// Erases the text in the current text field.
+- (IBAction)clearText:(id)sender {
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Cleared Text Field");
+    self.textField.text = @"";
+}
+
 // Removes the keyboard from the view when the user taps the done button inside the text field. The
 // keyboard is also removed if the user taps anywhere within the view.
 - (IBAction)removeKeyboard:(id)sender {
