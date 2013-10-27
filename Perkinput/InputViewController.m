@@ -79,6 +79,13 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
             _curTouches = touches;
         }
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
+        if (_curString != nil) { // 2nd Touch
+            ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
+            [defaultView.textField setText:[NSString stringWithFormat:@"%@ %@%@", defaultView.textField.text, _curString, input]];
+            _curString = nil;
+        } else { // 1st Touch
+            _curString = input;
+        }
         [label setText:input]; // Update label's text
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
         _touchHandled = YES;
@@ -127,8 +134,7 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
 // Before this view controller is switched, the text field in the default view is updated to contain the text
 // within the label of this view.
 - (void)viewWillDisappear:(BOOL)animated {
-    ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
-    [defaultView.textField setText:label.text];
+
 }
 
 - (void)viewDidUnload {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -33,7 +33,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197838429625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Copy to Clipboard"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Copy to Clipboard" backgroundImage="gradient.png"/>
                                 <connections>
                                     <action selector="sendToClipboard:" destination="2" eventType="touchUpInside" id="TEj-Kr-JbR"/>
                                 </connections>
@@ -43,7 +44,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Text Message"/>
+                                <state key="normal" title="Text Message" backgroundImage="gradient.png"/>
                                 <connections>
                                     <action selector="sendSMS:" destination="2" eventType="touchUpInside" id="SRJ-kP-DSh"/>
                                 </connections>
@@ -53,13 +54,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Email"/>
+                                <state key="normal" title="Email" backgroundImage="gradient.png"/>
                                 <connections>
                                     <action selector="sendEmail:" destination="2" eventType="touchUpInside" id="VNI-Bk-Ta3"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration" hint="" label="Default View">
                             <accessibilityTraits key="traits" none="YES"/>
                             <bool key="isElement" value="NO"/>
@@ -75,7 +76,7 @@
                         </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Review" image="TabBarMailIcon.png" id="zn8-lZ-p8Z"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="paper_airplane.png" id="zn8-lZ-p8Z"/>
                     <connections>
                         <outlet property="textField" destination="k2J-zg-o6v" id="Ak9-UI-AD5"/>
                     </connections>
@@ -127,14 +128,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNC-pc-Uvn">
-                                <rect key="frame" x="138" y="384" width="45" height="27"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Calibrate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNC-pc-Uvn">
+                                <rect key="frame" x="117" y="384" width="87" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration" hint="" label="Input View">
                             <accessibilityTraits key="traits" none="YES"/>
                             <bool key="isElement" value="YES"/>
@@ -159,7 +160,8 @@
     </scenes>
     <resources>
         <image name="TabBarBrailleIcon.png" width="30" height="30"/>
-        <image name="TabBarMailIcon.png" width="30" height="30"/>
+        <image name="gradient.png" width="640" height="144"/>
+        <image name="paper_airplane.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
