@@ -137,6 +137,10 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
 
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidUnload {
     label = nil;
     [super viewDidUnload];
@@ -147,6 +151,7 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;
     self.inputView.isAccessibilityElement = YES;
+    [self setNeedsStatusBarAppearanceUpdate];
     self.inputView.accessibilityTraits = UIAccessibilityTraitAllowsDirectInteraction;
     _touchHandled = YES; // Init to YES so the user can calibrate immediately
     _interpreter = [[Interpreter alloc] init];

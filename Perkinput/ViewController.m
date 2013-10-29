@@ -94,6 +94,14 @@
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
 }
 
+- (void)viewDidLoad {
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidUnload {
     [self setTextField:nil];
     [super viewDidUnload];
