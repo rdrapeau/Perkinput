@@ -18,6 +18,7 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
 
 @interface InputViewController() {
     __weak IBOutlet UILabel *label; // Stores the current text typed on the screen
+    Input *lookup;
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
@@ -81,12 +82,19 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
         if (_curString != nil) { // 2nd Touch
             ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
-            [defaultView.textField setText:[NSString stringWithFormat:@"%@ %@%@", defaultView.textField.text, _curString, input]];
+            _curString = [NSString stringWithFormat:@"%@%@", _curString, input];
+            _curString = [lookup getCharacter:_curString]; // Convert the character
+            if (_curString != nil) {
+                [label setText:_curString]; // Update label's text
+                [defaultView.textField setText:[NSString stringWithFormat:@"%@%@", defaultView.textField.text, _curString]];
+            } else {
+                [label setText:@"Invalid Code"];
+            }
             _curString = nil;
         } else { // 1st Touch
             _curString = input;
         }
-        [label setText:input]; // Update label's text
+
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
         _touchHandled = YES;
     }
@@ -148,6 +156,7 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
 
 // Set the input view to support multiple touch events and to allow user interaction. 
 - (void)viewDidLoad {
+    lookup = [[Input alloc] init];
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;
     self.inputView.isAccessibilityElement = YES;

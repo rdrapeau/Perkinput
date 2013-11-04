@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D00395317168E76005BA56B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D00395217168E76005BA56B /* AVFoundation.framework */; };
+		6D14827A1827615B0068AD14 /* brailleCodes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6D1482791827615B0068AD14 /* brailleCodes.txt */; };
 		6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1F1F55172E36C400EEE86C /* InputViewController.m */; };
 		6D2393AC181C4697004B0BE3 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2393AB181C4697004B0BE3 /* gradient.png */; };
 		6D2EF7931757FB7300BE4C54 /* DefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2EF7921757FB7300BE4C54 /* DefaultView.m */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		6D00395217168E76005BA56B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6D1482791827615B0068AD14 /* brailleCodes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = brailleCodes.txt; sourceTree = "<group>"; };
 		6D1F1F54172E36C400EEE86C /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
 		6D1F1F55172E36C400EEE86C /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		6D2393AB181C4697004B0BE3 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		6D99787717153D3500633AC9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6D1482791827615B0068AD14 /* brailleCodes.txt */,
 				6DEFC986181DC3EA009D00A1 /* paper_airplane.png */,
 				6DEFC987181DC3EA009D00A1 /* paper_airplane@2x.png */,
 				6D2393AB181C4697004B0BE3 /* gradient.png */,
@@ -233,6 +236,7 @@
 				6DEFC988181DC3EA009D00A1 /* paper_airplane.png in Resources */,
 				6D7CA81518179CC800D3BDE1 /* Images.xcassets in Resources */,
 				6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */,
+				6D14827A1827615B0068AD14 /* brailleCodes.txt in Resources */,
 				6DCA75951766D90500B44525 /* InfoPlist.strings in Resources */,
 				6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */,
 				6DCA76001766EB7F00B44525 /* Perkinput-Info.plist in Resources */,

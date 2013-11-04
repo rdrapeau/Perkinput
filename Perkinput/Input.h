@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Input : NSObject
+@interface Input : NSObject {
+
+}
+
+-(NSString*)getCharacter:(NSString*)layout;
 
 @end
