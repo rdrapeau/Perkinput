@@ -36,7 +36,7 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
         [_interpreter interpretLongPress:[self convertToTouchPoints:_curTouches]];
         _touchHandled = YES; // Touch has been handled (Don't interpret twice)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        // TODO: Play Calibration Sound
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Calibrated");
     }
 }
 
@@ -45,6 +45,7 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
 // current fingers on the screen. If there are already fingers down on the screen (touchHandled == true)
 // then add the new touches to the set of fingers on the screen. Always reset the timer if a new touch began.
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+    [label setText:@""];
     if (_touchHandled) { // Previous touch event 
         NSLog(@"Touches began: %d", [touches count]);
         _touchHandled = NO;
@@ -81,21 +82,22 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
         }
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
         if (_curString != nil) { // 2nd Touch
-            ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
             _curString = [NSString stringWithFormat:@"%@%@", _curString, input];
             _curString = [lookup getCharacter:_curString]; // Convert the character
+            
             if (_curString != nil) {
                 [label setText:_curString]; // Update label's text
+                ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
                 [defaultView.textField setText:[NSString stringWithFormat:@"%@%@", defaultView.textField.text, _curString]];
+                UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, _curString);
+                _curString = nil;
             } else {
                 [label setText:@"Invalid Code"];
+                UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
             }
-            _curString = nil;
         } else { // 1st Touch
             _curString = input;
         }
-
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
         _touchHandled = YES;
     }
     NSLog(@"Touch ended: %d touches", [_curTouches count]);
