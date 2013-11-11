@@ -33,6 +33,9 @@
 		6DF32E68175C1F9000560E58 /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E67175C1F9000560E58 /* Interpreter.m */; };
 		6DF32E6B175C26A600560E58 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6A175C26A600560E58 /* Input.m */; };
 		6DF32E6E175C288500560E58 /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6D175C288500560E58 /* Layout.m */; };
+		E38931FD18318F7000CF16EB /* numbers.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38931FC18318F7000CF16EB /* numbers.txt */; };
+		E38931FF1831917B00CF16EB /* modes.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38931FE1831917B00CF16EB /* modes.txt */; };
+		E38932011831992F00CF16EB /* capitals.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38932001831992F00CF16EB /* capitals.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,9 @@
 		6DF32E6A175C26A600560E58 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 		6DF32E6C175C288500560E58 /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
 		6DF32E6D175C288500560E58 /* Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout.m; sourceTree = "<group>"; };
+		E38931FC18318F7000CF16EB /* numbers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = numbers.txt; sourceTree = "<group>"; };
+		E38931FE1831917B00CF16EB /* modes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = modes.txt; sourceTree = "<group>"; };
+		E38932001831992F00CF16EB /* capitals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitals.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				6D1482791827615B0068AD14 /* brailleCodes.txt */,
+				E38931FC18318F7000CF16EB /* numbers.txt */,
+				E38932001831992F00CF16EB /* capitals.txt */,
+				E38931FE1831917B00CF16EB /* modes.txt */,
 				6DEFC986181DC3EA009D00A1 /* paper_airplane.png */,
 				6DEFC987181DC3EA009D00A1 /* paper_airplane@2x.png */,
 				6D2393AB181C4697004B0BE3 /* gradient.png */,
@@ -239,8 +248,11 @@
 				6D14827A1827615B0068AD14 /* brailleCodes.txt in Resources */,
 				6DCA75951766D90500B44525 /* InfoPlist.strings in Resources */,
 				6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */,
+				E38932011831992F00CF16EB /* capitals.txt in Resources */,
+				E38931FD18318F7000CF16EB /* numbers.txt in Resources */,
 				6DCA76001766EB7F00B44525 /* Perkinput-Info.plist in Resources */,
 				6DEFC989181DC3EA009D00A1 /* paper_airplane@2x.png in Resources */,
+				E38931FF1831917B00CF16EB /* modes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

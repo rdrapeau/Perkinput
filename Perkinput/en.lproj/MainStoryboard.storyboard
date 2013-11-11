@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A3017" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -14,13 +14,13 @@
                         <viewControllerLayoutGuide type="bottom" id="rsx-u7-cQ1"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3" customClass="DefaultView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="k2J-zg-o6v">
                                 <rect key="frame" x="20" y="30" width="280" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Rm3-BR-6SQ"/>
+                                    <constraint firstAttribute="height" constant="30" id="Hrr-5P-pdB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -28,42 +28,51 @@
                                     <action selector="removeKeyboard:" destination="2" eventType="editingDidEndOnExit" id="lhZ-ju-bp5"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-F4-amd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-F4-amd">
                                 <rect key="frame" x="0.0" y="75" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197838429625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="62B-14-P4I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Copy to Clipboard" backgroundImage="gradient.png"/>
+                                <state key="normal" title="Copy" backgroundImage="gradient.png"/>
                                 <connections>
                                     <action selector="sendToClipboard:" destination="2" eventType="touchUpInside" id="TEj-Kr-JbR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uF2-I8-i2f">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uF2-I8-i2f">
                                 <rect key="frame" x="0.0" y="165" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="3Bp-sw-Q9h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Text Message" backgroundImage="gradient.png"/>
                                 <connections>
                                     <action selector="sendSMS:" destination="2" eventType="touchUpInside" id="SRJ-kP-DSh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf9-o2-cUn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf9-o2-cUn">
                                 <rect key="frame" x="0.0" y="254" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="hOb-ve-mrb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Email" backgroundImage="gradient.png"/>
                                 <connections>
                                     <action selector="sendEmail:" destination="2" eventType="touchUpInside" id="VNI-Bk-Ta3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2py-3E-h8e">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2py-3E-h8e">
                                 <rect key="frame" x="0.0" y="343" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Clear" backgroundImage="gradient.png"/>
                                 <connections>
                                     <action selector="clearText:" destination="2" eventType="touchUpInside" id="C4c-7T-aNb"/>
@@ -77,9 +86,22 @@
                         </accessibility>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="k2J-zg-o6v" firstAttribute="top" secondItem="sx7-ye-jxY" secondAttribute="bottom" constant="10" id="LQv-Ed-0D2"/>
-                            <constraint firstAttribute="trailing" secondItem="k2J-zg-o6v" secondAttribute="trailing" constant="20" symbolic="YES" id="OF8-Nm-8fA"/>
-                            <constraint firstItem="k2J-zg-o6v" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="emh-jz-Edx"/>
+                            <constraint firstItem="2py-3E-h8e" firstAttribute="leading" secondItem="Bf9-o2-cUn" secondAttribute="leading" id="171-SD-vU1"/>
+                            <constraint firstItem="2py-3E-h8e" firstAttribute="top" secondItem="Bf9-o2-cUn" secondAttribute="bottom" constant="17" id="6cW-CO-MO0"/>
+                            <constraint firstItem="k2J-zg-o6v" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="9Lr-vB-4mp"/>
+                            <constraint firstItem="Bf9-o2-cUn" firstAttribute="trailing" secondItem="2py-3E-h8e" secondAttribute="trailing" id="CNR-2s-KIf"/>
+                            <constraint firstItem="k2J-zg-o6v" firstAttribute="top" secondItem="sx7-ye-jxY" secondAttribute="bottom" constant="10" id="Cit-RO-zXh"/>
+                            <constraint firstItem="k2J-zg-o6v" firstAttribute="centerX" secondItem="Uuh-F4-amd" secondAttribute="centerX" id="EiO-wq-4EL"/>
+                            <constraint firstItem="uF2-I8-i2f" firstAttribute="top" secondItem="Uuh-F4-amd" secondAttribute="bottom" constant="18" id="K71-72-jGo"/>
+                            <constraint firstItem="Bf9-o2-cUn" firstAttribute="leading" secondItem="uF2-I8-i2f" secondAttribute="leading" id="Mh1-qa-D0Q"/>
+                            <constraint firstItem="Uuh-F4-amd" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="Vau-4U-ZiP"/>
+                            <constraint firstItem="Uuh-F4-amd" firstAttribute="leading" secondItem="uF2-I8-i2f" secondAttribute="leading" id="Zd5-en-8CL"/>
+                            <constraint firstAttribute="trailing" secondItem="k2J-zg-o6v" secondAttribute="trailing" constant="20" symbolic="YES" id="cOC-Hv-oVG"/>
+                            <constraint firstItem="rsx-u7-cQ1" firstAttribute="top" secondItem="2py-3E-h8e" secondAttribute="bottom" constant="104" id="hB3-kc-1tX"/>
+                            <constraint firstItem="Uuh-F4-amd" firstAttribute="top" secondItem="k2J-zg-o6v" secondAttribute="bottom" constant="15" id="lDD-DQ-wmD"/>
+                            <constraint firstItem="Uuh-F4-amd" firstAttribute="trailing" secondItem="uF2-I8-i2f" secondAttribute="trailing" id="lsI-LU-G3d"/>
+                            <constraint firstItem="Bf9-o2-cUn" firstAttribute="top" secondItem="uF2-I8-i2f" secondAttribute="bottom" constant="17" id="xTl-Yq-h6G"/>
+                            <constraint firstItem="Bf9-o2-cUn" firstAttribute="trailing" secondItem="uF2-I8-i2f" secondAttribute="trailing" id="zou-mK-69q"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="zIn-F2-j3P" appends="YES" id="p9y-y2-QI1"/>
@@ -135,11 +157,11 @@
                         <viewControllerLayoutGuide type="bottom" id="oox-CA-1rw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3wg-GK-2qU" customClass="InputView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Calibrate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNC-pc-Uvn">
-                                <rect key="frame" x="117" y="384" width="87" height="27"/>
+                                <rect key="frame" x="117" y="20" width="87" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -152,8 +174,8 @@
                         </accessibility>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" id="72O-ru-yu1"/>
-                            <constraint firstAttribute="bottom" secondItem="hNC-pc-Uvn" secondAttribute="bottom" constant="20" symbolic="YES" id="QHn-Vz-d5s"/>
+                            <constraint firstItem="hNC-pc-Uvn" firstAttribute="top" secondItem="3wg-GK-2qU" secondAttribute="top" constant="20" symbolic="YES" id="ETs-4A-lg2"/>
+                            <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" id="dzg-id-ldg"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -176,6 +198,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

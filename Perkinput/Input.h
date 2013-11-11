@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Input : NSObject {
-
+    BOOL isCapital;
+    BOOL isNumber;
+    NSMutableDictionary *lookup;
+    NSMutableDictionary *capitals;
+    NSMutableDictionary *modes;
+    NSMutableDictionary *numbers;
 }
 
 -(NSString*)getCharacter:(NSString*)layout;

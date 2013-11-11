@@ -50,13 +50,13 @@
 // Copies the text within the text field into the clipboard of the device. This text can be pasted
 // anywhere on the device until something else is copied or the device is shut down. 
 - (IBAction)sendToClipboard:(id)sender {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Text Copied");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Copied to Clipboard");
     [UIPasteboard generalPasteboard].string = self.textField.text;
 }
 
 // Erases the text in the current text field.
 - (IBAction)clearText:(id)sender {
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Cleared Text Field");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Cleared Text Field");
     self.textField.text = @"";
 }
 

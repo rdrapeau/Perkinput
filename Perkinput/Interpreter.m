@@ -113,7 +113,7 @@
 
 
 // Returns an array of possible layouts for the number of fingers down and the total number of fingers
-- (NSMutableArray *) generateLayoutsWithFingersTotal:(int)fingersTotal andFingersDown:(int)fingersDown {
+- (NSMutableArray *)generateLayoutsWithFingersTotal:(int)fingersTotal andFingersDown:(int)fingersDown {
     // Base cases
     if (fingersDown == 0) {
         // Return an array with one element, where no fingers are down.

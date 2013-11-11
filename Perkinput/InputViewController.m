@@ -82,19 +82,39 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
         }
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
         if (_curString != nil) { // 2nd Touch
-            _curString = [NSString stringWithFormat:@"%@%@", _curString, input];
-            _curString = [lookup getCharacter:_curString]; // Convert the character
+            input = [NSMutableString stringWithFormat:@"%@%@", _curString, input];
+            _curString = [lookup getCharacter:input]; // Convert the character
             
             if (_curString != nil) {
                 [label setText:_curString]; // Update label's text
-                ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
-                [defaultView.textField setText:[NSString stringWithFormat:@"%@%@", defaultView.textField.text, _curString]];
-                UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, _curString);
+                if ([_curString isEqualToString:@" "]) {
+                    [label setText:@"SPACE"];
+                }
+                if (![_curString isEqualToString:@"CAPITAL"] && ![_curString isEqualToString:@"NUMBER"]) {
+                    ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
+                    if ([_curString isEqualToString:@"BACKSPACE"]) {
+                        _curString = defaultView.textField.text;
+                        if (_curString.length > 0) {
+                            [defaultView.textField setText:[NSString stringWithFormat:@"%@", [_curString substringToIndex:_curString.length - 1]]];
+                        }
+                    } else {
+                        NSString *previous = [NSString stringWithFormat:@"%c", [defaultView.textField.text characterAtIndex:defaultView.textField.text.length - 1]];
+                        if ([input isEqualToString:@"01100010"] && previous.length > 0 && ![previous isEqualToString:@" "]) {
+                            _curString = @"?";
+                            [label setText:@"?"];
+                        }
+                        if ([input isEqualToString:@"01100110"] && previous.length > 0 && ![previous isEqualToString:@" "]) {
+                            _curString = @")";
+                            [label setText:@")"];
+                        }
+                        [defaultView.textField setText:[NSString stringWithFormat:@"%@%@", defaultView.textField.text, _curString]];
+                    }
+                }
                 _curString = nil;
             } else {
                 [label setText:@"Invalid Code"];
-                UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
             }
+            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
         } else { // 1st Touch
             _curString = input;
         }
