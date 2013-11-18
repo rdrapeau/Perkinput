@@ -13,7 +13,7 @@
 #import "Interpreter.h"
 #import "TouchPoint.h"
 
-static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
+static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface InputViewController() {
@@ -92,6 +92,7 @@ static const double LONG_PRESS_TIMEOUT = 1.0; // Time needed to calibrate
                 }
                 if (![_curString isEqualToString:@"CAPITAL"] && ![_curString isEqualToString:@"NUMBER"]) {
                     ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
+     
                     if ([_curString isEqualToString:@"BACKSPACE"]) {
                         _curString = defaultView.textField.text;
                         if (_curString.length > 0) {
