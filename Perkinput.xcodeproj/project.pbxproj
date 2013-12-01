@@ -26,7 +26,6 @@
 		6D99788A17153D3600633AC9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D99788817153D3600633AC9 /* MainStoryboard.storyboard */; };
 		6D99788D17153D3600633AC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D99788C17153D3600633AC9 /* ViewController.m */; };
 		6DCA75951766D90500B44525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DCA75931766D90500B44525 /* InfoPlist.strings */; };
-		6DCA76001766EB7F00B44525 /* Perkinput-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DCA75FF1766EB7F00B44525 /* Perkinput-Info.plist */; };
 		6DDACCD1175469A400CE6442 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDACCD0175469A400CE6442 /* InputView.m */; };
 		6DEFC988181DC3EA009D00A1 /* paper_airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DEFC986181DC3EA009D00A1 /* paper_airplane.png */; };
 		6DEFC989181DC3EA009D00A1 /* paper_airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DEFC987181DC3EA009D00A1 /* paper_airplane@2x.png */; };
@@ -210,11 +209,11 @@
 		6D99786517153D3500633AC9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "University of Washington";
 				TargetAttributes = {
 					6D99786C17153D3500633AC9 = {
-						DevelopmentTeam = 4Z62KSPZF8;
+						DevelopmentTeam = 6F3U4HX6V7;
 					};
 				};
 			};
@@ -250,7 +249,6 @@
 				6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */,
 				E38932011831992F00CF16EB /* capitals.txt in Resources */,
 				E38931FD18318F7000CF16EB /* numbers.txt in Resources */,
-				6DCA76001766EB7F00B44525 /* Perkinput-Info.plist in Resources */,
 				6DEFC989181DC3EA009D00A1 /* paper_airplane@2x.png in Resources */,
 				E38931FF1831917B00CF16EB /* modes.txt in Resources */,
 			);
@@ -358,13 +356,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Accessibility (6F3U4HX6V7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Perkinput/Perkinput-Prefix.pch";
 				INFOPLIST_FILE = "Perkinput/Perkinput-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4812A38A-43DF-4F74-8E25-9AF3B9A780B7";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -376,13 +374,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Accessibility (6F3U4HX6V7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Perkinput/Perkinput-Prefix.pch";
 				INFOPLIST_FILE = "Perkinput/Perkinput-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4812A38A-43DF-4F74-8E25-9AF3B9A780B7";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

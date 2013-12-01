@@ -96,6 +96,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
                     if ([_curString isEqualToString:@"BACKSPACE"]) {
                         _curString = defaultView.textField.text;
                         if (_curString.length > 0) {
+                            [label setText:[NSString stringWithFormat:@"Deleted %c", [_curString characterAtIndex:_curString.length - 1]]];
                             [defaultView.textField setText:[NSString stringWithFormat:@"%@", [_curString substringToIndex:_curString.length - 1]]];
                         }
                     } else {

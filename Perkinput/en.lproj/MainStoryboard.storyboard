@@ -74,6 +74,13 @@
                                     <action selector="clearText:" destination="2" eventType="touchUpInside" id="dez-BB-oxk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rotate the device into landscape and calibrate before entering one column at a time." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Ylg-qD-bH8">
+                                <rect key="frame" x="20" y="279" width="280" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration" hint="" label="Default View">
@@ -124,7 +131,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5721" y="-215"/>
+            <point key="canvasLocation" x="-5831" y="-186"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="d9r-hm-YFO">
@@ -191,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fG-ht-RP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5691" y="239"/>
+            <point key="canvasLocation" x="-5721" y="238"/>
         </scene>
     </scenes>
     <resources>
