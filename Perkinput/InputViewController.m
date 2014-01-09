@@ -31,9 +31,10 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // The screen is calibrated with the current touch events if and only if there are 4 fingers down.
 - (void)onLongPress {
     if ([_curTouches count] == TOTAL_FINGERS) {
-         //NSLog(@"Long Press");
+         NSLog(@"Long Press");
         [self.inputView setCalibrationPoints:_curTouches]; // Draw the calibration points
         [_interpreter interpretLongPress:[self convertToTouchPoints:_curTouches]];
+        _curString = nil; // Erase the current touch
         _touchHandled = YES; // Touch has been handled (Don't interpret twice)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Calibrated");

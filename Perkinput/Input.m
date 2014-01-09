@@ -25,7 +25,8 @@
         [self readInput:@"capitals" withDictionary:capitals];
     }
     NSString *result = nil;
-    if ([modes valueForKey:layout]) {
+    int oneCount = [[layout componentsSeparatedByString:@"1"] count] - 1;
+    if ([modes valueForKey:layout] || oneCount == 6) {
         NSString *mode = [modes valueForKey:layout];
         if ([mode isEqualToString:@"CAPITAL"]) { // Capital Mode
             isCapital = !isCapital;
@@ -35,7 +36,7 @@
             isNumber = !isNumber;
             isCapital = NO;
             return @"NUMBER";
-        } else if ([mode isEqualToString:@"BACKSPACE"]) {
+        } else if (oneCount == 6 || [mode isEqualToString:@"BACKSPACE"]) {
             isCapital = NO;
             isNumber = NO;
             return @"BACKSPACE";
