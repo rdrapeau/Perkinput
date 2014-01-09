@@ -85,7 +85,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
         if (_curString != nil) { // 2nd Touch
             input = [NSMutableString stringWithFormat:@"%@%@", _curString, input];
             _curString = [lookup getCharacter:input]; // Convert the character
-            
+    
             if (_curString != nil) {
                 [label setText:_curString]; // Update label's text
                 if ([_curString isEqualToString:@" "]) {
@@ -97,7 +97,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
                     if ([_curString isEqualToString:@"BACKSPACE"]) {
                         _curString = defaultView.textField.text;
                         if (_curString.length > 0) {
-                            [label setText:[NSString stringWithFormat:@"Deleted %c", [_curString characterAtIndex:_curString.length - 1]]];
+                            [label setText:[NSString stringWithFormat:@"Deleted %@", [self getWordForPunctuation:[_curString characterAtIndex:_curString.length - 1]]]];
                             [defaultView.textField setText:[NSString stringWithFormat:@"%@", [_curString substringToIndex:_curString.length - 1]]];
                         }
                     } else {
@@ -125,6 +125,33 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     }
     NSLog(@"Touch ended: %d touches", [_curTouches count]);
     [self.inputView setPoints:_curTouches];
+}
+
+- (NSString*)getWordForPunctuation:(char)deleted {
+    if (deleted == ' ') {
+        return @"Space";
+    } else if (deleted == ',') {
+        return @"Comma";
+    } else if (deleted == ';') {
+        return @"Semicolon";
+    } else if (deleted == '\'') {
+        return @"Apostrophe";
+    } else if (deleted == ':') {
+        return @"Colon";
+    } else if (deleted == '-') {
+        return @"Hyphen";
+    } else if (deleted == '.') {
+        return @"Period";
+    } else if (deleted == '!') {
+        return @"Exclamation Point";
+    } else if (deleted == '\"') {
+        return @"Quotation Mark";
+    } else if (deleted == ')') {
+        return @"Right Paren";
+    } else if (deleted == '(') {
+        return @"Left Paren";
+    }
+    return [NSString stringWithFormat:@"%c", deleted];
 }
 
 // Returns an NSMutableArray of TouchPoint objects that are made from the UITouch points in touches.
