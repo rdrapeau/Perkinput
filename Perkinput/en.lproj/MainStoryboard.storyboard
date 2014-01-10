@@ -188,6 +188,9 @@
                             <constraint firstItem="hNC-pc-Uvn" firstAttribute="top" secondItem="3wg-GK-2qU" secondAttribute="top" constant="20" symbolic="YES" id="ETs-4A-lg2"/>
                             <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" id="dzg-id-ldg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uge-wA-8qI" appends="YES" id="icr-7p-3yK"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Input" image="TabBarBrailleIcon.png" id="8Ua-Tr-2gN"/>
@@ -197,6 +200,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fG-ht-RP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer delaysTouchesBegan="YES" direction="right" numberOfTouchesRequired="3" id="uge-wA-8qI">
+                    <connections>
+                        <action selector="swipeGesture:" destination="hFg-UO-dMe" id="yZr-QV-JtU"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-5721" y="238"/>
         </scene>

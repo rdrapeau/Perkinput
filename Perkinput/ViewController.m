@@ -92,6 +92,13 @@
 // Announce to the user which view they are in
 - (void)viewWillAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
+    [self.tabBarController.tabBar setHidden:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        [self.tabBarController.tabBar setHidden:YES];
+    }
 }
 
 - (void)viewDidLoad {

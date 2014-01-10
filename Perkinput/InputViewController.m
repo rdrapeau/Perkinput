@@ -168,6 +168,12 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     return points;
 }
 
+- (IBAction)swipeGesture:(id)sender {
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        [self switchToDefaultView:nil];
+    }
+}
+
 // Switches the app to the default view controller (index 0). 
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
@@ -181,6 +187,10 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
         [self switchToDefaultView:self];
     } else {
+        _curTouches = nil;
+        _curString = nil;
+        _touchHandled = YES;
+        [self.tabBarController.tabBar setHidden:NO];
         [self.inputView redraw];
     }
 }
@@ -188,13 +198,19 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // Announce to the user which view they are in and update the touch points on the view.
 - (void)viewWillAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        [self.tabBarController.tabBar setHidden:YES];
+        self.inputView.frame = [UIScreen mainScreen].bounds;
+    } else {
+        [self.tabBarController.tabBar setHidden:NO];
+    }
     [self.inputView redraw];
 }
 
 // Before this view controller is switched, the text field in the default view is updated to contain the text
 // within the label of this view.
 - (void)viewWillDisappear:(BOOL)animated {
-
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
