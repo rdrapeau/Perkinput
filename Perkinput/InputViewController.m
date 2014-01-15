@@ -127,6 +127,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     [self.inputView setPoints:_curTouches];
 }
 
+// Returns the word form of the punctuation
 - (NSString*)getWordForPunctuation:(char)deleted {
     if (deleted == ' ') {
         return @"Space";
@@ -168,8 +169,9 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     return points;
 }
 
+// Switches back to the default view if the current view is portrait
 - (IBAction)swipeGesture:(id)sender {
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+    if (!UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         [self switchToDefaultView:nil];
     }
 }
@@ -184,7 +186,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // in the view to be their updated position after the rotation. If the user changes the device to portrait,
 // switch to the default view controller.
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+    if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
         [self switchToDefaultView:self];
     } else {
         _curTouches = nil;
@@ -198,7 +200,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // Announce to the user which view they are in and update the touch points on the view.
 - (void)viewWillAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+    if (!UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         [self.tabBarController.tabBar setHidden:YES];
         self.inputView.frame = [UIScreen mainScreen].bounds;
     } else {

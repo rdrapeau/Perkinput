@@ -21,9 +21,10 @@
     NSLog(@"Device not supported");
     MFMessageComposeViewController *textComposer = [[MFMessageComposeViewController alloc] init];
     [textComposer setMessageComposeDelegate:self];
+    
     if ([MFMessageComposeViewController canSendText]) {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Texting View");
-        [textComposer setBody:self.textField.text]; // Set message body
+        [textComposer setBody:self.textField.text];
         [self presentViewController:textComposer animated:YES completion:NULL];
     } else { // Device cannot send text messages
         NSLog(@"Device not supported");
@@ -40,7 +41,7 @@
      
     if ([MFMailComposeViewController canSendMail]) {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Mail View");
-        [emailComposer setMessageBody:self.textField.text isHTML:NO]; // Set body of email 
+        [emailComposer setMessageBody:self.textField.text isHTML:NO];
         [self presentViewController:emailComposer animated:YES completion:NULL];
     } else { // Device cannot send email messages
         NSLog(@"Device not supported");
@@ -84,7 +85,7 @@
 
 // When the user changes the device to a landscape orientation the view controller is switched the input view.
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         [self switchToInputView:self];
     }
 }
@@ -95,8 +96,9 @@
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+// If the view is in portrait then hide the tab bar
 - (void)viewWillDisappear:(BOOL)animated {
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+    if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
         [self.tabBarController.tabBar setHidden:YES];
     }
 }
