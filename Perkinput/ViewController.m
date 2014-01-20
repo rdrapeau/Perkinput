@@ -26,8 +26,6 @@
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Texting View");
         [textComposer setBody:self.textField.text];
         [self presentViewController:textComposer animated:YES completion:NULL];
-    } else { // Device cannot send text messages
-        NSLog(@"Device not supported");
     }
 }
 
@@ -43,8 +41,6 @@
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Mail View");
         [emailComposer setMessageBody:self.textField.text isHTML:NO];
         [self presentViewController:emailComposer animated:YES completion:NULL];
-    } else { // Device cannot send email messages
-        NSLog(@"Device not supported");
     }
 }
 
@@ -59,6 +55,10 @@
 - (IBAction)clearText:(id)sender {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Cleared Text Field");
     self.textField.text = @"";
+}
+
+- (IBAction)switchToTutorial:(id)sender {
+    self.tabBarController.selectedIndex = 2;
 }
 
 // Removes the keyboard from the view when the user taps the done button inside the text field. The
@@ -92,18 +92,20 @@
 
 // Announce to the user which view they are in
 - (void)viewWillAppear:(BOOL)animated {
+    [self.tabBarController.tabBar setHidden:YES];
+    self.inputView.frame = [UIScreen mainScreen].bounds;
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
-    [self.tabBarController.tabBar setHidden:NO];
 }
 
 // If the view is in portrait then hide the tab bar
 - (void)viewWillDisappear:(BOOL)animated {
-    if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
-        [self.tabBarController.tabBar setHidden:YES];
-    }
+
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.tabBarController.tabBar setHidden:YES];
+    self.inputView.frame = [UIScreen mainScreen].bounds;
     [self setNeedsStatusBarAppearanceUpdate];
 }
 

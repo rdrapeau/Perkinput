@@ -22,8 +22,27 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
-
 @end
+
+static NSString const *review = @"Default View";
+static NSString const *input = @"Input View";
+
+static NSString const *calibrate = @"Calibrated";
+static NSString const *space = @"SPACE";
+static NSString const *comma = @"Comma";
+static NSString const *semicolon = @"Semicolon";
+static NSString const *apostrophe = @"Apostrophe";
+static NSString const *colon = @"Colon";
+static NSString const *hyphen = @"Hyphen";
+static NSString const *period = @"Period";
+static NSString const *exclamationMark = @"Exclamation Mark";
+static NSString const *quotationMark = @"Quotation Mark";
+static NSString const *rightParen = @"Right Paren";
+static NSString const *leftParen = @"Left Paren";
+static NSString const *capital = @"CAPITAL";
+static NSString const *number = @"NUMBER";
+static NSString const *backspace = @"BACKSPACE";
+static NSString const *error = @"Invalid Code";
 
 @implementation InputViewController
 
@@ -37,7 +56,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
         _curString = nil; // Erase the current touch
         _touchHandled = YES; // Touch has been handled (Don't interpret twice)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Calibrated");
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, calibrate);
     }
 }
 
@@ -89,12 +108,12 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
             if (_curString != nil) {
                 [label setText:_curString]; // Update label's text
                 if ([_curString isEqualToString:@" "]) {
-                    [label setText:@"SPACE"];
+                    [label setText:space];
                 }
-                if (![_curString isEqualToString:@"CAPITAL"] && ![_curString isEqualToString:@"NUMBER"]) {
+                if (![_curString isEqualToString:capital] && ![_curString isEqualToString:number]) {
                     ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
      
-                    if ([_curString isEqualToString:@"BACKSPACE"]) {
+                    if ([_curString isEqualToString:backspace]) {
                         _curString = defaultView.textField.text;
                         if (_curString.length > 0) {
                             [label setText:[NSString stringWithFormat:@"Deleted %@", [self getWordForPunctuation:[_curString characterAtIndex:_curString.length - 1]]]];
@@ -115,7 +134,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
                 }
                 _curString = nil;
             } else {
-                [label setText:@"Invalid Code"];
+                [label setText:error];
             }
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
         } else { // 1st Touch
@@ -130,27 +149,27 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // Returns the word form of the punctuation
 - (NSString*)getWordForPunctuation:(char)deleted {
     if (deleted == ' ') {
-        return @"Space";
+        return space;
     } else if (deleted == ',') {
-        return @"Comma";
+        return comma;
     } else if (deleted == ';') {
-        return @"Semicolon";
+        return semicolon;
     } else if (deleted == '\'') {
-        return @"Apostrophe";
+        return apostrophe;
     } else if (deleted == ':') {
-        return @"Colon";
+        return colon;
     } else if (deleted == '-') {
-        return @"Hyphen";
+        return hyphen;
     } else if (deleted == '.') {
-        return @"Period";
+        return period;
     } else if (deleted == '!') {
-        return @"Exclamation Point";
+        return exclamationMark;
     } else if (deleted == '\"') {
-        return @"Quotation Mark";
+        return quotationMark;
     } else if (deleted == ')') {
-        return @"Right Paren";
+        return rightParen;
     } else if (deleted == '(') {
-        return @"Left Paren";
+        return leftParen;
     }
     return [NSString stringWithFormat:@"%c", deleted];
 }
@@ -171,15 +190,13 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 
 // Switches back to the default view if the current view is portrait
 - (IBAction)swipeGesture:(id)sender {
-    if (!UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
-        [self switchToDefaultView:nil];
-    }
+    [self switchToDefaultView:self];
 }
 
 // Switches the app to the default view controller (index 0). 
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, review);
 }
 
 // When the user changes the device to a landscape orientation from this view controller, redraw the circles
@@ -188,31 +205,23 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
         [self switchToDefaultView:self];
-    } else {
-        _curTouches = nil;
-        _curString = nil;
-        _touchHandled = YES;
-        [self.tabBarController.tabBar setHidden:NO];
-        [self.inputView redraw];
     }
 }
 
 // Announce to the user which view they are in and update the touch points on the view.
 - (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
-    if (!UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
-        [self.tabBarController.tabBar setHidden:YES];
-        self.inputView.frame = [UIScreen mainScreen].bounds;
-    } else {
-        [self.tabBarController.tabBar setHidden:NO];
-    }
-    [self.inputView redraw];
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
+    _curString = nil;
+    [label setText:@"Calibrate"];
+    [self.inputView clearScreen];
+    [_interpreter clearCalibration];
 }
 
 // Before this view controller is switched, the text field in the default view is updated to contain the text
 // within the label of this view.
 - (void)viewWillDisappear:(BOOL)animated {
-    [self.tabBarController.tabBar setHidden:NO];
+    [self.inputView clearScreen];
+    [_interpreter clearCalibration];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -226,6 +235,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 
 // Set the input view to support multiple touch events and to allow user interaction. 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     lookup = [[Input alloc] init];
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;

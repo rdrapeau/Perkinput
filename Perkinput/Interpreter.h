@@ -21,6 +21,8 @@
 
 - (void)interpretLongPress:(NSMutableArray*)touches; // Calibration Touch
 
-- (NSMutableString*)interpretShortPress:(NSMutableArray*)touches; // Short Press 
+- (NSMutableString*)interpretShortPress:(NSMutableArray*)touches; // Short Press
+
+- (void)clearCalibration;
 
 @end

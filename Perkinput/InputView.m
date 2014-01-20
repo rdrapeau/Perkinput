@@ -30,23 +30,32 @@ static const double CAL_DIAMETER = 85; // Calibration Circle Diameter
     [self setNeedsDisplay];
 }
 
+// Clears the screen of any points
+- (void)clearScreen {
+    calibrationPoints = nil;
+    points = nil;
+    [self setNeedsDisplay];
+}
+
 // Draws all of the touch points and calibration points on the screen.
 - (void)drawRect:(CGRect)rect {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(ctx, 2.0);
     
-    for (UITouch* point in calibrationPoints) { // Update calibration circles
-        CGContextSetRGBFillColor(ctx, 0.5, 0.5, 1.0, 0.5);
-        CGContextSetRGBStrokeColor(ctx, 0, 0, 1.0, 1.0);
-        CGRect circlePoint = CGRectMake([point locationInView:self].x - CAL_DIAMETER / 2, [point locationInView:self].y - CAL_DIAMETER / 2, CAL_DIAMETER, CAL_DIAMETER);
-        CGContextFillEllipseInRect(ctx, circlePoint);
-    }
-    
-    for (UITouch* point in points) { // Update touch point circles
-        CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
-        CGContextSetRGBStrokeColor(ctx, 0, 0, 1.0, 1.0);
-        CGRect circlePoint = CGRectMake([point locationInView:self].x - DIAMETER / 2, [point locationInView:self].y - DIAMETER / 2, DIAMETER, DIAMETER);
-        CGContextFillEllipseInRect(ctx, circlePoint);
+    if (calibrationPoints != nil && points != nil) {
+        for (UITouch* point in calibrationPoints) { // Update calibration circles
+            CGContextSetRGBFillColor(ctx, 0.5, 0.5, 1.0, 0.5);
+            CGContextSetRGBStrokeColor(ctx, 0, 0, 1.0, 1.0);
+            CGRect circlePoint = CGRectMake([point locationInView:self].x - CAL_DIAMETER / 2, [point locationInView:self].y - CAL_DIAMETER / 2, CAL_DIAMETER, CAL_DIAMETER);
+            CGContextFillEllipseInRect(ctx, circlePoint);
+        }
+        
+        for (UITouch* point in points) { // Update touch point circles
+            CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
+            CGContextSetRGBStrokeColor(ctx, 0, 0, 1.0, 1.0);
+            CGRect circlePoint = CGRectMake([point locationInView:self].x - DIAMETER / 2, [point locationInView:self].y - DIAMETER / 2, DIAMETER, DIAMETER);
+            CGContextFillEllipseInRect(ctx, circlePoint);
+        }
     }
 }
 
