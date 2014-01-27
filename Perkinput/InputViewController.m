@@ -127,6 +127,11 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     [self.inputView setPoints:_curTouches];
 }
 
+// Three Finger Swipe
+- (IBAction)fingerSwipe:(id)sender {
+    [self switchToDefaultView:self];
+}
+
 // Returns the word for the given character / punctuation
 - (NSString*)getWordForPunctuation:(char)deleted {
     if (deleted == ' ') {
@@ -182,19 +187,22 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
         [self switchToDefaultView:self];
     } else {
-        _curString = nil;
-        _touchHandled = YES;
-        [self.inputView reset];
-        [self.inputView redraw];
+        [self setUp];
     }
 }
 
 // Announce to the user which view they are in and update the touch points on the view.
 - (void)viewWillAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
+    [self setUp];
+}
+
+// Resets the View
+- (void)setUp {
     _curString = nil;
     _touchHandled = YES;
     _interpreter = [[Interpreter alloc] init];
+    [label setText:@""];
     [self.inputView reset];
     [self.inputView redraw];
 }
@@ -222,8 +230,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     self.inputView.isAccessibilityElement = YES;
     [self setNeedsStatusBarAppearanceUpdate];
     self.inputView.accessibilityTraits = UIAccessibilityTraitAllowsDirectInteraction;
-    _touchHandled = YES; // Init to YES so the user can calibrate immediately
-    _interpreter = [[Interpreter alloc] init];
+    [self setUp];
 }
 
 @end

@@ -19,13 +19,10 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+// This custom view behaves like a button so the user can touch and interact
+// with the screen even if VoiceOver is turned on.
+- (UIAccessibilityTraits)accessibilityTraits {
+    return UIAccessibilityTraitAllowsDirectInteraction;
 }
-*/
 
 @end

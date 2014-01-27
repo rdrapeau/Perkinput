@@ -116,6 +116,9 @@
                             <constraint firstItem="C7m-sa-Bfz" firstAttribute="height" secondItem="27G-ku-NaC" secondAttribute="height" id="lW6-eX-ZFo"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PlE-in-lEV" appends="YES" id="2fW-eP-okT"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Review" image="paper_airplane.png" id="zn8-lZ-p8Z"/>
@@ -125,11 +128,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="zIn-F2-j3P">
+                <swipeGestureRecognizer direction="left" numberOfTouchesRequired="3" id="PlE-in-lEV">
                     <connections>
-                        <action selector="removeKeyboard:" destination="2" id="ld4-Z3-ECN"/>
+                        <action selector="fingerSwipe:" destination="2" id="Beh-Ix-I3P"/>
                     </connections>
-                </tapGestureRecognizer>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-5831" y="-186"/>
         </scene>
@@ -188,6 +191,9 @@
                             <constraint firstItem="hNC-pc-Uvn" firstAttribute="top" secondItem="3wg-GK-2qU" secondAttribute="top" constant="20" symbolic="YES" id="ETs-4A-lg2"/>
                             <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" id="dzg-id-ldg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="MyJ-I5-nWd" appends="YES" id="vOb-Y6-omA"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Input" image="TabBarBrailleIcon.png" id="8Ua-Tr-2gN"/>
@@ -197,6 +203,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fG-ht-RP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" numberOfTouchesRequired="3" id="MyJ-I5-nWd">
+                    <connections>
+                        <action selector="fingerSwipe:" destination="hFg-UO-dMe" id="CHt-Vo-Dgs"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-5721" y="238"/>
         </scene>

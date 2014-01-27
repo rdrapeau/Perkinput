@@ -55,6 +55,11 @@
     self.textField.text = @"";
 }
 
+- (IBAction)fingerSwipe:(id)sender {
+    NSLog(@"Swipe");
+    [self switchToInputView:self];
+}
+
 // Removes the keyboard from the view when the user taps the done button inside the text field. The
 // keyboard is also removed if the user taps anywhere within the view.
 - (IBAction)removeKeyboard:(id)sender {
@@ -91,6 +96,9 @@
 
 - (void)viewDidLoad {
     [self setNeedsStatusBarAppearanceUpdate];
+    self.view.multipleTouchEnabled = YES;
+    self.view.userInteractionEnabled = YES;
+    self.view.isAccessibilityElement = YES;
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -98,7 +106,6 @@
 }
 
 - (void)viewDidUnload {
-    [self setTextField:nil];
     [super viewDidUnload];
 }
 
