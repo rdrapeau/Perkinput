@@ -182,6 +182,9 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
         [self switchToDefaultView:self];
     } else {
+        _curString = nil;
+        _touchHandled = YES;
+        [self.inputView reset];
         [self.inputView redraw];
     }
 }
@@ -189,6 +192,10 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // Announce to the user which view they are in and update the touch points on the view.
 - (void)viewWillAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
+    _curString = nil;
+    _touchHandled = YES;
+    _interpreter = [[Interpreter alloc] init];
+    [self.inputView reset];
     [self.inputView redraw];
 }
 

@@ -19,4 +19,6 @@
 
 - (void)redraw; // Redraw everything on the screen
 
+- (void)reset; // Resets the points on the screen
+
 @end
