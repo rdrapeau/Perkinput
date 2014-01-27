@@ -21,12 +21,10 @@
     NSLog(@"Device not supported");
     MFMessageComposeViewController *textComposer = [[MFMessageComposeViewController alloc] init];
     [textComposer setMessageComposeDelegate:self];
+    
     if ([MFMessageComposeViewController canSendText]) {
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Texting View");
         [textComposer setBody:self.textField.text]; // Set message body
         [self presentViewController:textComposer animated:YES completion:NULL];
-    } else { // Device cannot send text messages
-        NSLog(@"Device not supported");
     }
 }
 
@@ -39,11 +37,8 @@
     [emailComposer setMailComposeDelegate:self];
      
     if ([MFMailComposeViewController canSendMail]) {
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Mail View");
         [emailComposer setMessageBody:self.textField.text isHTML:NO]; // Set body of email 
         [self presentViewController:emailComposer animated:YES completion:NULL];
-    } else { // Device cannot send email messages
-        NSLog(@"Device not supported");
     }
 }
 
@@ -84,7 +79,7 @@
 
 // When the user changes the device to a landscape orientation the view controller is switched the input view.
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         [self switchToInputView:self];
     }
 }
