@@ -12,8 +12,6 @@
 		6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1F1F55172E36C400EEE86C /* InputViewController.m */; };
 		6D2393AC181C4697004B0BE3 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2393AB181C4697004B0BE3 /* gradient.png */; };
 		6D2EF7931757FB7300BE4C54 /* DefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2EF7921757FB7300BE4C54 /* DefaultView.m */; };
-		6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */; };
-		6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */; };
 		6D772138175D894500972596 /* TouchPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D772137175D894500972596 /* TouchPoint.m */; };
 		6D7CA81518179CC800D3BDE1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CA81418179CC800D3BDE1 /* Images.xcassets */; };
 		6D91D3CA171542CE0087EA8B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D91D3C9171542CE0087EA8B /* MessageUI.framework */; };
@@ -27,8 +25,6 @@
 		6D99788D17153D3600633AC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D99788C17153D3600633AC9 /* ViewController.m */; };
 		6DCA75951766D90500B44525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DCA75931766D90500B44525 /* InfoPlist.strings */; };
 		6DDACCD1175469A400CE6442 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDACCD0175469A400CE6442 /* InputView.m */; };
-		6DEFC988181DC3EA009D00A1 /* paper_airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DEFC986181DC3EA009D00A1 /* paper_airplane.png */; };
-		6DEFC989181DC3EA009D00A1 /* paper_airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DEFC987181DC3EA009D00A1 /* paper_airplane@2x.png */; };
 		6DF32E68175C1F9000560E58 /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E67175C1F9000560E58 /* Interpreter.m */; };
 		6DF32E6B175C26A600560E58 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6A175C26A600560E58 /* Input.m */; };
 		6DF32E6E175C288500560E58 /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6D175C288500560E58 /* Layout.m */; };
@@ -46,8 +42,6 @@
 		6D2393AB181C4697004B0BE3 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
 		6D2EF7911757FB7300BE4C54 /* DefaultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultView.h; sourceTree = "<group>"; };
 		6D2EF7921757FB7300BE4C54 /* DefaultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultView.m; sourceTree = "<group>"; };
-		6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarBrailleIcon.png; sourceTree = "<group>"; };
-		6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBrailleIcon@2x.png"; sourceTree = "<group>"; };
 		6D772136175D894500972596 /* TouchPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPoint.h; sourceTree = "<group>"; };
 		6D772137175D894500972596 /* TouchPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchPoint.m; sourceTree = "<group>"; };
 		6D7CA81418179CC800D3BDE1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -68,8 +62,6 @@
 		6DCA75FF1766EB7F00B44525 /* Perkinput-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Perkinput-Info.plist"; sourceTree = "<group>"; };
 		6DDACCCF175469A400CE6442 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
 		6DDACCD0175469A400CE6442 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
-		6DEFC986181DC3EA009D00A1 /* paper_airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_airplane.png; sourceTree = "<group>"; };
-		6DEFC987181DC3EA009D00A1 /* paper_airplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paper_airplane@2x.png"; sourceTree = "<group>"; };
 		6DF32E66175C1F9000560E58 /* Interpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpreter.h; sourceTree = "<group>"; };
 		6DF32E67175C1F9000560E58 /* Interpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interpreter.m; sourceTree = "<group>"; };
 		6DF32E69175C26A600560E58 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
@@ -173,13 +165,9 @@
 				E38931FC18318F7000CF16EB /* numbers.txt */,
 				E38932001831992F00CF16EB /* capitals.txt */,
 				E38931FE1831917B00CF16EB /* modes.txt */,
-				6DEFC986181DC3EA009D00A1 /* paper_airplane.png */,
-				6DEFC987181DC3EA009D00A1 /* paper_airplane@2x.png */,
 				6D2393AB181C4697004B0BE3 /* gradient.png */,
 				6DCA75931766D90500B44525 /* InfoPlist.strings */,
 				6DCA75FF1766EB7F00B44525 /* Perkinput-Info.plist */,
-				6D686310174C07B800A4F8A0 /* TabBarBrailleIcon.png */,
-				6D686311174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png */,
 				6D99787F17153D3500633AC9 /* AppDelegate.h */,
 				6D99788017153D3500633AC9 /* AppDelegate.m */,
 				6D99787C17153D3500633AC9 /* main.m */,
@@ -246,15 +234,11 @@
 			files = (
 				6D99788A17153D3600633AC9 /* MainStoryboard.storyboard in Resources */,
 				6D2393AC181C4697004B0BE3 /* gradient.png in Resources */,
-				6DEFC988181DC3EA009D00A1 /* paper_airplane.png in Resources */,
 				6D7CA81518179CC800D3BDE1 /* Images.xcassets in Resources */,
-				6D686312174C07B800A4F8A0 /* TabBarBrailleIcon.png in Resources */,
 				6D14827A1827615B0068AD14 /* brailleCodes.txt in Resources */,
 				6DCA75951766D90500B44525 /* InfoPlist.strings in Resources */,
-				6D686313174C07B800A4F8A0 /* TabBarBrailleIcon@2x.png in Resources */,
 				E38932011831992F00CF16EB /* capitals.txt in Resources */,
 				E38931FD18318F7000CF16EB /* numbers.txt in Resources */,
-				6DEFC989181DC3EA009D00A1 /* paper_airplane@2x.png in Resources */,
 				E38931FF1831917B00CF16EB /* modes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

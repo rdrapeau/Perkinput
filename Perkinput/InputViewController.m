@@ -24,25 +24,25 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 @property (weak, nonatomic) IBOutlet InputView *inputView;
 @end
 
-static NSString const *review = @"Default View";
-static NSString const *input = @"Input View";
+NSString const *review = @"Default View";
+NSString const *input = @"Input View";
 
-static NSString const *calibrate = @"Calibrated";
-static NSString const *space = @"SPACE";
-static NSString const *comma = @"Comma";
-static NSString const *semicolon = @"Semicolon";
-static NSString const *apostrophe = @"Apostrophe";
-static NSString const *colon = @"Colon";
-static NSString const *hyphen = @"Hyphen";
-static NSString const *period = @"Period";
-static NSString const *exclamationMark = @"Exclamation Mark";
-static NSString const *quotationMark = @"Quotation Mark";
-static NSString const *rightParen = @"Right Paren";
-static NSString const *leftParen = @"Left Paren";
-static NSString const *capital = @"CAPITAL";
-static NSString const *number = @"NUMBER";
-static NSString const *backspace = @"BACKSPACE";
-static NSString const *error = @"Invalid Code";
+NSString const *calibrate = @"Calibrated";
+NSString const *space = @"SPACE";
+NSString const *comma = @"Comma";
+NSString const *semicolon = @"Semicolon";
+NSString const *apostrophe = @"Apostrophe";
+NSString const *colon = @"Colon";
+NSString const *hyphen = @"Hyphen";
+NSString const *period = @"Period";
+NSString const *exclamationMark = @"Exclamation Mark";
+NSString const *quotationMark = @"Quotation Mark";
+NSString const *rightParen = @"Right Paren";
+NSString const *leftParen = @"Left Paren";
+NSString const *capital = @"CAPITAL";
+NSString const *number = @"NUMBER";
+NSString const *backspace = @"BACKSPACE";
+NSString const *error = @"Invalid Code";
 
 @implementation InputViewController
 

@@ -75,7 +75,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSB-Ij-pgX">
-                                <rect key="frame" x="54" y="303" width="213" height="68"/>
+                                <rect key="frame" x="54" y="348" width="213" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
@@ -234,23 +234,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1. Rotate your phone into landscape orientation to enter the text entry screen." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="M4d-Wn-6YB">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="1. Rotate your phone into landscape orientation to enter the text entry screen." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="M4d-Wn-6YB">
                                 <rect key="frame" x="28" y="20" width="264" height="77"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2. Touch four fingers on the screen until you feel a vibration." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="1Ti-2x-Qm3">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="2. Touch four fingers on the screen until you feel a vibration." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="1Ti-2x-Qm3">
                                 <rect key="frame" x="28" y="96" width="264" height="82"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="82" id="w24-up-7p8"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="ZBb-dl-7jp">
-                                <rect key="frame" x="28" y="176" width="264" height="231"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="ZBb-dl-7jp">
+                                <rect key="frame" x="28" y="186" width="264" height="231"/>
                                 <string key="text">3. Tap the first column of your letter first. Use your index finger to enter dot 1, your middle finger to enter dot 2, and your ring finger to enter dot 3. Then tap the screen again to enter the second column of your letter.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -268,23 +265,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="M4d-Wn-6YB" firstAttribute="top" secondItem="KJI-N8-3Q9" secondAttribute="top" constant="20" symbolic="YES" id="5uh-Zt-312"/>
-                            <constraint firstItem="ZBb-dl-7jp" firstAttribute="top" secondItem="M4d-Wn-6YB" secondAttribute="bottom" constant="79" id="Gzi-sM-V2v"/>
-                            <constraint firstItem="M4d-Wn-6YB" firstAttribute="trailing" secondItem="1Ti-2x-Qm3" secondAttribute="trailing" id="JmK-38-d9Q"/>
-                            <constraint firstItem="1Ti-2x-Qm3" firstAttribute="centerX" secondItem="KJI-N8-3Q9" secondAttribute="centerX" id="TAg-FL-Ovs"/>
-                            <constraint firstItem="1Ti-2x-Qm3" firstAttribute="top" secondItem="1Zx-M7-n5k" secondAttribute="bottom" constant="76" id="THs-ek-GkX"/>
-                            <constraint firstItem="1Ti-2x-Qm3" firstAttribute="leading" secondItem="M4d-Wn-6YB" secondAttribute="leading" id="Zv9-YF-Siy"/>
-                            <constraint firstItem="ZBb-dl-7jp" firstAttribute="leading" secondItem="1Ti-2x-Qm3" secondAttribute="leading" id="sN2-8l-7e9"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Tutorial" id="swF-fo-j5p"/>
                 </viewController>
-                <swipeGestureRecognizer delaysTouchesBegan="YES" direction="right" numberOfTouchesRequired="3" id="MY1-6D-erw">
-                    <connections>
-                        <action selector="switchToDefaultView:" destination="s5x-gb-MdZ" id="LOJ-Ir-Cfh"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJH-AN-AFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5364" y="-391"/>

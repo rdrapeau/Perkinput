@@ -23,8 +23,18 @@
     return self;
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
+        [self switchToInputView:self];
+    }
+}
+
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
+}
+
+- (IBAction)switchToInputView:(id)sender {
+    self.tabBarController.selectedIndex = 1;
 }
 
 - (void)viewDidLoad {
