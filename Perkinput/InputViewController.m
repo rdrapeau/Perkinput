@@ -228,6 +228,8 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;
     self.inputView.isAccessibilityElement = YES;
+    self.inputView.autoresizesSubviews = YES;
+    self.inputView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self setNeedsStatusBarAppearanceUpdate];
     self.inputView.accessibilityTraits = UIAccessibilityTraitAllowsDirectInteraction;
     [self setUp];

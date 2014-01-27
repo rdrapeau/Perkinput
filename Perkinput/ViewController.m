@@ -75,10 +75,6 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)fingerSwipe:(id)sender {
-    [self switchToInputView:self];
-}
-
 // Switches to the input view controller (index 1) and announces the change to the user.
 - (IBAction)switchToInputView:(id)sender {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
@@ -95,6 +91,9 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         [self switchToInputView:self];
+    } else {
+        [self.view setNeedsLayout];
+        [self.view setNeedsUpdateConstraints];
     }
 }
 
@@ -106,6 +105,8 @@
 - (void)viewDidLoad {
     self.view.multipleTouchEnabled = YES;
     self.view.userInteractionEnabled = YES;
+    self.view.autoresizesSubviews = YES;
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
