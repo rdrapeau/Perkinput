@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="RC3-3z-7P1"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6Yw-zE-0sT" customClass="DefaultView">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="271"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wzx-a5-uL6">
-                                <rect key="frame" x="20" y="19.5" width="528" height="30"/>
+                                <rect key="frame" x="20" y="39.5" width="528" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="O9F-Q8-n52"/>
                                 </constraints>
@@ -32,6 +32,7 @@
                                 <rect key="frame" x="20" y="78" width="250" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Copy"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gBe-O2-vpB"/>
                                     <constraint firstAttribute="width" constant="250" id="pV4-f3-6gP"/>
@@ -58,6 +59,7 @@
                                 <rect key="frame" x="298" y="171" width="250" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Email"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Email" backgroundImage="gradient.png"/>
                                 <connections>
@@ -68,19 +70,24 @@
                                 <rect key="frame" x="20" y="171" width="250" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Clear"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Clear" backgroundImage="gradient.png"/>
                                 <connections>
                                     <action selector="clearText:" destination="2" eventType="touchUpInside" id="dez-BB-oxk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rotate the device into landscape and calibrate before entering one column at a time." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Ylg-qD-bH8">
-                                <rect key="frame" x="20" y="279" width="280" height="153"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJn-4e-0pu">
+                                <rect key="frame" x="54" y="427" width="212" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Clear"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="How to use?" backgroundImage="gradient.png"/>
+                                <connections>
+                                    <action selector="howTo:" destination="2" eventType="touchUpInside" id="Bu2-B2-dne"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration" hint="" label="Default View">
@@ -115,26 +122,25 @@
                             <constraint firstItem="C7m-sa-Bfz" firstAttribute="bottom" secondItem="N3D-e3-Pwo" secondAttribute="bottom" id="jFk-7s-2FP"/>
                             <constraint firstItem="C7m-sa-Bfz" firstAttribute="height" secondItem="27G-ku-NaC" secondAttribute="height" id="lW6-eX-ZFo"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="PlE-in-lEV" appends="YES" id="2fW-eP-okT"/>
+                            <outletCollection property="gestureRecognizers" destination="LFd-aJ-Hlf" appends="YES" id="3K4-ej-4Wy"/>
                         </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Review" image="paper_airplane.png" id="zn8-lZ-p8Z"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="textField" destination="wzx-a5-uL6" id="B3N-aI-jQs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" numberOfTouchesRequired="3" id="PlE-in-lEV">
+                <swipeGestureRecognizer direction="left" numberOfTouchesRequired="3" id="LFd-aJ-Hlf">
                     <connections>
-                        <action selector="fingerSwipe:" destination="2" id="Beh-Ix-I3P"/>
+                        <action selector="fingerSwipe:" destination="2" id="BpO-HM-KbS"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5831" y="-186"/>
+            <point key="canvasLocation" x="-6125" y="-63"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="d9r-hm-YFO">
@@ -150,17 +156,39 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="dOu-6x-6Zy"/>
                         <segue destination="hFg-UO-dMe" kind="relationship" relationship="viewControllers" id="U5y-b7-y7c"/>
+                        <segue destination="Vev-2s-w8R" kind="relationship" relationship="viewControllers" id="bOu-on-ryJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-0P-0LZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBar contentMode="scaleToFill" id="M10-z1-7a8">
-                    <rect key="frame" x="0.0" y="0.0" width="163" height="49"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <items/>
-                </tabBar>
             </objects>
-            <point key="canvasLocation" x="-6249" y="-61"/>
+            <point key="canvasLocation" x="-6475" y="-63"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="BDe-0c-Ft8">
+            <objects>
+                <viewController id="Vev-2s-w8R" userLabel="Tutorial View Controller" customClass="TutorialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7KT-BJ-Zcn"/>
+                        <viewControllerLayoutGuide type="bottom" id="pWK-de-AM9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pnJ-Ne-fWW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="TEST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVd-S4-1kx">
+                                <rect key="frame" x="134" y="270" width="53" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="aMZ-Mr-iYq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ve5-ax-865" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5442" y="-63"/>
         </scene>
         <!--Input View Controller - Input View-->
         <scene sceneID="Flp-Iu-JXZ">
@@ -209,7 +237,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5721" y="238"/>
+            <point key="canvasLocation" x="-5783" y="-63"/>
         </scene>
     </scenes>
     <resources>

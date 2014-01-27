@@ -35,6 +35,7 @@
 		E38931FD18318F7000CF16EB /* numbers.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38931FC18318F7000CF16EB /* numbers.txt */; };
 		E38931FF1831917B00CF16EB /* modes.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38931FE1831917B00CF16EB /* modes.txt */; };
 		E38932011831992F00CF16EB /* capitals.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38932001831992F00CF16EB /* capitals.txt */; };
+		E3D862D818963826004FE636 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D862D718963826004FE636 /* TutorialViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		E38931FC18318F7000CF16EB /* numbers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = numbers.txt; sourceTree = "<group>"; };
 		E38931FE1831917B00CF16EB /* modes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = modes.txt; sourceTree = "<group>"; };
 		E38932001831992F00CF16EB /* capitals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitals.txt; sourceTree = "<group>"; };
+		E3D862D618963826004FE636 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		E3D862D718963826004FE636 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 				6D1F1F55172E36C400EEE86C /* InputViewController.m */,
 				6DDACCCF175469A400CE6442 /* InputView.h */,
 				6DDACCD0175469A400CE6442 /* InputView.m */,
+				E3D862D618963826004FE636 /* TutorialViewController.h */,
+				E3D862D718963826004FE636 /* TutorialViewController.m */,
 				6D772139175D894D00972596 /* Input Control */,
 				6D7CA81418179CC800D3BDE1 /* Images.xcassets */,
 				6D99787717153D3500633AC9 /* Supporting Files */,
@@ -271,6 +276,7 @@
 				6DF32E6B175C26A600560E58 /* Input.m in Sources */,
 				6DF32E6E175C288500560E58 /* Layout.m in Sources */,
 				6D772138175D894500972596 /* TouchPoint.m in Sources */,
+				E3D862D818963826004FE636 /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

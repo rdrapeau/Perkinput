@@ -42,6 +42,10 @@
     }
 }
 
+- (IBAction)howTo:(id)sender {
+    [self switchToTutorialView:self];
+}
+
 // Copies the text within the text field into the clipboard of the device. This text can be pasted
 // anywhere on the device until something else is copied or the device is shut down. 
 - (IBAction)sendToClipboard:(id)sender {
@@ -53,11 +57,6 @@
 - (IBAction)clearText:(id)sender {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Cleared Text Field");
     self.textField.text = @"";
-}
-
-- (IBAction)fingerSwipe:(id)sender {
-    NSLog(@"Swipe");
-    [self switchToInputView:self];
 }
 
 // Removes the keyboard from the view when the user taps the done button inside the text field. The
@@ -76,10 +75,20 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)fingerSwipe:(id)sender {
+    [self switchToInputView:self];
+}
+
 // Switches to the input view controller (index 1) and announces the change to the user.
 - (IBAction)switchToInputView:(id)sender {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
     self.tabBarController.selectedIndex = 1;
+}
+
+// Switches to the input view controller (index 1) and announces the change to the user.
+- (IBAction)switchToTutorialView:(id)sender {
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"How To View");
+    self.tabBarController.selectedIndex = 2;
 }
 
 // When the user changes the device to a landscape orientation the view controller is switched the input view.
@@ -95,10 +104,9 @@
 }
 
 - (void)viewDidLoad {
-    [self setNeedsStatusBarAppearanceUpdate];
     self.view.multipleTouchEnabled = YES;
     self.view.userInteractionEnabled = YES;
-    self.view.isAccessibilityElement = YES;
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -106,6 +114,7 @@
 }
 
 - (void)viewDidUnload {
+    [self setTextField:nil];
     [super viewDidUnload];
 }
 

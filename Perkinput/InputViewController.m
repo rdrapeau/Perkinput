@@ -202,7 +202,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     _curString = nil;
     _touchHandled = YES;
     _interpreter = [[Interpreter alloc] init];
-    [label setText:@""];
+    [label setText:@"Calibrate"];
     [self.inputView reset];
     [self.inputView redraw];
 }
