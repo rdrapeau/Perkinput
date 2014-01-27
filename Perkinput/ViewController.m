@@ -21,11 +21,12 @@
     NSLog(@"Device not supported");
     MFMessageComposeViewController *textComposer = [[MFMessageComposeViewController alloc] init];
     [textComposer setMessageComposeDelegate:self];
-    
     if ([MFMessageComposeViewController canSendText]) {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Texting View");
-        [textComposer setBody:self.textField.text];
+        [textComposer setBody:self.textField.text]; // Set message body
         [self presentViewController:textComposer animated:YES completion:NULL];
+    } else { // Device cannot send text messages
+        NSLog(@"Device not supported");
     }
 }
 
@@ -39,8 +40,10 @@
      
     if ([MFMailComposeViewController canSendMail]) {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Loading Mail View");
-        [emailComposer setMessageBody:self.textField.text isHTML:NO];
+        [emailComposer setMessageBody:self.textField.text isHTML:NO]; // Set body of email 
         [self presentViewController:emailComposer animated:YES completion:NULL];
+    } else { // Device cannot send email messages
+        NSLog(@"Device not supported");
     }
 }
 
@@ -55,10 +58,6 @@
 - (IBAction)clearText:(id)sender {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Cleared Text Field");
     self.textField.text = @"";
-}
-
-- (IBAction)switchToTutorial:(id)sender {
-    self.tabBarController.selectedIndex = 2;
 }
 
 // Removes the keyboard from the view when the user taps the done button inside the text field. The
@@ -85,27 +84,17 @@
 
 // When the user changes the device to a landscape orientation the view controller is switched the input view.
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
         [self switchToInputView:self];
     }
 }
 
 // Announce to the user which view they are in
 - (void)viewWillAppear:(BOOL)animated {
-    [self.tabBarController.tabBar setHidden:YES];
-    self.inputView.frame = [UIScreen mainScreen].bounds;
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
 }
 
-// If the view is in portrait then hide the tab bar
-- (void)viewWillDisappear:(BOOL)animated {
-
-}
-
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.tabBarController.tabBar setHidden:YES];
-    self.inputView.frame = [UIScreen mainScreen].bounds;
     [self setNeedsStatusBarAppearanceUpdate];
 }
 

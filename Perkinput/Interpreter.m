@@ -111,11 +111,6 @@
     return index;
 }
 
-// Clears the calibrated points from memory
-- (void)clearCalibration {
-    calibratedPoints = nil;
-}
-
 
 // Returns an array of possible layouts for the number of fingers down and the total number of fingers
 - (NSMutableArray *)generateLayoutsWithFingersTotal:(int)fingersTotal andFingersDown:(int)fingersDown {

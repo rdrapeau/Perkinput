@@ -19,6 +19,4 @@
 
 - (void)redraw; // Redraw everything on the screen
 
-- (void)clearScreen; // Clears the screen of calibration points
-
 @end

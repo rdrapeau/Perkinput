@@ -22,27 +22,8 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
+
 @end
-
-NSString const *review = @"Default View";
-NSString const *input = @"Input View";
-
-NSString const *calibrate = @"Calibrated";
-NSString const *space = @"SPACE";
-NSString const *comma = @"Comma";
-NSString const *semicolon = @"Semicolon";
-NSString const *apostrophe = @"Apostrophe";
-NSString const *colon = @"Colon";
-NSString const *hyphen = @"Hyphen";
-NSString const *period = @"Period";
-NSString const *exclamationMark = @"Exclamation Mark";
-NSString const *quotationMark = @"Quotation Mark";
-NSString const *rightParen = @"Right Paren";
-NSString const *leftParen = @"Left Paren";
-NSString const *capital = @"CAPITAL";
-NSString const *number = @"NUMBER";
-NSString const *backspace = @"BACKSPACE";
-NSString const *error = @"Invalid Code";
 
 @implementation InputViewController
 
@@ -56,7 +37,7 @@ NSString const *error = @"Invalid Code";
         _curString = nil; // Erase the current touch
         _touchHandled = YES; // Touch has been handled (Don't interpret twice)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, calibrate);
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Calibrated");
     }
 }
 
@@ -108,12 +89,12 @@ NSString const *error = @"Invalid Code";
             if (_curString != nil) {
                 [label setText:_curString]; // Update label's text
                 if ([_curString isEqualToString:@" "]) {
-                    [label setText:space];
+                    [label setText:@"SPACE"];
                 }
-                if (![_curString isEqualToString:capital] && ![_curString isEqualToString:number]) {
+                if (![_curString isEqualToString:@"CAPITAL"] && ![_curString isEqualToString:@"NUMBER"]) {
                     ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
      
-                    if ([_curString isEqualToString:backspace]) {
+                    if ([_curString isEqualToString:@"BACKSPACE"]) {
                         _curString = defaultView.textField.text;
                         if (_curString.length > 0) {
                             [label setText:[NSString stringWithFormat:@"Deleted %@", [self getWordForPunctuation:[_curString characterAtIndex:_curString.length - 1]]]];
@@ -134,7 +115,7 @@ NSString const *error = @"Invalid Code";
                 }
                 _curString = nil;
             } else {
-                [label setText:error];
+                [label setText:@"Invalid Code"];
             }
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
         } else { // 1st Touch
@@ -146,30 +127,29 @@ NSString const *error = @"Invalid Code";
     [self.inputView setPoints:_curTouches];
 }
 
-// Returns the word form of the punctuation
 - (NSString*)getWordForPunctuation:(char)deleted {
     if (deleted == ' ') {
-        return space;
+        return @"Space";
     } else if (deleted == ',') {
-        return comma;
+        return @"Comma";
     } else if (deleted == ';') {
-        return semicolon;
+        return @"Semicolon";
     } else if (deleted == '\'') {
-        return apostrophe;
+        return @"Apostrophe";
     } else if (deleted == ':') {
-        return colon;
+        return @"Colon";
     } else if (deleted == '-') {
-        return hyphen;
+        return @"Hyphen";
     } else if (deleted == '.') {
-        return period;
+        return @"Period";
     } else if (deleted == '!') {
-        return exclamationMark;
+        return @"Exclamation Point";
     } else if (deleted == '\"') {
-        return quotationMark;
+        return @"Quotation Mark";
     } else if (deleted == ')') {
-        return rightParen;
+        return @"Right Paren";
     } else if (deleted == '(') {
-        return leftParen;
+        return @"Left Paren";
     }
     return [NSString stringWithFormat:@"%c", deleted];
 }
@@ -188,40 +168,33 @@ NSString const *error = @"Invalid Code";
     return points;
 }
 
-// Switches back to the default view if the current view is portrait
-- (IBAction)swipeGesture:(id)sender {
-    [self switchToDefaultView:self];
-}
-
 // Switches the app to the default view controller (index 0). 
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, review);
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
 }
 
 // When the user changes the device to a landscape orientation from this view controller, redraw the circles
 // in the view to be their updated position after the rotation. If the user changes the device to portrait,
 // switch to the default view controller.
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
         [self switchToDefaultView:self];
+    } else {
+        [self.inputView redraw];
     }
 }
 
 // Announce to the user which view they are in and update the touch points on the view.
 - (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, input);
-    _curString = nil;
-    [label setText:@"Calibrate"];
-    [self.inputView clearScreen];
-    [_interpreter clearCalibration];
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
+    [self.inputView redraw];
 }
 
 // Before this view controller is switched, the text field in the default view is updated to contain the text
 // within the label of this view.
 - (void)viewWillDisappear:(BOOL)animated {
-    [self.inputView clearScreen];
-    [_interpreter clearCalibration];
+
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -235,7 +208,6 @@ NSString const *error = @"Invalid Code";
 
 // Set the input view to support multiple touch events and to allow user interaction. 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     lookup = [[Input alloc] init];
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;

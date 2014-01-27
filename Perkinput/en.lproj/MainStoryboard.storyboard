@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="RC3-3z-7P1"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6Yw-zE-0sT" customClass="DefaultView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="271"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wzx-a5-uL6">
-                                <rect key="frame" x="20" y="39.5" width="528" height="30"/>
+                                <rect key="frame" x="20" y="19.5" width="528" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="O9F-Q8-n52"/>
                                 </constraints>
@@ -74,27 +74,13 @@
                                     <action selector="clearText:" destination="2" eventType="touchUpInside" id="dez-BB-oxk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSB-Ij-pgX">
-                                <rect key="frame" x="54" y="348" width="213" height="68"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rotate the device into landscape and calibrate before entering one column at a time." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Ylg-qD-bH8">
+                                <rect key="frame" x="20" y="279" width="280" height="153"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Switch" backgroundImage="gradient.png"/>
-                                <connections>
-                                    <action selector="switchToInputView:" destination="2" eventType="touchUpInside" id="c3Q-1j-Ycj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhk-Q1-Vqx">
-                                <rect key="frame" x="149" y="432" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchToTutorial:" destination="2" eventType="touchUpInside" id="lgh-2d-DMS"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration" hint="" label="Default View">
@@ -129,10 +115,11 @@
                             <constraint firstItem="C7m-sa-Bfz" firstAttribute="bottom" secondItem="N3D-e3-Pwo" secondAttribute="bottom" id="jFk-7s-2FP"/>
                             <constraint firstItem="C7m-sa-Bfz" firstAttribute="height" secondItem="27G-ku-NaC" secondAttribute="height" id="lW6-eX-ZFo"/>
                         </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Review" id="zn8-lZ-p8Z"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="paper_airplane.png" id="zn8-lZ-p8Z"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="textField" destination="wzx-a5-uL6" id="B3N-aI-jQs"/>
                     </connections>
@@ -144,7 +131,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-6063" y="-391"/>
+            <point key="canvasLocation" x="-5831" y="-186"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="d9r-hm-YFO">
@@ -160,7 +147,6 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="dOu-6x-6Zy"/>
                         <segue destination="hFg-UO-dMe" kind="relationship" relationship="viewControllers" id="U5y-b7-y7c"/>
-                        <segue destination="s5x-gb-MdZ" kind="relationship" relationship="viewControllers" id="pFt-gg-E0a"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-0P-0LZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,7 +157,7 @@
                     <items/>
                 </tabBar>
             </objects>
-            <point key="canvasLocation" x="-6415" y="-391"/>
+            <point key="canvasLocation" x="-6249" y="-61"/>
         </scene>
         <!--Input View Controller - Input View-->
         <scene sceneID="Flp-Iu-JXZ">
@@ -202,79 +188,23 @@
                             <constraint firstItem="hNC-pc-Uvn" firstAttribute="top" secondItem="3wg-GK-2qU" secondAttribute="top" constant="20" symbolic="YES" id="ETs-4A-lg2"/>
                             <constraint firstItem="hNC-pc-Uvn" firstAttribute="centerX" secondItem="3wg-GK-2qU" secondAttribute="centerX" id="dzg-id-ldg"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="uge-wA-8qI" appends="YES" id="icr-7p-3yK"/>
-                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Input" id="8Ua-Tr-2gN"/>
+                    <tabBarItem key="tabBarItem" title="Input" image="TabBarBrailleIcon.png" id="8Ua-Tr-2gN"/>
                     <connections>
                         <outlet property="inputView" destination="3wg-GK-2qU" id="TEa-Y1-XEz"/>
                         <outlet property="label" destination="hNC-pc-Uvn" id="blS-yS-Rbl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fG-ht-RP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer delaysTouchesBegan="YES" direction="right" numberOfTouchesRequired="3" id="uge-wA-8qI">
-                    <connections>
-                        <action selector="swipeGesture:" destination="hFg-UO-dMe" id="yZr-QV-JtU"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5709" y="-391"/>
-        </scene>
-        <!--Tutorial View Controller - Tutorial-->
-        <scene sceneID="ZqZ-oD-yxc">
-            <objects>
-                <viewController id="s5x-gb-MdZ" customClass="TutorialViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1Zx-M7-n5k"/>
-                        <viewControllerLayoutGuide type="bottom" id="tcv-jw-I9m"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KJI-N8-3Q9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="1. Rotate your phone into landscape orientation to enter the text entry screen." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="M4d-Wn-6YB">
-                                <rect key="frame" x="28" y="20" width="264" height="77"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="2. Touch four fingers on the screen until you feel a vibration." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="1Ti-2x-Qm3">
-                                <rect key="frame" x="28" y="96" width="264" height="82"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="264" translatesAutoresizingMaskIntoConstraints="NO" id="ZBb-dl-7jp">
-                                <rect key="frame" x="28" y="186" width="264" height="231"/>
-                                <string key="text">3. Tap the first column of your letter first. Use your index finger to enter dot 1, your middle finger to enter dot 2, and your ring finger to enter dot 3. Then tap the screen again to enter the second column of your letter.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGa-bU-It5">
-                                <rect key="frame" x="100" y="425" width="121" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Back" backgroundImage="gradient.png"/>
-                                <connections>
-                                    <action selector="switchToDefaultView:" destination="s5x-gb-MdZ" eventType="touchUpInside" id="gOY-LG-JDh"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Tutorial" id="swF-fo-j5p"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fJH-AN-AFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-5364" y="-391"/>
+            <point key="canvasLocation" x="-5721" y="238"/>
         </scene>
     </scenes>
     <resources>
+        <image name="TabBarBrailleIcon.png" width="30" height="30"/>
         <image name="gradient.png" width="640" height="144"/>
+        <image name="paper_airplane.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
