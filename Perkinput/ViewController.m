@@ -77,13 +77,13 @@
 
 // Switches to the input view controller (index 1) and announces the change to the user.
 - (IBAction)switchToInputView:(id)sender {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input Screen");
     self.tabBarController.selectedIndex = 1;
 }
 
 // Switches to the input view controller (index 1) and announces the change to the user.
 - (IBAction)switchToTutorialView:(id)sender {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"How To View");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"How To Screen");
     self.tabBarController.selectedIndex = 2;
 }
 
@@ -99,7 +99,7 @@
 
 // Announce to the user which view they are in
 - (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default Screen");
 }
 
 - (void)viewDidLoad {

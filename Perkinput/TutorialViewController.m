@@ -44,13 +44,17 @@
 // Switches the app to the default view controller (index 0).
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default Screen");
 }
 
 // Switches to the input view controller (index 1) and announces the change to the user.
 - (IBAction)switchToInputView:(id)sender {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input Screen");
     self.tabBarController.selectedIndex = 1;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"How To Screen");
 }
 
 @end

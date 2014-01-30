@@ -37,7 +37,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
         _curString = nil; // Erase the current touch
         _touchHandled = YES; // Touch has been handled (Don't interpret twice)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Calibrated");
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Calibrated. Swipe 3 fingers to the right to switch to the Main Screen.");
     }
 }
 
@@ -177,7 +177,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // Switches the app to the default view controller (index 0). 
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default View");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default Screen");
 }
 
 // When the user changes the device to a landscape orientation from this view controller, redraw the circles
@@ -193,8 +193,11 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 
 // Announce to the user which view they are in and update the touch points on the view.
 - (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input View");
     [self setUp];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input Screen");
 }
 
 // Resets the View
