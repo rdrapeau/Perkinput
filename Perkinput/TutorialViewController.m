@@ -7,8 +7,10 @@
 //
 
 #import "TutorialViewController.h"
+#import "TutorialView.h"
 
 @interface TutorialViewController ()
+@property (strong, nonatomic) IBOutlet TutorialView *tutorialView;
 
 @end
 
@@ -26,13 +28,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// Launches the Perkinput site
+- (IBAction)moreInfo:(id)sender {
+    [[UIApplication sharedApplication] openURL:[[NSURL alloc] initWithString:@"http://perkinput.cs.washington.edu/"]];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -55,6 +61,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"How To Screen");
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    [self.tutorialView setContentSize:CGSizeMake(screenRect.size.width, 1828)];
+    [self.tutorialView setScrollEnabled:YES];
+//    [self.tutorialView setBounds:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
 }
 
 @end
