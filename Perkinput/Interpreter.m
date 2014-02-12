@@ -73,7 +73,6 @@
 
 // Returns a sorted array of TouchPoint objects. Sorted by the y value if the device is in
 // landscape orientation or by the x value if in portrait orientation.
-// TODO: Implement Merge Sort instead of selection sort (or some other faster sort)
 - (NSMutableArray*)sortTouches:(NSMutableArray*)touches {
     int count = [touches count];
     

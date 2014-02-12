@@ -185,7 +185,7 @@
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="pVd-S4-1kx">
                                         <rect key="frame" x="20" y="20" width="280" height="184"/>
-                                        <string key="text">1. Go to the entry screen. Rotate your phone into landscape orientation or press the “Input Screen” button. To go back to the home screen, swipe with 3 fingers to the right.</string>
+                                        <string key="text">1. Go to the input screen. Rotate your phone into landscape orientation or press the “Input Screen” button. To go back to the main screen, swipe with 3 fingers to the right.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -227,7 +227,7 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="QDL-63-b7b">
                                         <rect key="frame" x="20" y="378" width="280" height="342"/>
-                                        <string key="text">3. Enter the a letter! Tap the first column of your letter first. Use your index finger to enter dot 1, your middle finger to enter dot 2, and your ring finger to enter dot 3. Then tap the screen again to enter the second column of your letter. This time, use your index finger to enter dot 4, your middle finger to enter dot 5, and your ring finger to enter dot 6.</string>
+                                        <string key="text">3. Enter a letter! Tap the first column of your letter first. Use your index finger to enter dot 1, your middle finger to enter dot 2, and your ring finger to enter dot 3. Then tap the screen again to enter the second column of your letter. This time, use your index finger to enter dot 4, your middle finger to enter dot 5, and your ring finger to enter dot 6.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>

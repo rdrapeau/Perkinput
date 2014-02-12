@@ -149,13 +149,15 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     } else if (deleted == '.') {
         return @"Period";
     } else if (deleted == '!') {
-        return @"Exclamation Point";
+        return @"Exclamation Mark";
     } else if (deleted == '\"') {
         return @"Quotation Mark";
     } else if (deleted == ')') {
         return @"Right Paren";
     } else if (deleted == '(') {
         return @"Left Paren";
+    } else if (deleted == '?') {
+        return @"Question Mark";
     }
     return [NSString stringWithFormat:@"%c", deleted];
 }
