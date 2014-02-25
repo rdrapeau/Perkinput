@@ -11,7 +11,7 @@
 
 @implementation DataSender
 
-static NSString *kHostName = @"digitaps.cs.washington.edu";
+static NSString *kHostName = @"staff.washington.edu/drapeau/logger.php";
 
 - (id)init
 {

@@ -14,9 +14,9 @@
 
 @interface Logger : NSObject
 {
-  @private
-  NSManagedObjectContext *manageContext;
-  NSOperationQueue *operationQueue;
+@private
+    NSManagedObjectContext *manageContext;
+    NSOperationQueue *operationQueue;
 }
 
 + (id)getInstance;

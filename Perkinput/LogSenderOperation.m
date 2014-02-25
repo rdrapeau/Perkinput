@@ -10,7 +10,7 @@
 
 @implementation LogSenderOperation
 
-static NSString *kUrl = @"http://digitaps.cs.washington.edu/event_postgres.php";
+static NSString *kUrl = @"http://staff.washington.edu/drapeau/logger.php";
 
 - (id)init
 {

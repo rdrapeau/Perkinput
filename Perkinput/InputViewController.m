@@ -12,6 +12,8 @@
 #import "InputView.h"
 #import "Interpreter.h"
 #import "TouchPoint.h"
+#import "DataSender.h"
+#import "Logger.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
@@ -47,7 +49,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // then add the new touches to the set of fingers on the screen. Always reset the timer if a new touch began.
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
     [label setText:@""];
-    if (_touchHandled) { // Previous touch event 
+    if (_touchHandled) { // Previous touch event
         NSLog(@"Touches began: %d", [touches count]);
         _touchHandled = NO;
         _curTouches = touches;
@@ -117,6 +119,14 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
             } else {
                 [label setText:@"Invalid Code"];
             }
+            //////
+            NSUUID *uid = [[UIDevice currentDevice] identifierForVendor];
+            NSDateFormatter *format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"MM-dd-yyyy-HH:mm:ss"];
+            NSString *time = [format stringFromDate:[[NSDate alloc] init]];
+            NSString *param = [NSString stringWithFormat:@"http://staff.washington.edu/drapeau/logger.php?id=%@&time=%@", [uid UUIDString], time];
+            NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:param]];
+            //////
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
         } else { // 1st Touch
             _curString = input;
