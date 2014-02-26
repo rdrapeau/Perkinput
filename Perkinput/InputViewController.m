@@ -119,14 +119,6 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
             } else {
                 [label setText:@"Invalid Code"];
             }
-            //////
-            NSUUID *uid = [[UIDevice currentDevice] identifierForVendor];
-            NSDateFormatter *format = [[NSDateFormatter alloc] init];
-            [format setDateFormat:@"MM-dd-yyyy-HH:mm:ss"];
-            NSString *time = [format stringFromDate:[[NSDate alloc] init]];
-            NSString *param = [NSString stringWithFormat:@"http://staff.washington.edu/drapeau/logger.php?id=%@&time=%@", [uid UUIDString], time];
-            NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:param]];
-            //////
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
         } else { // 1st Touch
             _curString = input;
@@ -225,7 +217,20 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // Before this view controller is switched, the text field in the default view is updated to contain the text
 // within the label of this view.
 - (void)viewWillDisappear:(BOOL)animated {
+    [self performSelectorInBackground:@selector(logIDToServer) withObject:nil];
+}
 
+// Logs the devices UDID to the server
+- (void)logIDToServer {
+    //////
+    NSUUID *uid = [[UIDevice currentDevice] identifierForVendor];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MM-dd-yyyy-HH:mm:ss"];
+    NSString *time = [format stringFromDate:[[NSDate alloc] init]];
+    NSString *param = [NSString stringWithFormat:@"http://staff.washington.edu/drapeau/logger.php?id=%@&time=%@", [uid UUIDString], time];
+    NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:param]];
+    NSLog(result);
+    //////
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
