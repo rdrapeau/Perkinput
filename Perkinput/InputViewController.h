@@ -13,6 +13,7 @@
     BOOL _touchHandled; // Whether the touch has already been handled or not
     NSMutableSet *_curTouches; // Current touch events on the screen
     NSString *_curString; // Current code being typed
+    NSString *_curSequence; // Current String being typed
     Interpreter *_interpreter; // Convert the touch to a layout
 }
 

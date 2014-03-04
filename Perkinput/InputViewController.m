@@ -21,6 +21,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 @interface InputViewController() {
     __weak IBOutlet UILabel *label; // Stores the current text typed on the screen
     Input *lookup;
+    NSString *startTime;
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
@@ -83,6 +84,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
         if ([touches count] >= [_curTouches count]) {
             _curTouches = touches;
         }
+        [self performSelectorInBackground:@selector(logTapEventToServer) withObject:nil]; // LOG tap event
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
         if (_curString != nil) { // 2nd Touch
             input = [NSMutableString stringWithFormat:@"%@%@", _curString, input];
@@ -97,12 +99,15 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
                     ViewController *defaultView = [self.tabBarController.viewControllers objectAtIndex:0];
      
                     if ([_curString isEqualToString:@"BACKSPACE"]) {
+                        [self performSelectorInBackground:@selector(logCharacterEventToServer:) withObject:@"backspace"]; // LOG backspace
                         _curString = defaultView.textField.text;
                         if (_curString.length > 0) {
                             [label setText:[NSString stringWithFormat:@"Deleted %@", [self getWordForPunctuation:[_curString characterAtIndex:_curString.length - 1]]]];
                             [defaultView.textField setText:[NSString stringWithFormat:@"%@", [_curString substringToIndex:_curString.length - 1]]];
+                            _curSequence = [NSString stringWithFormat:@"%@", [_curSequence substringToIndex:_curSequence.length - 1]];
                         }
                     } else {
+                        [self performSelectorInBackground:@selector(logCharacterEventToServer:) withObject:@"character"]; // LOG character
                         NSString *previous = [NSString stringWithFormat:@"%c", [defaultView.textField.text characterAtIndex:defaultView.textField.text.length - 1]];
                         if ([input isEqualToString:@"01100010"] && previous.length > 0 && ![previous isEqualToString:@" "]) {
                             _curString = @"?";
@@ -113,10 +118,14 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
                             [label setText:@")"];
                         }
                         [defaultView.textField setText:[NSString stringWithFormat:@"%@%@", defaultView.textField.text, _curString]];
+                         _curSequence = [NSMutableString stringWithFormat:@"%@%@", _curSequence, _curString];
                     }
+                } else {
+                    [self performSelectorInBackground:@selector(logCharacterEventToServer:) withObject:@"mode"]; // LOG mode
                 }
                 _curString = nil;
             } else {
+                [self performSelectorInBackground:@selector(logCharacterEventToServer:) withObject:@"invalid"]; // LOG invalid
                 [label setText:@"Invalid Code"];
             }
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
@@ -202,11 +211,13 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 
 - (void)viewDidAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input Screen");
+    startTime = [self getTime];
 }
 
 // Resets the View
 - (void)setUp {
     _curString = nil;
+    _curSequence = @"";
     _touchHandled = YES;
     _interpreter = [[Interpreter alloc] init];
     [label setText:@"Calibrate"];
@@ -214,23 +225,39 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     [self.inputView redraw];
 }
 
-// Before this view controller is switched, the text field in the default view is updated to contain the text
-// within the label of this view.
 - (void)viewWillDisappear:(BOOL)animated {
-    [self performSelectorInBackground:@selector(logIDToServer) withObject:nil];
+    [self performSelectorInBackground:@selector(logInputEventToServer) withObject:nil]; // LOG Input
 }
 
-// Logs the devices UDID to the server
-- (void)logIDToServer {
-    //////
+- (void)logInputEventToServer {
+    NSString *params = [NSString stringWithFormat:@"event=input_event&begin_time=%@&end_time=%@&character_count=%d&error_count=%d", startTime, [self getTime], _curSequence.length, -1]; // TODO: Spell Checker
+    [self logToServer:params];
+}
+
+- (void)logTapEventToServer {
+    NSString *params = [NSString stringWithFormat:@"time=%@&event=tap_event", [self getTime]];
+    [self logToServer:params];
+}
+
+- (void)logCharacterEventToServer:(NSString*)type {
+    NSString *params = [NSString stringWithFormat:@"time=%@&event=character_event&type=%@", [self getTime], type];
+    [self logToServer:params];
+}
+
+// Sends the log to the server with the params (do not include UUID in params as it is done here)
+- (void)logToServer:(NSString*)params {
     NSUUID *uid = [[UIDevice currentDevice] identifierForVendor];
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"MM-dd-yyyy-HH:mm:ss"];
-    NSString *time = [format stringFromDate:[[NSDate alloc] init]];
-    NSString *param = [NSString stringWithFormat:@"http://staff.washington.edu/drapeau/logger.php?id=%@&time=%@", [uid UUIDString], time];
+    NSString *param = [NSString stringWithFormat:@"http://staff.washington.edu/drapeau/logger.php?id=%@&%@", [uid UUIDString], params];
     NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:param]];
     NSLog(result);
-    //////
+}
+
+// Returns the time in the format MM-dd-yyyy-HH:mm:ss
+- (NSString*)getTime {
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss:SSS"];
+    NSString *time = [format stringFromDate:[[NSDate alloc] init]];
+    return time;
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
