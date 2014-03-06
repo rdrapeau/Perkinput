@@ -14,6 +14,7 @@
 #import "TouchPoint.h"
 #import "DataSender.h"
 #import "Logger.h"
+#import "Validator.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
@@ -22,6 +23,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     __weak IBOutlet UILabel *label; // Stores the current text typed on the screen
     Input *lookup;
     NSString *startTime;
+    Validator *valid;
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
@@ -220,6 +222,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     _curSequence = @"";
     _touchHandled = YES;
     _interpreter = [[Interpreter alloc] init];
+    valid = [Validator getInstance];
     [label setText:@"Calibrate"];
     [self.inputView reset];
     [self.inputView redraw];

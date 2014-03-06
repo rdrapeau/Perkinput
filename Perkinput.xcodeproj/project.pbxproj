@@ -28,6 +28,8 @@
 		6DF32E68175C1F9000560E58 /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E67175C1F9000560E58 /* Interpreter.m */; };
 		6DF32E6B175C26A600560E58 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6A175C26A600560E58 /* Input.m */; };
 		6DF32E6E175C288500560E58 /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6D175C288500560E58 /* Layout.m */; };
+		E310EF4C18C84AF600BE5A60 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = E310EF4B18C84AF600BE5A60 /* words.txt */; };
+		E310EF4F18C84B5700BE5A60 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = E310EF4E18C84B5700BE5A60 /* Validator.m */; };
 		E350C77C18AB2BAD00B33C6D /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E350C77218AB2BAD00B33C6D /* Event.m */; };
 		E350C77D18AB2BAD00B33C6D /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = E350C77418AB2BAD00B33C6D /* Logger.m */; };
 		E350C77F18AB2BAD00B33C6D /* CoreDataModelWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E350C77818AB2BAD00B33C6D /* CoreDataModelWrapper.m */; };
@@ -90,6 +92,9 @@
 		6DF32E6A175C26A600560E58 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 		6DF32E6C175C288500560E58 /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
 		6DF32E6D175C288500560E58 /* Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout.m; sourceTree = "<group>"; };
+		E310EF4B18C84AF600BE5A60 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		E310EF4D18C84B5700BE5A60 /* Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validator.h; sourceTree = "<group>"; };
+		E310EF4E18C84B5700BE5A60 /* Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validator.m; sourceTree = "<group>"; };
 		E350C77118AB2BAD00B33C6D /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		E350C77218AB2BAD00B33C6D /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		E350C77318AB2BAD00B33C6D /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
@@ -172,6 +177,8 @@
 				6DF32E6A175C26A600560E58 /* Input.m */,
 				6D772136175D894500972596 /* TouchPoint.h */,
 				6D772137175D894500972596 /* TouchPoint.m */,
+				E310EF4D18C84B5700BE5A60 /* Validator.h */,
+				E310EF4E18C84B5700BE5A60 /* Validator.m */,
 			);
 			name = "Input Control";
 			sourceTree = "<group>";
@@ -285,6 +292,7 @@
 		E37E7ED7189DD5370064D7CE /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E310EF4B18C84AF600BE5A60 /* words.txt */,
 				6DCA75931766D90500B44525 /* InfoPlist.strings */,
 				6DCA75FF1766EB7F00B44525 /* Perkinput-Info.plist */,
 				6D99787F17153D3500633AC9 /* AppDelegate.h */,
@@ -403,6 +411,7 @@
 				6D2393AC181C4697004B0BE3 /* gradient.png in Resources */,
 				6D7CA81518179CC800D3BDE1 /* Images.xcassets in Resources */,
 				6D14827A1827615B0068AD14 /* brailleCodes.txt in Resources */,
+				E310EF4C18C84AF600BE5A60 /* words.txt in Resources */,
 				6DCA75951766D90500B44525 /* InfoPlist.strings in Resources */,
 				E38932011831992F00CF16EB /* capitals.txt in Resources */,
 				E38931FD18318F7000CF16EB /* numbers.txt in Resources */,
@@ -426,6 +435,7 @@
 				E350C77D18AB2BAD00B33C6D /* Logger.m in Sources */,
 				E350C77F18AB2BAD00B33C6D /* CoreDataModelWrapper.m in Sources */,
 				6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */,
+				E310EF4F18C84B5700BE5A60 /* Validator.m in Sources */,
 				E350C77C18AB2BAD00B33C6D /* Event.m in Sources */,
 				E38B20B918AB63BC0077EBA5 /* Reachability.m in Sources */,
 				E38B20AF18AB63A00077EBA5 /* ASIDataCompressor.m in Sources */,
