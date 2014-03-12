@@ -233,7 +233,16 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 }
 
 - (void)logInputEventToServer {
-    NSString *params = [NSString stringWithFormat:@"event=input_event&begin_time=%@&end_time=%@&character_count=%d&error_count=%d", startTime, [self getTime], _curSequence.length, -1]; // TODO: Spell Checker
+    int errors = 0;
+    NSArray *words = [_curSequence componentsSeparatedByString:@" "];
+    for (int i = 0; i < words.count; i++) {
+        NSString *word = [words objectAtIndex:i];
+        word = [word stringByReplacingOccurrencesOfString:@"[^a-zA-Z]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [word length])];
+        if ([word length] > 0 && ![valid isWord:word]) {
+            errors++;
+        }
+    }
+    NSString *params = [NSString stringWithFormat:@"event=input_event&begin_time=%@&end_time=%@&character_count=%d&error_count=%d", startTime, [self getTime], _curSequence.length, errors];
     [self logToServer:params];
 }
 
