@@ -81,10 +81,16 @@
     self.tabBarController.selectedIndex = 1;
 }
 
-// Switches to the input view controller (index 1) and announces the change to the user.
+// Switches to the tutorial view controller (index 2) and announces the change to the user.
 - (IBAction)switchToTutorialView:(id)sender {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"How To Screen");
     self.tabBarController.selectedIndex = 2;
+}
+
+// Switches to the agreement view controller (index 3) and announces the change to the user.
+- (IBAction)switchToAgreementView:(id)sender {
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Agreement Screen");
+    self.tabBarController.selectedIndex = 3;
 }
 
 // When the user changes the device to a landscape orientation the view controller is switched the input view.
@@ -108,6 +114,14 @@
     self.view.autoresizesSubviews = YES;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self setNeedsStatusBarAppearanceUpdate];
+    
+    // Show the terms and conditions page
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"termsAndConditions"]) {
+        NSLog(@"First Time Launching");
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"termsAndConditions"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self performSelector:@selector(switchToAgreementView:) withObject:nil afterDelay:0.01];
+    }
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{

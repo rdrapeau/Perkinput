@@ -7,10 +7,9 @@
 //
 
 #import "TutorialViewController.h"
-#import "TutorialView.h"
 
 @interface TutorialViewController ()
-@property (strong, nonatomic) IBOutlet TutorialView *tutorialView;
+@property (strong, nonatomic) IBOutlet UIScrollView *tutorialView;
 
 @end
 
@@ -41,12 +40,6 @@
     [[UIApplication sharedApplication] openURL:[[NSURL alloc] initWithString:@"http://perkinput.cs.washington.edu/"]];
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
-        [self switchToInputView:self];
-    }
-}
-
 // Switches the app to the default view controller (index 0).
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
@@ -67,7 +60,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     [self.tutorialView setContentSize:CGSizeMake(screenRect.size.width, 1828)];
     [self.tutorialView setScrollEnabled:YES];
-//    [self.tutorialView setBounds:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
+    [self.tutorialView setPagingEnabled:NO];
 }
 
 @end

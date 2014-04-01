@@ -39,6 +39,7 @@
 		E350C78718AB2DB700B33C6D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E350C78618AB2DB700B33C6D /* CFNetwork.framework */; };
 		E350C78918AB315E00B33C6D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E350C78818AB315E00B33C6D /* libz.dylib */; };
 		E350C88018AB411700B33C6D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E350C87F18AB411700B33C6D /* MobileCoreServices.framework */; };
+		E37CF76918EA97A0002C7A24 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37CF76818EA97A0002C7A24 /* TabViewController.m */; };
 		E37E7EDE189DD7310064D7CE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37E7EDD189DD7310064D7CE /* CoreData.framework */; };
 		E38931FD18318F7000CF16EB /* numbers.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38931FC18318F7000CF16EB /* numbers.txt */; };
 		E38931FF1831917B00CF16EB /* modes.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38931FE1831917B00CF16EB /* modes.txt */; };
@@ -54,7 +55,7 @@
 		E38B20B418AB63A00077EBA5 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B20AA18AB63A00077EBA5 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E38B20B518AB63A00077EBA5 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B20AC18AB63A00077EBA5 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E38B20B918AB63BC0077EBA5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B20B818AB63BC0077EBA5 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E399A572189DB036006CA600 /* TutorialView.m in Sources */ = {isa = PBXBuildFile; fileRef = E399A571189DB036006CA600 /* TutorialView.m */; };
+		E3D4127118EA87B200BC69DE /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D4127018EA87B200BC69DE /* AgreementViewController.m */; };
 		E3D862D818963826004FE636 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D862D718963826004FE636 /* TutorialViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,8 @@
 		E350C78618AB2DB700B33C6D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E350C78818AB315E00B33C6D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E350C87F18AB411700B33C6D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E37CF76718EA97A0002C7A24 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		E37CF76818EA97A0002C7A24 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		E37E7EDD189DD7310064D7CE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E38931FC18318F7000CF16EB /* numbers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = numbers.txt; sourceTree = "<group>"; };
 		E38931FE1831917B00CF16EB /* modes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = modes.txt; sourceTree = "<group>"; };
@@ -138,8 +141,8 @@
 		E38B20AD18AB63A00077EBA5 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
 		E38B20B718AB63BC0077EBA5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E38B20B818AB63BC0077EBA5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		E399A570189DB036006CA600 /* TutorialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialView.h; sourceTree = "<group>"; };
-		E399A571189DB036006CA600 /* TutorialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialView.m; sourceTree = "<group>"; };
+		E3D4126F18EA87B200BC69DE /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
+		E3D4127018EA87B200BC69DE /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
 		E3D862D618963826004FE636 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		E3D862D718963826004FE636 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				6D99788817153D3600633AC9 /* MainStoryboard.storyboard */,
-				E37E7ED5189DD5070064D7CE /* Views */,
+				E37E7ED5189DD5070064D7CE /* Views And Controllers */,
 				6D772139175D894D00972596 /* Input Control */,
 				E38B209918AB63880077EBA5 /* Network */,
 				E350C76F18AB2B9400B33C6D /* Logging */,
@@ -259,9 +262,11 @@
 			name = Logging;
 			sourceTree = "<group>";
 		};
-		E37E7ED5189DD5070064D7CE /* Views */ = {
+		E37E7ED5189DD5070064D7CE /* Views And Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E37CF76718EA97A0002C7A24 /* TabViewController.h */,
+				E37CF76818EA97A0002C7A24 /* TabViewController.m */,
 				6D99788B17153D3600633AC9 /* ViewController.h */,
 				6D99788C17153D3600633AC9 /* ViewController.m */,
 				6D2EF7911757FB7300BE4C54 /* DefaultView.h */,
@@ -272,10 +277,10 @@
 				6DDACCD0175469A400CE6442 /* InputView.m */,
 				E3D862D618963826004FE636 /* TutorialViewController.h */,
 				E3D862D718963826004FE636 /* TutorialViewController.m */,
-				E399A570189DB036006CA600 /* TutorialView.h */,
-				E399A571189DB036006CA600 /* TutorialView.m */,
+				E3D4126F18EA87B200BC69DE /* AgreementViewController.h */,
+				E3D4127018EA87B200BC69DE /* AgreementViewController.m */,
 			);
-			name = Views;
+			name = "Views And Controllers";
 			sourceTree = "<group>";
 		};
 		E37E7ED6189DD51C0064D7CE /* Input Codes */ = {
@@ -426,7 +431,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E399A572189DB036006CA600 /* TutorialView.m in Sources */,
 				6D99787D17153D3500633AC9 /* main.m in Sources */,
 				E38A9A7718BC835100F8ED51 /* EventType.m in Sources */,
 				E38B20B518AB63A00077EBA5 /* ASINetworkQueue.m in Sources */,
@@ -435,6 +439,7 @@
 				E350C77D18AB2BAD00B33C6D /* Logger.m in Sources */,
 				E350C77F18AB2BAD00B33C6D /* CoreDataModelWrapper.m in Sources */,
 				6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */,
+				E3D4127118EA87B200BC69DE /* AgreementViewController.m in Sources */,
 				E310EF4F18C84B5700BE5A60 /* Validator.m in Sources */,
 				E350C77C18AB2BAD00B33C6D /* Event.m in Sources */,
 				E38B20B918AB63BC0077EBA5 /* Reachability.m in Sources */,
@@ -450,6 +455,7 @@
 				E38B20B118AB63A00077EBA5 /* ASIDownloadCache.m in Sources */,
 				E350C78318AB2C3500B33C6D /* DataSender.m in Sources */,
 				E38B20B218AB63A00077EBA5 /* ASIFormDataRequest.m in Sources */,
+				E37CF76918EA97A0002C7A24 /* TabViewController.m in Sources */,
 				E38A9A7418BC832300F8ED51 /* LogModel.xcdatamodel in Sources */,
 				E38B20AE18AB63A00077EBA5 /* ASIAuthenticationDialog.m in Sources */,
 				E38B20B018AB63A00077EBA5 /* ASIDataDecompressor.m in Sources */,
