@@ -136,7 +136,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Review" image="C3CFE600-8BC7-458A-BB5E-3E65A19B24D7" id="zn8-lZ-p8Z"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="9EFC9FB8-8893-47BE-818B-6131763035A1" id="zn8-lZ-p8Z"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="textField" destination="wzx-a5-uL6" id="B3N-aI-jQs"/>
@@ -162,6 +162,7 @@
                         <segue destination="hFg-UO-dMe" kind="relationship" relationship="viewControllers" id="U5y-b7-y7c"/>
                         <segue destination="Vev-2s-w8R" kind="relationship" relationship="viewControllers" id="bOu-on-ryJ"/>
                         <segue destination="mQP-Cb-2He" kind="relationship" relationship="viewControllers" id="xyi-9d-9U8"/>
+                        <segue destination="adg-gZ-GM0" kind="relationship" relationship="viewControllers" id="LbQ-yo-cXs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-0P-0LZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,6 +278,96 @@
             </objects>
             <point key="canvasLocation" x="-5442" y="-63"/>
         </scene>
+        <!--Demographic View Controller - Item-->
+        <scene sceneID="GEE-dh-0G8">
+            <objects>
+                <viewController storyboardIdentifier="Demographic View" id="adg-gZ-GM0" customClass="DemographicViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jEJ-aX-iPX"/>
+                        <viewControllerLayoutGuide type="bottom" id="qdp-Ok-Sip"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8eh-Eh-nDK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="How old are you?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="173" translatesAutoresizingMaskIntoConstraints="NO" id="gls-J7-fvh">
+                                <rect key="frame" x="74" y="20" width="173" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="TXS-3h-iYx">
+                                <rect key="frame" x="20" y="60" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="18-30"/>
+                                    <segment title="31-40"/>
+                                    <segment title="41-50"/>
+                                    <segment title="51-60"/>
+                                    <segment title="60+"/>
+                                </segments>
+                                <connections>
+                                    <action selector="ageChange:" destination="adg-gZ-GM0" eventType="valueChanged" id="S5v-5G-NjI"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="What is your gender?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="217" translatesAutoresizingMaskIntoConstraints="NO" id="mLi-Ze-81t">
+                                <rect key="frame" x="52" y="96" width="217" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Aoc-Z7-FZi">
+                                <rect key="frame" x="20" y="157" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Male"/>
+                                    <segment title="Female"/>
+                                    <segment title="Decline"/>
+                                </segments>
+                                <connections>
+                                    <action selector="genderChange:" destination="adg-gZ-GM0" eventType="valueChanged" id="Lrx-jy-Yhn"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="What is your Braille reading ability?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="217" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-i7-9YR">
+                                <rect key="frame" x="52" y="193" width="217" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="bc3-7r-uEA">
+                                <rect key="frame" x="20" y="254" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="None"/>
+                                    <segment title="Poor"/>
+                                    <segment title="Fair"/>
+                                    <segment title="Good"/>
+                                    <segment title="Perfect"/>
+                                </segments>
+                                <connections>
+                                    <action selector="brailleChange:" destination="adg-gZ-GM0" eventType="valueChanged" id="16r-vf-VX1"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MN-dK-ps9">
+                                <rect key="frame" x="56" y="308" width="209" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Main Screen"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Main Screen" backgroundImage="gradient.png"/>
+                                <connections>
+                                    <action selector="switchToMainView" destination="adg-gZ-GM0" eventType="touchUpInside" id="BAZ-BP-Jgu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="aXk-dw-mIf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sjr-1z-ChN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4736" y="-63"/>
+        </scene>
         <!--Input View Controller - Input View-->
         <scene sceneID="Flp-Iu-JXZ">
             <objects>
@@ -311,7 +402,7 @@
                         </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Input" image="7AE2EABB-0F1D-44B5-B720-1C888BF65295" id="8Ua-Tr-2gN"/>
+                    <tabBarItem key="tabBarItem" title="Input" image="988FA871-06A4-4CBF-97B1-D050016A0501" id="8Ua-Tr-2gN"/>
                     <connections>
                         <outlet property="inputView" destination="3wg-GK-2qU" id="TEa-Y1-XEz"/>
                         <outlet property="label" destination="hNC-pc-Uvn" id="blS-yS-Rbl"/>
@@ -379,12 +470,11 @@
                                         <rect key="frame" x="54" y="938" width="212" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <accessibility key="accessibilityConfiguration" label="Main Screen"/>
+                                        <accessibility key="accessibilityConfiguration" label="Continue"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                        <state key="normal" title="Main Screen" backgroundImage="gradient.png"/>
+                                        <state key="normal" title="Continue" backgroundImage="gradient.png"/>
                                         <connections>
-                                            <action selector="switchToDefaultView:" destination="mQP-Cb-2He" eventType="touchUpInside" id="7XR-06-Z0b"/>
-                                            <action selector="switchToDefaultView:" destination="Vev-2s-w8R" eventType="touchUpInside" id="TIH-xB-7Kv"/>
+                                            <action selector="switchToAgreementView:" destination="mQP-Cb-2He" eventType="touchUpInside" id="tcq-f2-TbC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5VN-Op-9H0">
@@ -424,7 +514,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="7AE2EABB-0F1D-44B5-B720-1C888BF65295" width="30" height="30">
+        <image name="988FA871-06A4-4CBF-97B1-D050016A0501" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -441,7 +531,7 @@ uAC6ALwAwwDLANcA2QDbAN0BtwG8AccB0AHWAdkB3wHoAe0B9QH4Af8CBwIUAhkCGwIdAiICKgItAjIC
 OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
 </mutableData>
         </image>
-        <image name="C3CFE600-8BC7-458A-BB5E-3E65A19B24D7" width="30" height="30">
+        <image name="9EFC9FB8-8893-47BE-818B-6131763035A1" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz

@@ -30,9 +30,9 @@
 }
 
 // Switches the app to the default view controller (index 0).
-- (IBAction)switchToDefaultView:(id)sender {
-    self.tabBarController.selectedIndex = 0;
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default Screen");
+- (IBAction)switchToAgreementView:(id)sender {
+    self.tabBarController.selectedIndex = 4;
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Demographic Screen");
 }
 
 - (void)viewWillAppear:(BOOL)animated {

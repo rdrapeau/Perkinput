@@ -221,8 +221,6 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     _curString = nil;
     _curSequence = @"";
     _touchHandled = YES;
-    _interpreter = [[Interpreter alloc] init];
-    valid = [Validator getInstance];
     [label setText:@"Calibrate"];
     [self.inputView reset];
     [self.inputView redraw];
@@ -283,7 +281,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 
 // Set the input view to support multiple touch events and to allow user interaction. 
 - (void)viewDidLoad {
-    lookup = [[Input alloc] init];
+    [self performSelectorInBackground:@selector(loadLookupTable) withObject:nil];
     self.inputView.multipleTouchEnabled = YES;
     self.inputView.userInteractionEnabled = YES;
     self.inputView.isAccessibilityElement = YES;
@@ -292,6 +290,12 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     [self setNeedsStatusBarAppearanceUpdate];
     self.inputView.accessibilityTraits = UIAccessibilityTraitAllowsDirectInteraction;
     [self setUp];
+}
+
+- (void)loadLookupTable {
+    lookup = [[Input alloc] init];
+    _interpreter = [[Interpreter alloc] init];
+    valid = [Validator getInstance];
 }
 
 @end
