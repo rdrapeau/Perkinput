@@ -2,4 +2,4 @@ Perkinput
 =========
 Paper: http://dub.washington.edu/djangosite/media/papers/azenkot_gi2012.pdf
 
-Perkinput allows blind and deaf-blind users on iOS to enter text using 6 dot braille. This is more ideal than using the native voice over text entry as it is more efficient and customizable. The Perkinput text entry method uses the 6-bit Braille encoding with audio feedback, enabling one- and two-handed input.
+Perkinput is a Braille-based iPhone application for text entry.  The app allows someone to quickly enter text using multi-finger taps (chords), one tap per column of Braille. The app allows the user to copy the entered text into a text message, email body, or clipboard.  Perkinput does use a keyboard.  Instead, the user registers finger locations by holding fingers down on the screen, then tap in Braille characters in roughly the same finger locations. A study with blind users has shown Perkinput to be nearly twice as fast as text entry using a soft keyboard with VoiceOver. 
