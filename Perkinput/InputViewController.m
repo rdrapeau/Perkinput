@@ -256,10 +256,10 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 
 // Sends the log to the server with the params (do not include UUID in params as it is done here)
 - (void)logToServer:(NSString*)params {
-    NSUUID *uid = [[UIDevice currentDevice] identifierForVendor];
-    NSString *param = [NSString stringWithFormat:@"http://staff.washington.edu/drapeau/logger.php?id=%@&%@", [uid UUIDString], params];
-    NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:param]];
-    NSLog(result);
+//    NSUUID *uid = [[UIDevice currentDevice] identifierForVendor];
+//    NSString *param = [NSString stringWithFormat:@"http://staff.washington.edu/drapeau/logger.php?id=%@&%@", [uid UUIDString], params];
+//    NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:param]];
+//    NSLog(result);
 }
 
 // Returns the time in the format MM-dd-yyyy-HH:mm:ss

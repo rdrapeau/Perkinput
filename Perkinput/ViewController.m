@@ -118,9 +118,10 @@
     // Show the terms and conditions page
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"termsAndConditions"]) {
         NSLog(@"First Time Launching");
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"termsAndConditions"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [self performSelector:@selector(switchToAgreementView:) withObject:nil afterDelay:0.01];
+        [self performSelector:@selector(switchToTutorialView:) withObject:nil afterDelay:0.01];
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"termsAndConditions"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//        [self performSelector:@selector(switchToAgreementView:) withObject:nil afterDelay:0.01];
     }
 }
 

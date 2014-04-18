@@ -55,7 +55,7 @@
 
 - (IBAction)switchToMainView {
     if (ageValue && genderValue && brailleValue) {
-        // LOG HERE
+    [self performSelectorInBackground:@selector(logDemographicEvent) withObject:nil]; // LOG Input
         self.tabBarController.selectedIndex = 0;
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default Screen");
     } else {
@@ -63,6 +63,19 @@
         alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select an option for all three questions." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alert show];
     }
+}
+
+- (void)logDemographicEvent {
+    NSString *params = [NSString stringWithFormat:@"event=demographic_event&gender=%@&age=%@&reading_ability=%@", genderValue, ageValue, brailleValue];
+    [self logToServer:params];
+}
+
+// Sends the log to the server with the params (do not include UUID in params as it is done here)
+- (void)logToServer:(NSString*)params {
+    NSUUID *uid = [[UIDevice currentDevice] identifierForVendor];
+    NSString *param = [NSString stringWithFormat:@"http://staff.washington.edu/drapeau/logger.php?id=%@&%@", [uid UUIDString], params];
+    NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:param]];
+    NSLog(result);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
