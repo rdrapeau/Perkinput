@@ -9,8 +9,9 @@
 #import "Input.h"
 
 @implementation Input {
-    
+
 }
+NSString *separator = @"###";
 
 // Returns the corresponding character for the layout code.
 - (NSString*)getCharacter:(NSString *)layout {
@@ -67,7 +68,7 @@
     NSString *fileContents = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
     NSArray *listArray = [fileContents componentsSeparatedByString:@"\n"];
     for (int i = 0; i < listArray.count; i++) {
-        NSArray *line = [[listArray objectAtIndex:i] componentsSeparatedByString:@","];
+        NSArray *line = [[listArray objectAtIndex:i] componentsSeparatedByString:separator];
         NSString *character = [line objectAtIndex:0];
         NSString *code = [line objectAtIndex:1];
         [dict setObject:character forKey:code];
