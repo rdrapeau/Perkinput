@@ -15,6 +15,8 @@
 
 - (void)setCalibrationPoints:(NSSet*)touches; // Update calibration points
 
+- (BOOL)isCalibrated;
+
 - (void)setPoints:(NSSet*)touches; // Update white circles
 
 - (void)redraw; // Redraw everything on the screen

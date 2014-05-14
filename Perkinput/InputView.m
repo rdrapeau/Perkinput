@@ -24,6 +24,11 @@ static const double CAL_DIAMETER = 85; // Calibration Circle Diameter
     [self redraw];
 }
 
+// Returns if the calibration points have been set or not
+- (BOOL)isCalibrated {
+    return calibrationPoints != nil;
+}
+
 // Update the coordinates of the touch points (white circles).
 - (void)setPoints:(NSSet*)touches {
     points = touches;

@@ -132,6 +132,9 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
             }
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
         } else { // 1st Touch
+            if ([self.inputView isCalibrated]) {
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+            }
             _curString = input;
         }
         _touchHandled = YES;
@@ -221,6 +224,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     _curString = nil;
     _curSequence = @"";
     _touchHandled = YES;
+    [_interpreter clearCalibrationPoints];
     [label setText:@"Calibrate"];
     [self.inputView reset];
     [self.inputView redraw];

@@ -27,6 +27,10 @@
     return self;
 }
 
+- (void)clearCalibrationPoints {
+    calibratedPoints = nil;
+}
+
 // Calibrates the points according to the 4 points in touches  
 - (void)interpretLongPress:(NSMutableArray*)touches {
     if ([touches count] == TOTAL_FINGERS) {
@@ -49,7 +53,6 @@
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Hold 4 fingers down to calibrate");
         return nil;
     }
-    
     NSMutableArray *sortedTouches = [self sortTouches:touches];
     
     NSNumber *numFingers = [NSNumber numberWithInt:[touches count]];

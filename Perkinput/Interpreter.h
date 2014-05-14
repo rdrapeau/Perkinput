@@ -19,6 +19,8 @@
     NSMutableDictionary *_layouts; // Possible layouts
 }
 
+- (void)clearCalibrationPoints;
+
 - (void)interpretLongPress:(NSMutableArray*)touches; // Calibration Touch
 
 - (NSMutableString*)interpretShortPress:(NSMutableArray*)touches; // Short Press 
