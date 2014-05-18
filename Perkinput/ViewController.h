@@ -11,9 +11,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController <MFMessageComposeViewControllerDelegate> {
-    
-}
+@interface ViewController : UIViewController <MFMessageComposeViewControllerDelegate>
 
 - (IBAction)sendSMS:(id)sender; // Sends a Text Message
 

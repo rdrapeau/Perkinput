@@ -10,17 +10,14 @@
 
 @implementation DefaultView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+- (id)initWithFrame:(CGRect)frame {
+    return [super initWithFrame:frame];
 }
 
-// This custom view behaves like a button so the user can touch and interact
-// with the screen even if VoiceOver is turned on.
+/** 
+ * This custom view behaves like a button so the user can touch and interact with the screen even 
+ * if VoiceOver is turned on.
+ */
 - (UIAccessibilityTraits)accessibilityTraits {
     return UIAccessibilityTraitAllowsDirectInteraction;
 }
