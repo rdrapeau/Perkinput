@@ -56,9 +56,18 @@ static NSString *const demographicScreenAnnouncement = @"Entering demographic sc
 }
 
 - (IBAction)switchToMainView {
+    [self switchViews:0];
+}
+
+- (IBAction)switchToTutorialView:(id)sender {
+    [self switchViews:2];
+}
+
+
+- (void)switchViews:(int)viewIndex {
     if (ageValue && genderValue && brailleValue) {
-    [self performSelectorInBackground:@selector(logDemographicEvent) withObject:nil]; // LOG Input
-        self.tabBarController.selectedIndex = 0;
+        [self performSelectorInBackground:@selector(logDemographicEvent) withObject:nil]; // LOG Input
+        self.tabBarController.selectedIndex = viewIndex;
     } else {
         UIAlertView* alert;
         alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select an option for all three questions." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];

@@ -140,7 +140,7 @@ static NSString *const mainScreenAnnouncement = @"Entering main screen";
     [self setNeedsStatusBarAppearanceUpdate];
     
     // Show the terms and conditions page
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"termsAndConditions"]) {
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"termsAndConditions"]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"termsAndConditions"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self performSelector:@selector(switchToAgreementView:) withObject:nil afterDelay:0.01];
