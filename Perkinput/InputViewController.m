@@ -18,7 +18,7 @@
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 static NSString *const calibratedAnnouncement = @"Calibrated. Swipe 3 fingers to the right to switch back to the main screen.";
-static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen";
+static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen. Hold 4 fingers down to calibrate.";
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface InputViewController() {
@@ -55,7 +55,7 @@ static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
     [label setText:@""];
     if (_touchHandled) { // Previous touch event
-        NSLog(@"Touches began: %lu", (unsigned long)[touches count]);
+        NSLog(@"Touches began: %tu", [touches count]);
         _touchHandled = NO;
         _curTouches = (NSMutableSet*) touches;
     } else { // One or more fingers are already down on the screen
@@ -135,7 +135,7 @@ static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
         } else { // 1st Touch
             if ([self.inputView isCalibrated]) {
-                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+                [[UIDevice currentDevice] playInputClick];
             }
             _curString = input;
         }
@@ -216,7 +216,7 @@ static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, perkinputScreenAnnouncement);
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, perkinputScreenAnnouncement);
     startTime = [self getTime];
 }
 

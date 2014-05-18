@@ -124,8 +124,8 @@ static NSString *const mainScreenAnnouncement = @"Entering main screen";
 /**
  * Announce to the user which view they are in
  */
-- (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, mainScreenAnnouncement);
+- (void)viewDidAppear:(BOOL)animated {
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, mainScreenAnnouncement);
 }
 
 /**

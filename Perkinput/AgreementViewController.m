@@ -36,9 +36,6 @@ static NSString *const agreementScreenAnnouncement = @"Entering agreement screen
     self.tabBarController.selectedIndex = 4;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, agreementScreenAnnouncement);
-}
 
 - (NSUInteger)supportedInterfaceOrientations
 {
@@ -52,27 +49,15 @@ static NSString *const agreementScreenAnnouncement = @"Entering agreement screen
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, agreementScreenAnnouncement);
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     [self.agreementView setContentSize:CGSizeMake(screenRect.size.width, 1000)];
     [self.agreementView setScrollEnabled:YES];
     [self.agreementView setPagingEnabled:NO];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

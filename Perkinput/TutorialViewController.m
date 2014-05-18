@@ -48,16 +48,8 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen";
     self.tabBarController.selectedIndex = 0;
 }
 
-// Switches to the input view controller (index 1) and announces the change to the user.
-- (IBAction)switchToInputView:(id)sender {
-    self.tabBarController.selectedIndex = 1;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, tutorialScreenAnnouncement);
-}
-
 - (void)viewDidAppear:(BOOL)animated {
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, tutorialScreenAnnouncement);
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     [self.tutorialView setContentSize:CGSizeMake(screenRect.size.width, 1828)];
     [self.tutorialView setScrollEnabled:YES];

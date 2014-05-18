@@ -80,10 +80,13 @@ static NSString *const demographicScreenAnnouncement = @"Entering demographic sc
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, demographicScreenAnnouncement);
     ageValue = NULL;
     genderValue = NULL;
     brailleValue = NULL;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, demographicScreenAnnouncement);
 }
 
 - (NSUInteger)supportedInterfaceOrientations
