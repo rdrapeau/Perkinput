@@ -8,7 +8,10 @@
 
 #import "AgreementViewController.h"
 
+static NSString *const agreementScreenAnnouncement = @"Entering agreement screen";
+
 @interface AgreementViewController ()
+
 @property (strong, nonatomic) IBOutlet UIScrollView *agreementView;
 
 @end
@@ -29,14 +32,12 @@
     [[UIApplication sharedApplication] openURL:[[NSURL alloc] initWithString:@"http://perkinput.cs.washington.edu/"]];
 }
 
-// Switches the app to the default view controller (index 0).
 - (IBAction)switchToAgreementView:(id)sender {
     self.tabBarController.selectedIndex = 4;
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Demographic Screen");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Agreement Screen");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, agreementScreenAnnouncement);
 }
 
 - (NSUInteger)supportedInterfaceOrientations

@@ -8,6 +8,8 @@
 
 #import "DemographicViewController.h"
 
+static NSString *const demographicScreenAnnouncement = @"Entering demographic screen";
+
 @interface DemographicViewController () {
     NSString *ageValue;
     NSString *genderValue;
@@ -57,7 +59,6 @@
     if (ageValue && genderValue && brailleValue) {
     [self performSelectorInBackground:@selector(logDemographicEvent) withObject:nil]; // LOG Input
         self.tabBarController.selectedIndex = 0;
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default Screen");
     } else {
         UIAlertView* alert;
         alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select an option for all three questions." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
@@ -79,7 +80,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Demographic Screen");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, demographicScreenAnnouncement);
     ageValue = NULL;
     genderValue = NULL;
     brailleValue = NULL;
@@ -89,16 +90,5 @@
 {
     return UIInterfaceOrientationMaskPortrait + UIInterfaceOrientationMaskPortraitUpsideDown;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

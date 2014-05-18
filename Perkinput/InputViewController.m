@@ -17,6 +17,8 @@
 #import "Validator.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
+static NSString *const calibratedAnnouncement = @"Calibrated. Swipe 3 fingers to the right to switch back to the main screen.";
+static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen";
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface InputViewController() {
@@ -42,7 +44,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
         _curString = nil; // Erase the current touch
         _touchHandled = YES; // Touch has been handled (Don't interpret twice)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Calibrated. Swipe 3 fingers to the right to switch to the Main Screen.");
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, calibratedAnnouncement);
     }
 }
 
@@ -53,9 +55,9 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
     [label setText:@""];
     if (_touchHandled) { // Previous touch event
-        NSLog(@"Touches began: %d", [touches count]);
+        NSLog(@"Touches began: %lu", (unsigned long)[touches count]);
         _touchHandled = NO;
-        _curTouches = touches;
+        _curTouches = (NSMutableSet*) touches;
     } else { // One or more fingers are already down on the screen
         for (UITouch *touch in touches) { // Update currentTouches
             [_curTouches addObject:touch];
@@ -72,7 +74,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     if(!_touchHandled && [touches count] >= [_curTouches count]) {
         //NSLog(@"Touches Updated: %d touches", [touches count]);
         [self.inputView setPoints:touches]; // Redraw white circles
-        _curTouches = touches;
+        _curTouches = (NSMutableSet*) touches;
     }
 }
 
@@ -84,7 +86,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(onLongPress) object:nil];
     if (!_touchHandled) {
         if ([touches count] >= [_curTouches count]) {
-            _curTouches = touches;
+            _curTouches = (NSMutableSet*) touches;
         }
         [self performSelectorInBackground:@selector(logTapEventToServer) withObject:nil]; // LOG tap event
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
@@ -139,7 +141,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
         }
         _touchHandled = YES;
     }
-    NSLog(@"Touch ended: %d touches", [_curTouches count]);
+    NSLog(@"Touch ended: %lu touches", (unsigned long)[_curTouches count]);
     [self.inputView setPoints:_curTouches];
 }
 
@@ -195,7 +197,6 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // Switches the app to the default view controller (index 0). 
 - (IBAction)switchToDefaultView:(id)sender {
     self.tabBarController.selectedIndex = 0;
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Default Screen");
 }
 
 // When the user changes the device to a landscape orientation from this view controller, redraw the circles
@@ -215,7 +216,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Input Screen");
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, perkinputScreenAnnouncement);
     startTime = [self getTime];
 }
 
@@ -244,7 +245,7 @@ static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
             errors++;
         }
     }
-    NSString *params = [NSString stringWithFormat:@"event=input_event&begin_time=%@&end_time=%@&character_count=%d&error_count=%d", startTime, [self getTime], _curSequence.length, errors];
+    NSString *params = [NSString stringWithFormat:@"event=input_event&begin_time=%@&end_time=%@&character_count=%lu&error_count=%d", startTime, [self getTime], (unsigned long)_curSequence.length, errors];
     [self logToServer:params];
 }
 

@@ -47,11 +47,11 @@
     
     // populate the entity with values
     [eventEntity setValue:[NSNumber numberWithInt:event] forKey:@"eventId"];
-    [eventEntity setValue:[NSNumber numberWithInt:gid] forKey:@"gameId"];
+    [eventEntity setValue:[NSNumber numberWithUnsignedLong:gid] forKey:@"gameId"];
     [eventEntity setValue:params forKey:@"params"];
     [eventEntity setValue:[NSNumber numberWithLong:time] forKey:@"timestamp"];
-    [eventEntity setValue:[NSNumber numberWithInt:tid] forKey:@"taskId"];
-    [eventEntity setValue:[NSNumber numberWithInt:uid] forKey:@"playerId"];
+    [eventEntity setValue:[NSNumber numberWithUnsignedLong:tid] forKey:@"taskId"];
+    [eventEntity setValue:[NSNumber numberWithUnsignedLong:uid] forKey:@"playerId"];
     [eventEntity setValue:[EventType description:event] forKey:@"eventType"];
     
     [manageContext save:nil];
