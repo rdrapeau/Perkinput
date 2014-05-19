@@ -16,7 +16,7 @@
 #import "Validator.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
-static NSString *const calibratedAnnouncement = @"Calibrated. Swipe 3 fingers to the right to switch back to the main screen.";
+static NSString *const calibratedAnnouncement = @"Calibrated.";
 static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen.";
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
@@ -120,8 +120,10 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
             } else {
                 [label setText:@"Invalid Code"];
             }
+            NSLog(@"%@", [input substringFromIndex:4]);
             UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
         } else { // 1st Touch
+            NSLog(@"%@", input);
             if ([self.inputView isCalibrated]) {
                 [[UIDevice currentDevice] playInputClick];
             }
