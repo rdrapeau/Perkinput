@@ -12,8 +12,6 @@
 #import "InputView.h"
 #import "Interpreter.h"
 #import "TouchPoint.h"
-#import "DataSender.h"
-#import "Logger.h"
 #import "Validator.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
