@@ -120,11 +120,12 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
             } else {
                 [label setText:@"Invalid Code"];
             }
-            NSLog(@"%@", [input substringFromIndex:4]);
-            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
+            [self announceBrailleDots:[input substringFromIndex:4] forFirstTap:NO];
+            [self performSelector:@selector(announceInput) withObject:nil afterDelay:1.2];
+            
         } else { // 1st Touch
-            NSLog(@"%@", input);
             if ([self.inputView isCalibrated]) {
+                [self announceBrailleDots:input forFirstTap:YES];
                 [[UIDevice currentDevice] playInputClick];
             }
             _curString = input;
@@ -135,9 +136,24 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
     [self.inputView setPoints:_curTouches];
 }
 
-// Three Finger Swipe
-- (IBAction)fingerSwipe:(id)sender {
-    [self switchToDefaultView:self];
+- (void)announceInput {
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
+}
+
+- (void)announceBrailleDots:(NSString*)input forFirstTap:(BOOL)isFirstTap {
+    NSString *announcement = @"Dots ";
+    for (NSUInteger i = 0; i < [input length]; i++) {
+        if ([input characterAtIndex:i] == '1') {
+            int dot = isFirstTap ? i + 1 : i + 4;
+            if (!((dot == 4 && isFirstTap) || dot == 7)) {
+                announcement = [NSString stringWithFormat:@"%@%@", announcement, [NSString stringWithFormat:@"%d ", dot]];
+            }
+        }
+    }
+    if ([announcement length] < 8) {
+        announcement = [NSString stringWithFormat:@"Dot %@", [announcement substringFromIndex:5]];
+    }
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, announcement);
 }
 
 // Returns the word for the given character / punctuation
