@@ -8,6 +8,7 @@
 
 #import "TutorialViewController.h"
 #import "InputViewController.h"
+#import "HandViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "ViewController.h"
 #import "InputView.h"
@@ -223,6 +224,10 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
 
 - (void)viewDidAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, tutorialScreenAnnouncement);
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"hand"]) {
+        [self performSegueWithIdentifier:@"hand" sender:self];
+    }
 }
 
 // Resets the View

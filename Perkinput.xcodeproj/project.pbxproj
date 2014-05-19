@@ -30,6 +30,7 @@
 		6DF32E6E175C288500560E58 /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32E6D175C288500560E58 /* Layout.m */; };
 		E310EF4C18C84AF600BE5A60 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = E310EF4B18C84AF600BE5A60 /* words.txt */; };
 		E310EF4F18C84B5700BE5A60 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = E310EF4E18C84B5700BE5A60 /* Validator.m */; };
+		E32457341929EB740073F7CE /* HandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32457331929EB740073F7CE /* HandViewController.m */; };
 		E350C78518AB2D7800B33C6D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E350C78418AB2D7800B33C6D /* SystemConfiguration.framework */; };
 		E350C78718AB2DB700B33C6D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E350C78618AB2DB700B33C6D /* CFNetwork.framework */; };
 		E350C78918AB315E00B33C6D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E350C78818AB315E00B33C6D /* libz.dylib */; };
@@ -81,6 +82,8 @@
 		E310EF4B18C84AF600BE5A60 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		E310EF4D18C84B5700BE5A60 /* Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validator.h; sourceTree = "<group>"; };
 		E310EF4E18C84B5700BE5A60 /* Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validator.m; sourceTree = "<group>"; };
+		E32457321929EB740073F7CE /* HandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandViewController.h; sourceTree = "<group>"; };
+		E32457331929EB740073F7CE /* HandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandViewController.m; sourceTree = "<group>"; };
 		E350C78418AB2D7800B33C6D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E350C78618AB2DB700B33C6D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E350C78818AB315E00B33C6D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -207,6 +210,8 @@
 				6D1F1F55172E36C400EEE86C /* InputViewController.m */,
 				6DDACCCF175469A400CE6442 /* InputView.h */,
 				6DDACCD0175469A400CE6442 /* InputView.m */,
+				E32457321929EB740073F7CE /* HandViewController.h */,
+				E32457331929EB740073F7CE /* HandViewController.m */,
 				E3D862D618963826004FE636 /* TutorialViewController.h */,
 				E3D862D718963826004FE636 /* TutorialViewController.m */,
 				E3D4126F18EA87B200BC69DE /* AgreementViewController.h */,
@@ -335,6 +340,7 @@
 				6DDACCD1175469A400CE6442 /* InputView.m in Sources */,
 				6D2EF7931757FB7300BE4C54 /* DefaultView.m in Sources */,
 				6DF32E68175C1F9000560E58 /* Interpreter.m in Sources */,
+				E32457341929EB740073F7CE /* HandViewController.m in Sources */,
 				6DF32E6B175C26A600560E58 /* Input.m in Sources */,
 				6DF32E6E175C288500560E58 /* Layout.m in Sources */,
 				6D772138175D894500972596 /* TouchPoint.m in Sources */,

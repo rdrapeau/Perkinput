@@ -9,7 +9,7 @@
 #import "TabViewController.h"
 #import "TutorialViewController.h"
 #import "AgreementViewController.h"
-
+#import "DemographicViewController.h"
 
 @interface TabViewController ()
 
@@ -22,8 +22,8 @@
 }
 
 - (BOOL)shouldAutorotate {
-    if (self.selectedViewController.class == [TutorialViewController class]
-            || self.selectedViewController.class == [AgreementViewController class]) {
+    if (self.selectedViewController.class == [AgreementViewController class]
+        || self.selectedViewController == [DemographicViewController class]) {
         return NO;
     }
     return YES;

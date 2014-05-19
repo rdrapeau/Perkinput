@@ -163,7 +163,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Review" image="42EF7D0D-D209-4FA3-BFFD-DE4DC1F7ABE5" id="zn8-lZ-p8Z"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="2C874687-528C-45D0-80BA-7CBBE34323A6" id="zn8-lZ-p8Z"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="textField" destination="wzx-a5-uL6" id="B3N-aI-jQs"/>
@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6371" y="46"/>
+            <point key="canvasLocation" x="-4907" y="61"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="d9r-hm-YFO">
@@ -194,12 +194,77 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-0P-0LZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6720" y="-63"/>
+            <point key="canvasLocation" x="-5454" y="-495"/>
+        </scene>
+        <!--Hand View Controller - hand-->
+        <scene sceneID="4I4-ks-HVk">
+            <objects>
+                <viewController title="hand" id="nOF-5q-vre" customClass="HandViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ble-F4-KNR"/>
+                        <viewControllerLayoutGuide type="bottom" id="pmt-Lp-tqq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gAj-rM-FsC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-yK-8Jy">
+                                <rect key="frame" x="20" y="360" width="130" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Left"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Left" backgroundImage="gradient.png"/>
+                                <connections>
+                                    <action selector="left:" destination="nOF-5q-vre" eventType="touchUpInside" id="Q89-Tb-HeQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jG-D5-NsL">
+                                <rect key="frame" x="170" y="360" width="130" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Right"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Right" backgroundImage="gradient.png"/>
+                                <connections>
+                                    <action selector="right:" destination="nOF-5q-vre" eventType="touchUpInside" id="Qai-G6-rzK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Select your dominant hand from the buttons below to continue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GRk-w3-wrf">
+                                <rect key="frame" x="20" y="266" width="280" height="79"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Welcome to Perkinput." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Z1N-bU-KDL">
+                                <rect key="frame" x="20" y="20" width="280" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Knp-5Y-0Br">
+                                <rect key="frame" x="20" y="66" width="280" height="184"/>
+                                <string key="text">This tutorial will teach you how to input text using Perkinput. You can exit the tutorial at any time by swiping three fingers to the right to exit to the main screen.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="khM-TQ-7Wn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klt-bq-vPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5663" y="651"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="BDe-0c-Ft8">
             <objects>
-                <viewController id="Vev-2s-w8R" userLabel="Tutorial View Controller" customClass="TutorialViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="hand" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vev-2s-w8R" userLabel="Tutorial View Controller" customClass="TutorialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YYt-Yx-2BO"/>
                         <viewControllerLayoutGuide type="bottom" id="GFc-Ws-pIt"/>
@@ -232,6 +297,7 @@
                     <connections>
                         <outlet property="inputView" destination="ftT-Mw-Tf8" id="4vL-SL-3yq"/>
                         <outlet property="label" destination="YEl-hg-qLJ" id="lcO-qh-1sZ"/>
+                        <segue destination="nOF-5q-vre" kind="modal" identifier="hand" id="JD0-J0-MeS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ve5-ax-865" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,7 +322,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5442" y="-63"/>
+            <point key="canvasLocation" x="-5248" y="651"/>
         </scene>
         <!--Demographic View Controller - Item-->
         <scene sceneID="GEE-dh-0G8">
@@ -357,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjr-1z-ChN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4736" y="-63"/>
+            <point key="canvasLocation" x="-5992" y="-63"/>
         </scene>
         <!--Input View Controller - Input View-->
         <scene sceneID="Flp-Iu-JXZ">
@@ -380,7 +446,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration" hint="" label="">
-                            <accessibilityTraits key="traits" none="YES"/>
+                            <accessibilityTraits key="traits" none="YES" playsSound="YES" keyboardKey="YES"/>
                             <bool key="isElement" value="YES"/>
                         </accessibility>
                         <gestureRecognizers/>
@@ -396,7 +462,7 @@
                         </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Input" image="8531D765-EB1B-42D6-BCB9-FBD55FC0731A" id="8Ua-Tr-2gN"/>
+                    <tabBarItem key="tabBarItem" title="Input" image="AA2AB998-5F4D-41A0-8826-09B8BBA4829E" id="8Ua-Tr-2gN"/>
                     <connections>
                         <outlet property="inputView" destination="3wg-GK-2qU" id="TEa-Y1-XEz"/>
                         <outlet property="label" destination="hNC-pc-Uvn" id="blS-yS-Rbl"/>
@@ -424,7 +490,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5783" y="-63"/>
+            <point key="canvasLocation" x="-4295" y="-63"/>
         </scene>
         <!--Agreement View Controller - Agreement-->
         <scene sceneID="Whm-k2-mlS">
@@ -525,11 +591,11 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5091" y="-63"/>
+            <point key="canvasLocation" x="-6355" y="-63"/>
         </scene>
     </scenes>
     <resources>
-        <image name="42EF7D0D-D209-4FA3-BFFD-DE4DC1F7ABE5" width="30" height="30">
+        <image name="2C874687-528C-45D0-80BA-7CBBE34323A6" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -546,7 +612,7 @@ uAC6ALwAwwDLANcA2QDbAN0BtwG8AccB0AHWAdkB3wHoAe0B9QH4Af8CBwIUAhkCGwIdAiICKgItAjIC
 OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
 </mutableData>
         </image>
-        <image name="8531D765-EB1B-42D6-BCB9-FBD55FC0731A" width="30" height="30">
+        <image name="AA2AB998-5F4D-41A0-8826-09B8BBA4829E" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
