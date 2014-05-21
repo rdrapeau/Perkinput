@@ -30,12 +30,14 @@
 }
 
 - (IBAction)right:(id)sender {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@"right" forKey:@"hand"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismiss];
 }
 
 - (IBAction)left:(id)sender {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@"left" forKey:@"hand"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismiss];
 }
 
@@ -46,7 +48,7 @@
 }
 
 - (void)dismiss {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hand"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstTime"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

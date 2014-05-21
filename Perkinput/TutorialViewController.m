@@ -88,6 +88,15 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
             _curTouches = (NSMutableSet*) touches;
         }
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
+        
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"hand"] isEqualToString:@"left"]) {
+            NSMutableString *reverse = [[NSMutableString alloc] initWithCapacity:[input length]];
+            for (int i = [input length] - 1; i >= 0 ; i--) {
+                [reverse appendFormat:[NSString stringWithFormat:@"%c", [input characterAtIndex:i]]];
+            }
+            input = reverse;
+        }
+        
         if (_curString != nil) { // 2nd Touch
             input = [NSMutableString stringWithFormat:@"%@%@", _curString, input];
             _curString = [lookup getCharacter:input]; // Convert the character
@@ -224,8 +233,7 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
 
 - (void)viewDidAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, tutorialScreenAnnouncement);
-    
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"hand"]) {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"]) {
         [self performSegueWithIdentifier:@"hand" sender:self];
     }
 }

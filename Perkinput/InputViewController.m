@@ -88,6 +88,15 @@ static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen
         }
         [self performSelectorInBackground:@selector(logTapEventToServer) withObject:nil]; // LOG tap event
         NSMutableString *input = [_interpreter interpretShortPress:[self convertToTouchPoints:_curTouches]];
+        
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"hand"] isEqualToString:@"left"]) {
+            NSMutableString *reverse = [[NSMutableString alloc] initWithCapacity:[input length]];
+            for (int i = [input length] - 1; i >= 0 ; i--) {
+                [reverse appendFormat:[NSString stringWithFormat:@"%c", [input characterAtIndex:i]]];
+            }
+            input = reverse;
+        }
+        
         if (_curString != nil) { // 2nd Touch
             input = [NSMutableString stringWithFormat:@"%@%@", _curString, input];
             _curString = [lookup getCharacter:input]; // Convert the character
@@ -215,6 +224,9 @@ static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen
 
 - (void)viewDidAppear:(BOOL)animated {
     UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, perkinputScreenAnnouncement);
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"]) {
+        [self performSegueWithIdentifier:@"hand" sender:self];
+    }
     startTime = [self getTime];
 }
 

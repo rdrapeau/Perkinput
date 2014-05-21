@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="271"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJn-4e-0pu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJn-4e-0pu">
                                 <rect key="frame" x="20" y="220" width="250" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,7 +61,7 @@
                                     <action selector="removeKeyboard:" destination="2" eventType="editingDidEndOnExit" id="sYp-GM-QG1"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfv-aW-gh5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfv-aW-gh5">
                                 <rect key="frame" x="20" y="102" width="250" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,7 +99,7 @@
                                     <action selector="clearText:" destination="2" eventType="touchUpInside" id="A8u-9N-GWd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-sa-Bfz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-sa-Bfz">
                                 <rect key="frame" x="20" y="161" width="250" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -163,7 +163,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Review" image="FA54A30C-5486-4A9B-9B18-06FC44CD9DCE" id="zn8-lZ-p8Z"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="6496E2AC-2A61-4269-A08B-56686DD1EB35" id="zn8-lZ-p8Z"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="textField" destination="wzx-a5-uL6" id="B3N-aI-jQs"/>
@@ -194,7 +194,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-0P-0LZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5454" y="-495"/>
+            <point key="canvasLocation" x="-5492" y="-521"/>
         </scene>
         <!--Hand View Controller - hand-->
         <scene sceneID="4I4-ks-HVk">
@@ -209,7 +209,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-yK-8Jy">
-                                <rect key="frame" x="20" y="360" width="130" height="46"/>
+                                <rect key="frame" x="20" y="261" width="130" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="Left"/>
@@ -220,7 +220,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jG-D5-NsL">
-                                <rect key="frame" x="170" y="360" width="130" height="46"/>
+                                <rect key="frame" x="170" y="261" width="130" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="Right"/>
@@ -230,36 +230,26 @@
                                     <action selector="right:" destination="nOF-5q-vre" eventType="touchUpInside" id="Qai-G6-rzK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Select your dominant hand from the buttons below to continue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GRk-w3-wrf">
-                                <rect key="frame" x="20" y="266" width="280" height="79"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Welcome to Perkinput." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Z1N-bU-KDL">
-                                <rect key="frame" x="20" y="20" width="280" height="31"/>
+                                <rect key="frame" x="20" y="35" width="280" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Knp-5Y-0Br">
-                                <rect key="frame" x="20" y="66" width="280" height="184"/>
-                                <string key="text">This tutorial will teach you how to input text using Perkinput. You can exit the tutorial at any time by swiping three fingers to the right to exit to the main screen.</string>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Before you can enter text, please select your dominant hand from the buttons below to continue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Knp-5Y-0Br">
+                                <rect key="frame" x="20" y="69" width="280" height="184"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <accessibility key="accessibilityConfiguration">
-                            <bool key="isElement" value="YES"/>
-                        </accessibility>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="khM-TQ-7Wn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klt-bq-vPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5663" y="651"/>
+            <point key="canvasLocation" x="-3779" y="671"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="BDe-0c-Ft8">
@@ -322,7 +312,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5248" y="651"/>
+            <point key="canvasLocation" x="-5384" y="739"/>
         </scene>
         <!--Demographic View Controller - Item-->
         <scene sceneID="GEE-dh-0G8">
@@ -462,10 +452,11 @@
                         </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Input" image="D2920822-4D2C-4708-8609-182E4A38E86F" id="8Ua-Tr-2gN"/>
+                    <tabBarItem key="tabBarItem" title="Input" image="5ACA0C79-BB92-4845-8F35-F0EAE051D8AA" id="8Ua-Tr-2gN"/>
                     <connections>
                         <outlet property="inputView" destination="3wg-GK-2qU" id="TEa-Y1-XEz"/>
                         <outlet property="label" destination="hNC-pc-Uvn" id="blS-yS-Rbl"/>
+                        <segue destination="nOF-5q-vre" kind="modal" identifier="hand" id="acP-Zp-GgI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fG-ht-RP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -541,7 +532,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="If do not wish to help in this study, you can stop using this application." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="hK9-9h-izx">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="If you do not wish to help in this study, you can stop using this application." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="hK9-9h-izx">
                                         <rect key="frame" x="20" y="789" width="280" height="83"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -595,7 +586,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D2920822-4D2C-4708-8609-182E4A38E86F" width="30" height="30">
+        <image name="5ACA0C79-BB92-4845-8F35-F0EAE051D8AA" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -612,7 +603,7 @@ uAC6ALwAwwDLANcA2QDbAN0BtwG8AccB0AHWAdkB3wHoAe0B9QH4Af8CBwIUAhkCGwIdAiICKgItAjIC
 OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
 </mutableData>
         </image>
-        <image name="FA54A30C-5486-4A9B-9B18-06FC44CD9DCE" width="30" height="30">
+        <image name="6496E2AC-2A61-4269-A08B-56686DD1EB35" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -636,4 +627,7 @@ OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="JD0-J0-MeS"/>
+    </inferredMetricsTieBreakers>
 </document>
