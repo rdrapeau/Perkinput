@@ -17,14 +17,16 @@
 #import "Validator.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
-static NSString *const calibratedAnnouncement = @"Calibrated.";
+static NSString *const calibratedAnnouncement = @"The screen is now calibrated. Text can now be entered one braille column at a time.";
 static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen.";
+static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial. Please start by calibrating the screen. Hold down 4 fingers at the same time.";
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface TutorialViewController() {
     __weak IBOutlet UILabel *label; // Stores the current text typed on the screen
     Input *lookup;
     Validator *valid;
+    NSTimer *announcementTimer;
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
@@ -44,6 +46,7 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
         _touchHandled = YES; // Touch has been handled (Don't interpret twice)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, calibratedAnnouncement);
+        [self stopTimer];
     }
 }
 
@@ -237,7 +240,25 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
     UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, tutorialScreenAnnouncement);
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"]) {
         [self performSegueWithIdentifier:@"hand" sender:self];
+    } else {
+        [self performSelector:@selector(makeAnnouncement:) withObject:welcomeAnnouncement afterDelay:2.75];
+        announcementTimer = [NSTimer scheduledTimerWithTimeInterval:12.0 target:self selector:@selector(timerAnnouncement:) userInfo:welcomeAnnouncement repeats:YES];
     }
+}
+
+- (void)stopTimer {
+    if ([announcementTimer isValid]) {
+        [announcementTimer invalidate];
+    }
+    announcementTimer = nil;
+}
+
+- (void)makeAnnouncement:(NSString*)announcement {
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, announcement);
+}
+
+- (void)timerAnnouncement:(NSTimer*)timer {
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, [timer userInfo]);
 }
 
 // Resets the View
