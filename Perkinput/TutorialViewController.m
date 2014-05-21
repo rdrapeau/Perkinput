@@ -151,19 +151,21 @@ static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."
 }
 
 - (void)announceBrailleDots:(NSString*)input forFirstTap:(BOOL)isFirstTap {
-    NSString *announcement = @"Dots ";
-    for (NSUInteger i = 0; i < [input length]; i++) {
-        if ([input characterAtIndex:i] == '1') {
-            int dot = isFirstTap ? i + 1 : i + 4;
-            if (!((dot == 4 && isFirstTap) || dot == 7)) {
-                announcement = [NSString stringWithFormat:@"%@%@", announcement, [NSString stringWithFormat:@"%d ", dot]];
+    if (![input isEqualToString:@"0001"]) {
+        NSString *announcement = @"Dots ";
+        for (NSUInteger i = 0; i < [input length]; i++) {
+            if ([input characterAtIndex:i] == '1') {
+                int dot = isFirstTap ? i + 1 : i + 4;
+                if (!((dot == 4 && isFirstTap) || dot == 7)) {
+                    announcement = [NSString stringWithFormat:@"%@%@", announcement, [NSString stringWithFormat:@"%d ", dot]];
+                }
             }
         }
+        if ([announcement length] < 8) {
+            announcement = [NSString stringWithFormat:@"Dot %@", [announcement substringFromIndex:5]];
+        }
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, announcement);
     }
-    if ([announcement length] < 8) {
-        announcement = [NSString stringWithFormat:@"Dot %@", [announcement substringFromIndex:5]];
-    }
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, announcement);
 }
 
 // Returns the word for the given character / punctuation
