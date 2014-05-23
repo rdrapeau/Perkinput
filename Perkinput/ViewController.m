@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "NotificationQueue.h"
 
 @interface ViewController ()
 
@@ -133,20 +134,17 @@ static NSString *const mainScreenAnnouncement = @"Entering main screen";
  * the agreement view.
  */
 - (void)viewDidLoad {
-    self.view.multipleTouchEnabled = YES;
-    self.view.userInteractionEnabled = YES;
-    self.view.autoresizesSubviews = YES;
-    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view setMultipleTouchEnabled:YES];
+    [self.view setUserInteractionEnabled:YES];
+    [self.view setAutoresizesSubviews:YES];
+    [self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+
     [self setNeedsStatusBarAppearanceUpdate];
-    
     // Show the terms and conditions page
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"termsAndConditions"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"termsAndConditions"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         [self performSelector:@selector(switchToAgreementView:) withObject:nil afterDelay:0.01];
     }
 }
-
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;

@@ -50,7 +50,10 @@
 - (NSMutableString*)interpretShortPress:(NSMutableArray*)touches {
     if (calibratedPoints == nil) { // Screen has not been calibrated with 4 fingers yet
         NSLog(@"Screen has not been calibrated");
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"Hold 4 fingers down to calibrate");
+        if ([touches count] > 1)
+            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, [NSString stringWithFormat:@"%d fingers down. Hold 4 fingers down to calibrate", [touches count]]);
+        else
+            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, [NSString stringWithFormat:@"%d finger down. Hold 4 fingers down to calibrate", [touches count]]);
         return nil;
     }
     NSMutableArray *sortedTouches = [self sortTouches:touches];

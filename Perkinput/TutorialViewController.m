@@ -17,9 +17,13 @@
 #import "Validator.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
-static NSString *const calibratedAnnouncement = @"The screen is now calibrated. Text can now be entered one braille column at a time.";
+// Swipe three fingers to go back
+static NSString *const calibratedAnnouncement = @"The screen is now calibrated.";
 static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen.";
-static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial. Please start by calibrating the screen. Hold down 4 fingers at the same time.";
+static NSString *const welcomeAnnouncement = @"Welcome to the Perk input tutorial. Please start by calibrating the screen. Hold down 4 fingers at the same time.";
+static NSString *const enterColumns = @"In Perk input, text is entered by tapping the first column of the braille character followed by the second column. Try entering the letter P which is braille dots 1 2 3 and 4";
+static NSString *const enteredP = @"Good! Let's try another letter. Some characters have a blank second column, such as the letter A. This is dot 8 in braille and can be entered by tapping the screen with your pinky finger for the blank column.";
+static NSString *const enteredA = @"Good! If you make a mistake and enter a character that you did not intend to, Perk input supports backspace. To delete the previous character, enter braille dots 1 2 3 4 5 and 6 or double tap the screen with 3 fingers. This will not disable voiceover in the perk input screen. Try deleting the previous letter now.";
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface TutorialViewController() {
@@ -27,6 +31,14 @@ static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial
     Input *lookup;
     Validator *valid;
     NSTimer *announcementTimer;
+    int state;
+    /**
+     * 0 = pre-calibration
+     * 1 = calibrated
+     * 2 = p entered
+     * 3 = a entered
+     * 4 = backspace entered
+     */
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
@@ -45,8 +57,13 @@ static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial
         _curString = nil; // Erase the current touch
         _touchHandled = YES; // Touch has been handled (Don't interpret twice)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, calibratedAnnouncement);
-        [self stopTimer];
+
+        if (state < 1) {
+            [self stopTimer];
+            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, [NSString stringWithFormat:@"%@ %@", calibratedAnnouncement, enterColumns]);
+            announcementTimer = [NSTimer scheduledTimerWithTimeInterval:12.0 target:self selector:@selector(timerAnnouncement:) userInfo:enterColumns repeats:YES];
+            state = 1;
+        }
     }
 }
 
@@ -111,6 +128,11 @@ static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial
                 }
                 if (![_curString isEqualToString:@"CAPITAL"] && ![_curString isEqualToString:@"NUMBER"]) {
                     if ([_curString isEqualToString:@"BACKSPACE"]) {
+                        if (state == 3) {
+                            state = 4;
+                            [self stopTimer];
+                            [self performSelector:@selector(announce:) withObject:@"This concludes the tutorial, you can return to the main screen by swiping three fingers to the right. When you exit the perk input screen, the text you typed will be in the text field on the main screen. Text in the tutorial is not saved." afterDelay:2.65];
+                        }
                         _curString = _curSequence;
                         if (_curString.length > 0) {
                             [label setText:[NSString stringWithFormat:@"Deleted %@", [self getWordForPunctuation:[_curString characterAtIndex:_curString.length - 1]]]];
@@ -136,6 +158,28 @@ static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial
             [self announceBrailleDots:[input substringFromIndex:4] forFirstTap:NO];
             [self performSelector:@selector(announceInput) withObject:nil afterDelay:1.2];
             
+            if (state >= 1) {
+                if (state == 1) { // Letter P
+                    if ([@"p" isEqualToString:[label text]]) {
+                        [self stopTimer];
+                        state = 2;
+                        [self performSelector:@selector(announce:) withObject:enteredP afterDelay:2];
+                        announcementTimer = [NSTimer scheduledTimerWithTimeInterval:14.0 target:self selector:@selector(timerAnnouncement:) userInfo:enteredP repeats:YES];
+                    } else {
+                        [self performSelector:@selector(announce:) withObject:@"Try entering the letter P instead." afterDelay:2.65];
+                    }
+                } else if (state == 2) {
+                    if ([@"a" isEqualToString:[label text]]) {
+                        [self stopTimer];
+                        state = 3;
+                        [self performSelector:@selector(announce:) withObject:enteredA afterDelay:2];
+                        announcementTimer = [NSTimer scheduledTimerWithTimeInterval:22.0 target:self selector:@selector(timerAnnouncement:) userInfo:enteredA repeats:YES];
+                    } else {
+                        [self performSelector:@selector(announce:) withObject:@"Try entering the letter A instead." afterDelay:2.65];
+                    }
+                }
+            }
+            
         } else { // 1st Touch
             if ([self.inputView isCalibrated]) {
                 [self announceBrailleDots:input forFirstTap:YES];
@@ -149,13 +193,17 @@ static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial
     [self.inputView setPoints:_curTouches];
 }
 
+- (void)announce:(NSString*)announcement {
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, announcement);
+}
+
 - (void)announceInput {
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
 }
 
 - (void)announceBrailleDots:(NSString*)input forFirstTap:(BOOL)isFirstTap {
+    NSString *announcement = @"Dots ";
     if (![input isEqualToString:@"0001"]) {
-        NSString *announcement = @"Dots ";
         for (NSUInteger i = 0; i < [input length]; i++) {
             if ([input characterAtIndex:i] == '1') {
                 int dot = isFirstTap ? i + 1 : i + 4;
@@ -164,11 +212,18 @@ static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial
                 }
             }
         }
-        if ([announcement length] < 8) {
-            announcement = [NSString stringWithFormat:@"Dot %@", [announcement substringFromIndex:5]];
+    } else {
+        if (isFirstTap) {
+            announcement = [NSString stringWithFormat:@"%@%@", announcement, @"7"];
+        } else {
+            announcement = [NSString stringWithFormat:@"%@%@", announcement, @"8"];
         }
-        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, announcement);
+
     }
+    if ([announcement length] < 8) {
+        announcement = [NSString stringWithFormat:@"Dot %@", [announcement substringFromIndex:5]];
+    }
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, announcement);
 }
 
 // Returns the word for the given character / punctuation

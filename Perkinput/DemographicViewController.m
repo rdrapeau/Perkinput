@@ -67,6 +67,8 @@ static NSString *const demographicScreenAnnouncement = @"Entering demographic sc
 - (void)switchViews:(int)viewIndex {
     if (ageValue && genderValue && brailleValue) {
         [self performSelectorInBackground:@selector(logDemographicEvent) withObject:nil]; // LOG Input
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"termsAndConditions"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         self.tabBarController.selectedIndex = viewIndex;
     } else {
         UIAlertView* alert;

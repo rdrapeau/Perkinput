@@ -13,6 +13,7 @@
 #import "Interpreter.h"
 #import "TouchPoint.h"
 #import "Validator.h"
+#import "NotificationQueue.h"
 
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 static NSString *const calibratedAnnouncement = @"Calibrated. Swipe 3 fingers to the right to switch back to the main screen.";
