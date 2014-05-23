@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="n15-OS-npV">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Tutorial" backgroundImage="gradient.png"/>
                                 <connections>
-                                    <action selector="switchToTutorialView:" destination="2" eventType="touchUpInside" id="KZf-VL-a0Z"/>
+                                    <action selector="switchToTutorialView:" destination="2" eventType="touchUpInside" id="Gof-wN-Cmy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TD-z7-q3g">
@@ -35,6 +35,9 @@
                                 <accessibility key="accessibilityConfiguration" label="Settings"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Settings" backgroundImage="gradient.png"/>
+                                <connections>
+                                    <segue destination="Qbw-Bc-G0e" kind="modal" id="NpD-Rn-I9f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrQ-gy-syc">
                                 <rect key="frame" x="20" y="12" width="528" height="44"/>
@@ -163,7 +166,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Review" image="6496E2AC-2A61-4269-A08B-56686DD1EB35" id="zn8-lZ-p8Z"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="26B0AFC5-3CCF-4A85-B7C4-D26772318BD3" id="zn8-lZ-p8Z"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="textField" destination="wzx-a5-uL6" id="B3N-aI-jQs"/>
@@ -171,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4907" y="61"/>
+            <point key="canvasLocation" x="-5555" y="545"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="d9r-hm-YFO">
@@ -194,7 +197,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-0P-0LZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5492" y="-521"/>
+            <point key="canvasLocation" x="-6779" y="147"/>
         </scene>
         <!--Hand View Controller - hand-->
         <scene sceneID="4I4-ks-HVk">
@@ -249,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klt-bq-vPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3779" y="671"/>
+            <point key="canvasLocation" x="-4369" y="671"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="BDe-0c-Ft8">
@@ -284,6 +287,7 @@
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="aMZ-Mr-iYq"/>
+                    <navigationItem key="navigationItem" id="bAQ-vz-qqI"/>
                     <connections>
                         <outlet property="inputView" destination="ftT-Mw-Tf8" id="4vL-SL-3yq"/>
                         <outlet property="label" destination="YEl-hg-qLJ" id="lcO-qh-1sZ"/>
@@ -312,7 +316,63 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5384" y="739"/>
+            <point key="canvasLocation" x="-5412" y="975"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="mOE-TD-IOE">
+            <objects>
+                <viewController id="Qbw-Bc-G0e" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jDI-Jk-50N"/>
+                        <viewControllerLayoutGuide type="bottom" id="iAW-98-xrF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fpp-Fv-mKx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXL-7i-gxh">
+                                <rect key="frame" x="20" y="56" width="280" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Hand Settings"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Hand Settings" backgroundImage="gradient.png"/>
+                                <connections>
+                                    <segue destination="nOF-5q-vre" kind="modal" id="TPh-LJ-WXR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiZ-ie-4Ta">
+                                <rect key="frame" x="20" y="120" width="280" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="More Info">
+                                    <accessibilityTraits key="traits" none="YES" link="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="More Info" backgroundImage="gradient.png"/>
+                                <connections>
+                                    <action selector="moreInfo:" destination="Qbw-Bc-G0e" eventType="touchUpInside" id="e60-sL-8tw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf4-n8-W1m">
+                                <rect key="frame" x="20" y="430" width="280" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Main Screen"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Main Screen" backgroundImage="gradient.png"/>
+                                <connections>
+                                    <action selector="switchToMainScreen:" destination="Qbw-Bc-G0e" eventType="touchUpInside" id="Ymn-dY-dMU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vHl-og-zSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4369" y="-173"/>
         </scene>
         <!--Demographic View Controller - Item-->
         <scene sceneID="GEE-dh-0G8">
@@ -413,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjr-1z-ChN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5992" y="-63"/>
+            <point key="canvasLocation" x="-5412" y="1659"/>
         </scene>
         <!--Input View Controller - Input View-->
         <scene sceneID="Flp-Iu-JXZ">
@@ -452,7 +512,7 @@
                         </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Input" image="5ACA0C79-BB92-4845-8F35-F0EAE051D8AA" id="8Ua-Tr-2gN"/>
+                    <tabBarItem key="tabBarItem" title="Input" image="7869E4BB-82FD-4F2C-9C5D-3B90B20E1C56" id="8Ua-Tr-2gN"/>
                     <connections>
                         <outlet property="inputView" destination="3wg-GK-2qU" id="TEa-Y1-XEz"/>
                         <outlet property="label" destination="hNC-pc-Uvn" id="blS-yS-Rbl"/>
@@ -481,7 +541,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-4295" y="-63"/>
+            <point key="canvasLocation" x="-5431" y="-125"/>
         </scene>
         <!--Agreement View Controller - Agreement-->
         <scene sceneID="Whm-k2-mlS">
@@ -582,11 +642,11 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-6355" y="-63"/>
+            <point key="canvasLocation" x="-5431" y="-797"/>
         </scene>
     </scenes>
     <resources>
-        <image name="5ACA0C79-BB92-4845-8F35-F0EAE051D8AA" width="30" height="30">
+        <image name="26B0AFC5-3CCF-4A85-B7C4-D26772318BD3" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -603,7 +663,7 @@ uAC6ALwAwwDLANcA2QDbAN0BtwG8AccB0AHWAdkB3wHoAe0B9QH4Af8CBwIUAhkCGwIdAiICKgItAjIC
 OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
 </mutableData>
         </image>
-        <image name="6496E2AC-2A61-4269-A08B-56686DD1EB35" width="30" height="30">
+        <image name="7869E4BB-82FD-4F2C-9C5D-3B90B20E1C56" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -628,6 +688,6 @@ OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="JD0-J0-MeS"/>
+        <segue reference="TPh-LJ-WXR"/>
     </inferredMetricsTieBreakers>
 </document>

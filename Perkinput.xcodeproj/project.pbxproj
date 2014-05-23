@@ -42,6 +42,7 @@
 		E38931FF1831917B00CF16EB /* modes.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38931FE1831917B00CF16EB /* modes.txt */; };
 		E38932011831992F00CF16EB /* capitals.txt in Resources */ = {isa = PBXBuildFile; fileRef = E38932001831992F00CF16EB /* capitals.txt */; };
 		E38F3DAC192F1FFF0017C86B /* NotificationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E38F3DAB192F1FFF0017C86B /* NotificationQueue.m */; };
+		E38F3DAF192F358C0017C86B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38F3DAE192F358C0017C86B /* SettingsViewController.m */; };
 		E3D4127118EA87B200BC69DE /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D4127018EA87B200BC69DE /* AgreementViewController.m */; };
 		E3D862D818963826004FE636 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D862D718963826004FE636 /* TutorialViewController.m */; };
 /* End PBXBuildFile section */
@@ -99,6 +100,8 @@
 		E38932001831992F00CF16EB /* capitals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitals.txt; sourceTree = "<group>"; };
 		E38F3DAA192F1FFF0017C86B /* NotificationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationQueue.h; sourceTree = "<group>"; };
 		E38F3DAB192F1FFF0017C86B /* NotificationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationQueue.m; sourceTree = "<group>"; };
+		E38F3DAD192F358C0017C86B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		E38F3DAE192F358C0017C86B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		E3D4126F18EA87B200BC69DE /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
 		E3D4127018EA87B200BC69DE /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
 		E3D862D618963826004FE636 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 				E3D4127018EA87B200BC69DE /* AgreementViewController.m */,
 				E36A3E7818FDB39F000BC126 /* DemographicViewController.h */,
 				E36A3E7918FDB39F000BC126 /* DemographicViewController.m */,
+				E38F3DAD192F358C0017C86B /* SettingsViewController.h */,
+				E38F3DAE192F358C0017C86B /* SettingsViewController.m */,
 			);
 			name = "Views And Controllers";
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				6D99787D17153D3500633AC9 /* main.m in Sources */,
 				6D99788117153D3500633AC9 /* AppDelegate.m in Sources */,
 				6D99788D17153D3600633AC9 /* ViewController.m in Sources */,
+				E38F3DAF192F358C0017C86B /* SettingsViewController.m in Sources */,
 				6D1F1F56172E36C400EEE86C /* InputViewController.m in Sources */,
 				E3D4127118EA87B200BC69DE /* AgreementViewController.m in Sources */,
 				E38F3DAC192F1FFF0017C86B /* NotificationQueue.m in Sources */,
