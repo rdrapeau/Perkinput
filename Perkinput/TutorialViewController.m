@@ -19,19 +19,21 @@
 static const double LONG_PRESS_TIMEOUT = 0.50; // Time needed to calibrate
 // Swipe three fingers to go back
 static NSString *const calibratedAnnouncement = @"The screen is now calibrated.";
-static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen.";
-static NSString *const welcomeAnnouncement = @"Welcome to the Perk input tutorial. Please start by calibrating the screen. Hold down 4 fingers at the same time.";
-static NSString *const enterColumns = @"In Perk input, text is entered by tapping the first column of the braille character followed by the second column. Try entering the letter P which is braille dots 1 2 3 and 4";
-static NSString *const enteredP = @"Good! Let's try another letter. Some characters have a blank second column, such as the letter A. This is dot 8 in braille and can be entered by tapping the screen with your pinky finger for the blank column.";
-static NSString *const enteredA = @"Good! If you make a mistake and enter a character that you did not intend to, Perk input supports backspace. To delete the previous character, enter braille dots 1 2 3 4 5 and 6 or double tap the screen with 3 fingers. This will not disable voiceover in the perk input screen. Try deleting the previous letter now.";
+static NSString *const tutorialScreenAnnouncement = @"Entering tutorial screen."; // Keep your fingers in the same position
+static NSString *const welcomeAnnouncement = @"Welcome to the Perkinput tutorial. Please start by calibrating the screen. Hold down 4 fingers at the same time. To return to the main screen, swipe three fingers to the right."; // Until you hear a sound
+static NSString *const enterColumns = @"In Perkinput, enter text by tapping the first column of the braille character followed by the second column. Try entering the letter P which is braille dots 1 2 3 and 4"; // A
+static NSString *const enteredP = @"Good! Now let's enter the letter 'A'. 'A' is dot 1 only, so it has a blank second column. Enter dot 8 with your pinky finger to enter the blank column.";
+static NSString *const enteredA = @"Good! If you make a mistake, you can enter a backspace. Enter braille dots 1 2 3 4 5 and 6 or double tap the screen with 3 fingers. This will not disable voiceover in the perk input screen. Try deleting the previous letter now.";
+static NSString *const closingText = @"This concludes the tutorial, you can return to the main screen by swiping three fingers to the right. When you exit the perk input screen, the text you typed will be in the text field on the main screen. Text in the tutorial is not saved.";
 #define TOTAL_FINGERS 4 // Number of fingers needed to calibrate
 
 @interface TutorialViewController() {
     __weak IBOutlet UILabel *label; // Stores the current text typed on the screen
     Input *lookup;
+    __weak IBOutlet UILabel *instructionsLabel;
     Validator *valid;
-    NSTimer *announcementTimer;
     int state;
+    BOOL done;
     /**
      * 0 = pre-calibration
      * 1 = calibrated
@@ -42,6 +44,7 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
 }
 
 @property (weak, nonatomic) IBOutlet InputView *inputView;
+@property (weak, nonatomic) NSTimer *announcementTimer;
 
 @end
 
@@ -60,8 +63,8 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
 
         if (state < 1) {
             [self stopTimer];
-            UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, [NSString stringWithFormat:@"%@ %@", calibratedAnnouncement, enterColumns]);
-            announcementTimer = [NSTimer scheduledTimerWithTimeInterval:12.0 target:self selector:@selector(timerAnnouncement:) userInfo:enterColumns repeats:YES];
+            self.announcementTimer = [NSTimer scheduledTimerWithTimeInterval:25.0 target:self selector:@selector(timerAnnouncement:) userInfo:enterColumns repeats:YES];
+            [self announce:[NSString stringWithFormat:@"%@ %@", calibratedAnnouncement, enterColumns]];
             state = 1;
         }
     }
@@ -72,6 +75,7 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
 // current fingers on the screen. If there are already fingers down on the screen (touchHandled == true)
 // then add the new touches to the set of fingers on the screen. Always reset the timer if a new touch began.
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+    [self postponeTimer];
     [label setText:@""];
     if (_touchHandled) { // Previous touch event
         NSLog(@"Touches began: %tu", [touches count]);
@@ -131,11 +135,10 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
                         if (state == 3) {
                             state = 4;
                             [self stopTimer];
-                            [self performSelector:@selector(announce:) withObject:@"This concludes the tutorial, you can return to the main screen by swiping three fingers to the right. When you exit the perk input screen, the text you typed will be in the text field on the main screen. Text in the tutorial is not saved." afterDelay:2.65];
                         }
                         _curString = _curSequence;
                         if (_curString.length > 0) {
-                            [label setText:[NSString stringWithFormat:@"Deleted %@", [self getWordForPunctuation:[_curString characterAtIndex:_curString.length - 1]]]];
+                            [label setText:[NSString stringWithFormat:@"Deleted '%@'", [self getWordForPunctuation:[_curString characterAtIndex:_curString.length - 1]]]];
                             _curSequence = [NSString stringWithFormat:@"%@", [_curSequence substringToIndex:_curSequence.length - 1]];
                         }
                     } else {
@@ -155,28 +158,41 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
             } else {
                 [label setText:@"Invalid Code"];
             }
-            [self announceBrailleDots:[input substringFromIndex:4] forFirstTap:NO];
-            [self performSelector:@selector(announceInput) withObject:nil afterDelay:1.2];
+            NSString *dots = [self announceBrailleDots:[input substringFromIndex:4] forFirstTap:NO];
+            [NSObject cancelPreviousPerformRequestsWithTarget:self];
+            [self announceInput:dots];
             
             if (state >= 1) {
                 if (state == 1) { // Letter P
                     if ([@"p" isEqualToString:[label text]]) {
                         [self stopTimer];
                         state = 2;
-                        [self performSelector:@selector(announce:) withObject:enteredP afterDelay:2];
-                        announcementTimer = [NSTimer scheduledTimerWithTimeInterval:14.0 target:self selector:@selector(timerAnnouncement:) userInfo:enteredP repeats:YES];
+                        [NSObject cancelPreviousPerformRequestsWithTarget:self];
+                        [self performSelector:@selector(announce:) withObject:enteredP afterDelay:1.75];
+                        [self stopTimer];
+                        self.announcementTimer = [NSTimer scheduledTimerWithTimeInterval:25.0 target:self selector:@selector(timerAnnouncement:) userInfo:enteredP repeats:YES];
                     } else {
-                        [self performSelector:@selector(announce:) withObject:@"Try entering the letter P instead." afterDelay:2.65];
+                        [NSObject cancelPreviousPerformRequestsWithTarget:self];
+                        [self performSelector:@selector(announce:) withObject:@"Try entering the letter P to move forward in the tutorial." afterDelay:2.0];
                     }
                 } else if (state == 2) {
                     if ([@"a" isEqualToString:[label text]]) {
                         [self stopTimer];
                         state = 3;
-                        [self performSelector:@selector(announce:) withObject:enteredA afterDelay:2];
-                        announcementTimer = [NSTimer scheduledTimerWithTimeInterval:22.0 target:self selector:@selector(timerAnnouncement:) userInfo:enteredA repeats:YES];
+                        [NSObject cancelPreviousPerformRequestsWithTarget:self];
+                        [self performSelector:@selector(announce:) withObject:enteredA afterDelay:1.75];
+                        [self stopTimer];
+                        self.announcementTimer = [NSTimer scheduledTimerWithTimeInterval:25.0 target:self selector:@selector(timerAnnouncement:) userInfo:enteredA repeats:YES];
                     } else {
-                        [self performSelector:@selector(announce:) withObject:@"Try entering the letter A instead." afterDelay:2.65];
+                        [NSObject cancelPreviousPerformRequestsWithTarget:self];
+                        [self performSelector:@selector(announce:) withObject:@"Try entering the letter A instead to move forward in the tutorial." afterDelay:1.75];
                     }
+                } else if (state == 4 && !done) {
+                    done = YES;
+                    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+                    [self performSelector:@selector(announce:) withObject:closingText afterDelay:2.65];
+                    [self stopTimer];
+                    self.announcementTimer = [NSTimer scheduledTimerWithTimeInterval:25.0 target:self selector:@selector(timerAnnouncement:) userInfo:closingText repeats:YES];
                 }
             }
             
@@ -194,14 +210,15 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
 }
 
 - (void)announce:(NSString*)announcement {
+    [instructionsLabel setText:announcement];
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, announcement);
 }
 
-- (void)announceInput {
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, label.text);
+- (void)announceInput:(NSString*)dots {
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, [NSString stringWithFormat:@"%@ , %@", dots, [label.text uppercaseString]]);
 }
 
-- (void)announceBrailleDots:(NSString*)input forFirstTap:(BOOL)isFirstTap {
+- (NSString*)announceBrailleDots:(NSString*)input forFirstTap:(BOOL)isFirstTap {
     NSString *announcement = @"Dots ";
     if (![input isEqualToString:@"0001"]) {
         for (NSUInteger i = 0; i < [input length]; i++) {
@@ -224,6 +241,7 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
         announcement = [NSString stringWithFormat:@"Dot %@", [announcement substringFromIndex:5]];
     }
     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, announcement);
+    return announcement;
 }
 
 // Returns the word for the given character / punctuation
@@ -296,24 +314,29 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"]) {
         [self performSegueWithIdentifier:@"hand" sender:self];
     } else {
-        [self performSelector:@selector(makeAnnouncement:) withObject:welcomeAnnouncement afterDelay:2.75];
-        announcementTimer = [NSTimer scheduledTimerWithTimeInterval:12.0 target:self selector:@selector(timerAnnouncement:) userInfo:welcomeAnnouncement repeats:YES];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self];
+        [self performSelector:@selector(announce:) withObject:welcomeAnnouncement afterDelay:2.0];
+        self.announcementTimer = [NSTimer scheduledTimerWithTimeInterval:25.0 target:self selector:@selector(timerAnnouncement:) userInfo:welcomeAnnouncement repeats:YES];
     }
 }
 
 - (void)stopTimer {
-    if ([announcementTimer isValid]) {
-        [announcementTimer invalidate];
+    if ([self.announcementTimer isValid]) {
+        [self.announcementTimer invalidate];
     }
-    announcementTimer = nil;
-}
-
-- (void)makeAnnouncement:(NSString*)announcement {
-    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, announcement);
+    self.announcementTimer = nil;
 }
 
 - (void)timerAnnouncement:(NSTimer*)timer {
     UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, [timer userInfo]);
+}
+
+- (void)postponeTimer {
+    if ([self.announcementTimer isValid]) {
+        NSString *announcement = [self.announcementTimer userInfo];
+        [self stopTimer];
+        self.announcementTimer = [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(timerAnnouncement:) userInfo:announcement repeats:YES];
+    }
 }
 
 // Resets the View
@@ -325,6 +348,7 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
     [label setText:@"Calibrate"];
     [self.inputView reset];
     [self.inputView redraw];
+    [self.inputView setTutorialMode:YES];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -334,6 +358,16 @@ static NSString *const enteredA = @"Good! If you make a mistake and enter a char
 - (void)viewDidUnload {
     label = nil;
     [super viewDidUnload];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [self stopTimer];
+    state = 0;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self stopTimer];
+    state = 0;
 }
 
 // Set the input view to support multiple touch events and to allow user interaction.

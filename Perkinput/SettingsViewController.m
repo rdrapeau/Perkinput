@@ -36,7 +36,7 @@
 }
 
 - (IBAction)moreInfo:(id)sender {
-    [[UIApplication sharedApplication] openURL:[[NSURL alloc] initWithString:@"http://perkinput.cs.washington.edu/"]];
+    [[UIApplication sharedApplication] openURL:[[NSURL alloc] initWithString:@"https://groups.google.com/forum/#!forum/mobileaccessibility"]];
 }
 
 - (IBAction)switchToMainScreen:(id)sender {

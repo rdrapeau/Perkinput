@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="271"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJn-4e-0pu">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJn-4e-0pu">
                                 <rect key="frame" x="20" y="220" width="250" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,7 +64,7 @@
                                     <action selector="removeKeyboard:" destination="2" eventType="editingDidEndOnExit" id="sYp-GM-QG1"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfv-aW-gh5">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfv-aW-gh5">
                                 <rect key="frame" x="20" y="102" width="250" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,7 +102,7 @@
                                     <action selector="clearText:" destination="2" eventType="touchUpInside" id="A8u-9N-GWd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-sa-Bfz">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-sa-Bfz">
                                 <rect key="frame" x="20" y="161" width="250" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50425197840000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -166,7 +166,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Review" image="26B0AFC5-3CCF-4A85-B7C4-D26772318BD3" id="zn8-lZ-p8Z"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="AC8003A8-8C56-4216-B99E-380AC791E9F5" id="zn8-lZ-p8Z"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="textField" destination="wzx-a5-uL6" id="B3N-aI-jQs"/>
@@ -272,11 +272,23 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Instructions" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="nnt-fR-Eq9">
+                                <rect key="frame" x="20" y="220" width="280" height="309"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="309" id="1eo-T2-yQO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="YEl-hg-qLJ" firstAttribute="top" secondItem="ftT-Mw-Tf8" secondAttribute="top" constant="20" symbolic="YES" id="GqA-gz-Uyb"/>
+                            <constraint firstItem="nnt-fR-Eq9" firstAttribute="centerX" secondItem="YEl-hg-qLJ" secondAttribute="centerX" id="UUE-TL-oe2"/>
+                            <constraint firstItem="nnt-fR-Eq9" firstAttribute="leading" secondItem="ftT-Mw-Tf8" secondAttribute="leading" constant="20" symbolic="YES" id="cTu-kx-XFT"/>
+                            <constraint firstAttribute="bottom" secondItem="nnt-fR-Eq9" secondAttribute="bottom" constant="39" id="tyx-zN-XOY"/>
                             <constraint firstItem="YEl-hg-qLJ" firstAttribute="centerX" secondItem="ftT-Mw-Tf8" secondAttribute="centerX" id="wIk-r3-7Ec"/>
                         </constraints>
                         <connections>
@@ -290,6 +302,7 @@
                     <navigationItem key="navigationItem" id="bAQ-vz-qqI"/>
                     <connections>
                         <outlet property="inputView" destination="ftT-Mw-Tf8" id="4vL-SL-3yq"/>
+                        <outlet property="instructionsLabel" destination="nnt-fR-Eq9" id="36T-Ye-0fl"/>
                         <outlet property="label" destination="YEl-hg-qLJ" id="lcO-qh-1sZ"/>
                         <segue destination="nOF-5q-vre" kind="modal" identifier="hand" id="JD0-J0-MeS"/>
                     </connections>
@@ -512,7 +525,7 @@
                         </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Input" image="7869E4BB-82FD-4F2C-9C5D-3B90B20E1C56" id="8Ua-Tr-2gN"/>
+                    <tabBarItem key="tabBarItem" title="Input" image="2B5421C3-7A78-4608-8D23-42B41AF914C5" id="8Ua-Tr-2gN"/>
                     <connections>
                         <outlet property="inputView" destination="3wg-GK-2qU" id="TEa-Y1-XEz"/>
                         <outlet property="label" destination="hNC-pc-Uvn" id="blS-yS-Rbl"/>
@@ -646,7 +659,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="26B0AFC5-3CCF-4A85-B7C4-D26772318BD3" width="30" height="30">
+        <image name="2B5421C3-7A78-4608-8D23-42B41AF914C5" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -663,7 +676,7 @@ uAC6ALwAwwDLANcA2QDbAN0BtwG8AccB0AHWAdkB3wHoAe0B9QH4Af8CBwIUAhkCGwIdAiICKgItAjIC
 OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
 </mutableData>
         </image>
-        <image name="7869E4BB-82FD-4F2C-9C5D-3B90B20E1C56" width="30" height="30">
+        <image name="AC8003A8-8C56-4216-B99E-380AC791E9F5" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -688,6 +701,6 @@ OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TPh-LJ-WXR"/>
+        <segue reference="JD0-J0-MeS"/>
     </inferredMetricsTieBreakers>
 </document>
