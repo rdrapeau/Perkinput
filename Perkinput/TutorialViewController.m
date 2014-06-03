@@ -43,7 +43,7 @@ static NSString *const closingText = @"This concludes the tutorial, you can retu
      */
 }
 
-@property (weak, nonatomic) IBOutlet InputView *inputView;
+@property (strong, nonatomic) IBOutlet InputView *inputView;
 @property (weak, nonatomic) NSTimer *announcementTimer;
 
 @end

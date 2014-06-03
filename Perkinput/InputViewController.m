@@ -27,7 +27,7 @@ static NSString *const perkinputScreenAnnouncement = @"Entering Perkinput screen
     Validator *valid;
 }
 
-@property (weak, nonatomic) IBOutlet InputView *inputView;
+@property (strong, nonatomic) IBOutlet InputView *inputView;
 
 @end
 
